@@ -1,5 +1,5 @@
 import Theme from 'vitepress/dist/client/theme-default'
-import Button from '../../../adnyui/button/src/button'
+import Button from '../../../packages/adny-vue-design/components/button/src/button'
 import Demo from 'vitepress-theme-demoblock/components/Demo.vue'
 import DemoBlock from 'vitepress-theme-demoblock/components/DemoBlock.vue'
 import 'vitepress-theme-demoblock/theme/styles/index.css'

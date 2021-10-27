@@ -1,0 +1,9 @@
+{
+  "name": "adny-vue-design",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}
