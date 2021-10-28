@@ -12,10 +12,13 @@
       round ? 'adny-button--round' : null,
       outline ? 'adny-button--outline' : null,
       depressed ? 'adny-button--depressed' : null,
-      fab ? 'adny-button--float' : null,
+      fab && size === 'large' ? 'adny-button--float-large' : null,
+      fab && size === 'small' ? 'adny-button--float-small' : null,
+      fab && size === 'mini' ? 'adny-button--float-mini' : null,
+      fab && size === 'normal' ? 'adny-button--float-normal' : null,
       icon ? 'adny-button--icon' : null,
-      `adny-button--${color}`
     ]"
+    :style="{ color }"
   >
       <slot />
   </button>
@@ -39,6 +42,7 @@ const props = withDefaults(defineProps<{
     type: 'default',
     size: 'normal',
     elevation: "2",
+    color: '',
     text: false,
     round: false,
     outline: false,

@@ -41,9 +41,30 @@
 
   </div>
   <div class="a-btn">
-      </a-btn>
-        <a-btn icon >我
+        <a-btn color="#fba" size="mini" icon >我
     </a-btn></div>
+    <div class="a-btn">
+    <a-btn fab text outline color="#fba">🚀
+
+  </div>
+    <div class="a-btn">
+    <a-btn text outline size="small" color="#fba">SS</a-btn>
+  </div>
+  <div class="a-btn">
+    <a-btn size="mini" color="#fba">SS</a-btn>
+  </div>
+  <div class="a-btn">
+    <a-btn fab text outline size="large" color="#fba">SS</a-btn>
+  </div>
+    <div class="a-btn">
+    <a-btn fab text outline size="normal" color="#fba">SS</a-btn>
+  </div>
+    <div class="a-btn">
+    <a-btn fab text outline size="small" color="#fba">SS</a-btn>
+  </div>
+    <div class="a-btn">
+    <a-btn fab text outline size="mini" color="#fba">SS</a-btn>
+  </div>
 </template>
 <style>
 .a-btn {

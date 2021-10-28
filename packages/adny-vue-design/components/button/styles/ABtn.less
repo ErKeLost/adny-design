@@ -151,11 +151,34 @@
     box-shadow: none !important;
   }
 
-  &--float {
-    padding: var(--button-round-padding);
+  &--float-large {
     border-radius: 50%;
-    width: 24px;
-    height: 24px;
+    height: var(--button-large-height);
+    width: var(--button-large-height);
+    padding: var(--button-icon-large-padding);
+    font-size: var(--font-size-lg);
+  }
+  &--float-normal {
+    border-radius: 50%;
+    height: var(--button-normal-height);
+    width: var(--button-normal-height);
+    padding: var(--button-icon-normal-padding);
+    font-size: var(--font-size-md);
+  }
+  
+  &--float-small {
+    border-radius: 50%;
+    height: var(--button-small-height);
+    width: var(--button-small-height);
+    padding: var(--button-icon-small-padding);
+    font-size: var(--font-size-sm);
+  }
+  &--float-mini {
+    border-radius: 50%;
+    height: var(--button-mini-height);
+    width: var(--button-mini-height);
+    padding: var(--button-icon-mini-padding);
+    font-size: var(--font-size-xs);
   }
 
   &--icon {
