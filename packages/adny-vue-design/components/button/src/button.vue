@@ -17,6 +17,7 @@
       fab && size === 'mini' ? 'adny-button--float-mini' : null,
       fab && size === 'normal' ? 'adny-button--float-normal' : null,
       icon ? 'adny-button--icon' : null,
+      tite ? 'adny-button--tite' : null,
     ]"
     :style="{ color }"
   >
@@ -38,6 +39,7 @@ const props = withDefaults(defineProps<{
     depressed?: boolean,
     fab?: boolean,
     icon?: boolean,
+    tite?: boolean,
 }>(), {
     type: 'default',
     size: 'normal',
@@ -51,6 +53,7 @@ const props = withDefaults(defineProps<{
     depressed: false,
     fab: false,
     icon: false,
+    tite: false,
 })
 
 </script>

@@ -65,6 +65,10 @@
     <div class="a-btn">
     <a-btn fab text outline size="mini" color="#fba">SS</a-btn>
   </div>
+    </div>  
+  <div class="a-btn">
+    <a-btn tite elevation="12" type="success">DANGER</a-btn>
+  </div>
 </template>
 <style>
 .a-btn {
