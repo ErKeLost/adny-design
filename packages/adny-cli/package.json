@@ -1,11 +1,11 @@
 {
-  "name": "adny-vue-design",
+  "name": "adny-cli",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "erkelost <1256029807@qq.com>",
   "homepage": "https://github.com/ErKeLost/adny-ui#readme",
   "license": "ISC",
-  "main": "lib/adny-vue-design.js",
+  "main": "lib/adny-cli.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"

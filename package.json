@@ -12,16 +12,20 @@
     "serve": "vite preview",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "lerna:build": "lerna run --stream --sort build",
+    "lerna:pub": "lerna publish ----include-merged-tags"
   },
   "dependencies": {
-    "vue": "^3.2.16",
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "vue": "^3.2.16"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
     "@vitejs/plugin-vue-jsx": "^1.2.0",
     "jest": "^27.3.1",
+    "less": "^4.1.2",
+    "sass": "^1.43.4",
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vitepress": "^0.20.0",

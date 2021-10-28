@@ -1,8 +1,0 @@
-{
-  "name": "button",
-  "version": "1.0.0",
-  "description": "adny-ui button material",
-  "main": "index.ts",
-  "author": "erkelost",
-  "license": "MIT"
-}
