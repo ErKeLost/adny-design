@@ -25,5 +25,6 @@
   },
   "bugs": {
     "url": "https://github.com/ErKeLost/adny-ui/issues"
-  }
+  },
+  "devDependencies": {}
 }

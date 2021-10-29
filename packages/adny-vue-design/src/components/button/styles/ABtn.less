@@ -1,29 +1,27 @@
-@import './_variables.less';
-
+@import "./_variables.less";
 
 .adny-button {
-    align-items: center;
-    border-radius: @btn-border-radius;
-    display: inline-flex;
-    flex: 0 0 auto;
-    font-weight: @btn-font-weight;
-    letter-spacing: @btn-letter-spacing;
-    justify-content: center;
-    outline: 0;
-    position: relative;
-    text-decoration: none;
-    text-indent: @btn-letter-spacing;
-    text-transform: @btn-text-transform;
-    transition-duration: @btn-transition-duration;
-    transition-property: box-shadow, transform, opacity;
-    user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-    border: none;
-  
+  align-items: center;
+  border-radius: @btn-border-radius;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-weight: @btn-font-weight;
+  letter-spacing: @btn-letter-spacing;
+  justify-content: center;
+  outline: 0;
+  position: relative;
+  text-decoration: none;
+  text-indent: @btn-letter-spacing;
+  text-transform: @btn-text-transform;
+  transition-duration: @btn-transition-duration;
+  transition-property: box-shadow, transform, opacity;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: none;
 
   &:hover {
-    opacity: .85;
+    opacity: 0.85;
   }
 
   &__loading {
@@ -165,7 +163,7 @@
     padding: var(--button-icon-normal-padding);
     font-size: var(--font-size-md);
   }
-  
+
   &--float-small {
     border-radius: 50%;
     height: var(--button-small-height);
@@ -191,6 +189,6 @@
   }
 
   &--tite {
-    border-radius: 1px !important; 
+    border-radius: 1px !important;
   }
 }

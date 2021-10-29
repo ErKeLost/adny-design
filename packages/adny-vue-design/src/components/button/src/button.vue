@@ -55,7 +55,6 @@ const props = withDefaults(defineProps<{
     icon: false,
     tite: false,
 })
-
 </script>
 <script lang="ts">
 import { defineComponent } from 'vue'

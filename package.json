@@ -3,7 +3,8 @@
   "workspaces": [
     "packages/*"
   ],
-  "name": "adny-ui",
+  "name": "adny-vue-design",
+  "description": "🎉 A Vue.js 3 UI Library made by ADNY ERKELOST",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -25,7 +26,6 @@
     "@vitejs/plugin-vue-jsx": "^1.2.0",
     "jest": "^27.3.1",
     "less": "^4.1.2",
-    "sass": "^1.43.4",
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vitepress": "^0.20.0",
