@@ -1,12 +1,8 @@
-- ## woshi button
 
 :::demo 使用 adny
 
 ```vue
 <template>
-  <div class="a-btn">
-    <a-icon></a-icon>
-  </div>
   <div class="a-btn">
     <a-btn elevation="5" size="large" type="primary" block>按钮</a-btn>
   </div>

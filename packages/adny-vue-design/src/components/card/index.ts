@@ -1,0 +1,1 @@
+import AdnyCard from './src/card'

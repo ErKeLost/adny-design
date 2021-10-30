@@ -1,8 +1,12 @@
 <template>
-  <span>
-    <i class="mdi mdi-github"></i>
-  </span>
+    <img src="../../../icon/_svgs/direction/outline/arrow-fall.svg" />
 </template>
 <script lang="ts" setup>
-import 'material-design-icons-iconfont/dist/material-design-icons.css' 
 </script>
+
+<style>
+img {
+    width: 20px;
+    color: red;
+}
+</style>

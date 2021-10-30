@@ -10,6 +10,7 @@ const sidebar = {
             text: '通用',
             children: [
                 { text: 'Button 按钮', link: '/components/button/' },
+                { text: 'Card 卡片', link: '/components/card/' },
             ]
         },
         { text: '导航' },

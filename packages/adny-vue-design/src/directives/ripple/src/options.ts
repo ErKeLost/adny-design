@@ -80,7 +80,7 @@ const DEFAULT_PLUGIN_OPTIONS: IRipplePluginOptions = {
   directive: 'ripple',
   color: 'currentColor',
   initialOpacity: 0.2,
-  finalOpacity: 0.39,
+  finalOpacity: 0.5,
   duration: 0.2,
   easing: 'ease-in-out',
   delayTime: 75,

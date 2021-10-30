@@ -1,0 +1,59 @@
+
+@import './_variables.less';
+.adny-card {
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  padding: var(--card-padding);
+  line-height: var(--card-line-height);
+  &__image {
+    width: var(--card-image-width);
+    height: var(--card-image-height);
+    display: block;
+  }
+
+  &__title {
+    font-size: var(--card-title-font-size);
+    padding: var(--card-title-padding);
+    margin: var(--card-title-margin);
+    color: var(--card-title-color);
+    font-weight: var(--card-title-weight);
+  }
+  &__extra {
+    font-size: var(--card-title-font-size);
+    padding: var(--card-title-padding);
+    margin: var(--card-title-margin);
+    color: var(--card-title-color);
+    font-weight: var(--card-title-weight);
+  }
+  
+  &__subtitle {
+    font-size: var(--card-subtitle-font-size);
+    color: var(--card-subtitle-color);
+    padding: var(--card-subtitle-padding);
+    margin: var(--card-subtitle-margin);
+  }
+
+  &__content {
+    font-size: var(--card-content-font-size);
+    color: var(--card-content-color);
+    margin: var(--card-content-margin);
+    padding: var(--card-content-padding);
+  }
+
+  &__footer {
+    padding: var(--card-footer-padding);
+    margin: var(--card-footer-margin);
+  }
+  &__footer-center {
+    padding: var(--card-footer-padding);
+    margin: var(--card-footer-margin);
+    display: flex;
+    justify-content: center;
+  }
+  &__footer-right {
+    padding: var(--card-footer-padding);
+    margin: var(--card-footer-margin);
+    display: flex;
+    justify-content: flex-end;
+  }
+}
