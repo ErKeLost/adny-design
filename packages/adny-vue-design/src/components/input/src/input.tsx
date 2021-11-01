@@ -72,6 +72,7 @@ export default defineComponent({
             "adny-input",
             "adny--box",
             props.error ? "adny-input--error" : null,
+            props.success ? "adny-input--success" : null,
             props.disabled ? `adny-input--disabled` : null,
           ]}
           onClick={handleClick}
@@ -89,6 +90,9 @@ export default defineComponent({
               "adny-input__controller",
               isFocus.value ? "adny-input--focus" : null,
               props.error || errorMessage.value ? "adny-input--error" : null,
+              props.success && !errorMessage.value
+                ? "adny-input--success"
+                : null,
             ]}
           >
             <div
@@ -118,6 +122,9 @@ export default defineComponent({
                     props.error || errorMessage.value
                       ? "adny-input--caret-error"
                       : null,
+                    props.success && !errorMessage.value
+                      ? "adny-input--caret-success"
+                      : null,
                   ]}
                   style={{
                     color: props.textColor,
@@ -143,6 +150,9 @@ export default defineComponent({
                     props.textarea ? "adny-input--textarea" : null,
                     props.disabled ? "adny-input--disabled" : null,
                     props.error ? "adny-input--caret-error" : null,
+                    props.success && !errorMessage.value
+                      ? "adny-input--caret-success"
+                      : null,
                   ]}
                   style={{
                     color: props.textColor,
@@ -184,6 +194,9 @@ export default defineComponent({
                 errorMessage.value || props.error
                   ? "var-input--line-error"
                   : null,
+                props.success && !errorMessage.value
+                  ? "adny-input--line-success"
+                  : null,
               ]}
             >
               <div
@@ -193,6 +206,9 @@ export default defineComponent({
                   props.disabled ? "adny-input--line-disabled" : null,
                   props.error || errorMessage.value
                     ? "adny-input--line-error"
+                    : null,
+                  props.success && !errorMessage.value
+                    ? "adny-input--line-success"
                     : null,
                 ]}
                 style={{

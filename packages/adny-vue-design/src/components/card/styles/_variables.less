@@ -1,8 +1,9 @@
 @card-padding: 0 0 10px 0;
+@card-shaped-radius: 24px;
 @card-border-radius: 4px;
 @card-image-width: 100%;
 @card-image-height: 200px;
-@card-title-color: #000000DE;
+@card-title-color: #000000de;
 @card-title-font-size: 1.25rem;
 @card-title-padding: 0 12px;
 @card-title-margin: 10px 0 0 0;
@@ -18,9 +19,11 @@
 @card-footer-margin: 30px 0 0px 0;
 @card-line-height: 22px;
 @card-title-weight: 500;
+@card-disabled-color: var(--color-text-disabled);
 :root {
   --card-padding: @card-padding;
   --card-border-radius: @card-border-radius;
+  --card-shaped-radius: @card-shaped-radius;
   --card-image-width: @card-image-width;
   --card-image-height: @card-image-height;
   --card-title-color: @card-title-color;
@@ -39,4 +42,5 @@
   --card-footer-margin: @card-footer-margin;
   --card-line-height: @card-line-height;
   --card-title-weight: @card-title-weight;
+  --card-disabled-color: @card-disabled-color;
 }

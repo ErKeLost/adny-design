@@ -21,7 +21,7 @@
     ]"
     :style="{ color }"
   >
-      <slot />
+    <slot />
   </button>
 </template>
     
@@ -66,7 +66,7 @@ export default defineComponent({
 })
 </script>
 <style lang="less">
-@import '../../../styles/common';
-@import '../../../styles/elevation';
-@import '../styles/ABtn.less';
+@import "../../../styles/common";
+@import "../../../styles/elevation";
+@import "../styles/ABtn.less";
 </style>

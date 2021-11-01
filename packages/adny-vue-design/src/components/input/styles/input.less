@@ -1,5 +1,6 @@
 @input-input-text-color: #555;
 @input-error-color: #ff5252;
+@input-success-color: #67c23a;
 @input-blur-color: #888;
 @input-focus-color: #1867c0;
 @input-placeholder-size: 16px;
@@ -14,6 +15,7 @@
 :root {
   --input-input-text-color: @input-input-text-color;
   --input-error-color: @input-error-color;
+  --input-success-color: @input-success-color;
   --input-blur-color: @input-blur-color;
   --input-focus-color: @input-focus-color;
   --input-placeholder-size: @input-placeholder-size;
@@ -171,6 +173,9 @@
   &--error {
     color: var(--input-error-color);
   }
+  &--success {
+    color: var(--input-success-color);
+  }
 
   &--line-disabled {
     background: var(--input-disabled-color);
@@ -179,8 +184,14 @@
   &--line-error {
     background: var(--input-error-color);
   }
+  &--line-success {
+    background: var(--input-success-color);
+  }
 
   &--caret-error {
     caret-color: var(--input-error-color);
+  }
+  &--caret-success {
+    caret-color: var(--input-success-color);
   }
 }

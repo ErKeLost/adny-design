@@ -10,6 +10,10 @@ export const props = {
   modelValue: {
     type: String,
   },
+  success: {
+    type: Boolean,
+    default: false,
+  },
   error: {
     type: Boolean,
     default: false

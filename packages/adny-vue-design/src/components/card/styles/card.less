@@ -1,5 +1,4 @@
-
-@import './_variables.less';
+@import "./_variables.less";
 .adny-card {
   border-radius: var(--card-border-radius);
   overflow: hidden;
@@ -9,6 +8,26 @@
     width: var(--card-image-width);
     height: var(--card-image-height);
     display: block;
+  }
+
+  &__shaped {
+    border-top-left-radius: var(--card-shaped-radius) !important;
+    border-bottom-right-radius: var(--card-shaped-radius) !important;
+  }
+
+  &__hover {
+    &:hover {
+      box-shadow: 0 2px 4px -1px var(--shadow-key-umbra-opacity),
+        0 4px 5px 0 var(--shadow-key-penumbra-opacity),
+        0 1px 10px 0 var(--shadow-key-ambient-opacity);
+    }
+  }
+
+  &__disabled {
+    -webkit-text-fill-color: var(--card-disabled-color);
+    opacity: 1;
+    color: var(--card--disabled-color);
+    cursor: not-allowed;
   }
 
   &__title {
@@ -25,7 +44,7 @@
     color: var(--card-title-color);
     font-weight: var(--card-title-weight);
   }
-  
+
   &__subtitle {
     font-size: var(--card-subtitle-font-size);
     color: var(--card-subtitle-color);
