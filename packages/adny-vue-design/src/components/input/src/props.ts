@@ -14,6 +14,10 @@ export const props = {
     type: Boolean,
     default: false
   },
+  // 校验
+  prop: {
+    type: String
+  },
   type: {
     type: String as PropType<'text' | 'password' | 'number'>,
     default: 'text',

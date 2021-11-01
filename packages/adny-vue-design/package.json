@@ -26,5 +26,7 @@
   "bugs": {
     "url": "https://github.com/ErKeLost/adny-ui/issues"
   },
-  "devDependencies": {}
+  "dependencies": {
+    "async-validator": "^4.0.7"
+  }
 }

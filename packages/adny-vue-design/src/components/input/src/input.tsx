@@ -1,15 +1,37 @@
-import { defineComponent, ref, computed } from "vue";
+import { defineComponent, ref, computed, nextTick } from "vue";
+import AdnyFormDetails from "../../form-details";
 import { props } from "./props";
-import { isEmpty } from "../../../utils/common";
+import { isEmpty, useValidation } from "../../../utils/common";
+import { useValidate } from "../../../utils/async-validator";
 import "../../../styles/common.less";
 import "../../../styles/elevation.less";
 import "../styles/input.less";
 export default defineComponent({
   name: "AdnyInput",
   props,
+  components: {
+    AdnyFormDetails,
+  },
   setup(props, { emit, slots }) {
+    const { resetValidation, validateOfTrigger, errorMessage } = useValidate();
+    const validateWithTrigger = (trigger) => {
+      nextTick(() => {
+        const { validateTrigger, rules, modelValue } = props;
+        validateOfTrigger(validateTrigger, trigger, rules, modelValue);
+      });
+    };
     const isInputValue = ref(false);
     const isFocus = ref(false);
+    const maxlengthText = computed(() => {
+      const { maxlength, modelValue } = props;
+      if (!maxlength) {
+        return "";
+      }
+      if (isEmpty(modelValue)) {
+        return `0 / ${maxlength}`;
+      }
+      return `${String(modelValue).length}/${maxlength}`;
+    });
     const handleClick = (event: MouseEvent) => {
       const { disabled, onClick } = props;
       if (disabled) return;
@@ -18,10 +40,16 @@ export default defineComponent({
     const handleFocus = (e: FocusEvent) => {
       isFocus.value = true;
       props.onFocus?.(e);
+      validateWithTrigger("onFocus");
     };
     const handleBlur = (e: FocusEvent) => {
       isFocus.value = false;
       props.onBlur?.(e);
+      validateWithTrigger("onBlur");
+    };
+    const reset = () => {
+      props["onUpdate:modelValue"]?.("");
+      resetValidation();
     };
     const handleInput = (e: Event) => {
       const { value } = e.target as HTMLInputElement;
@@ -30,10 +58,12 @@ export default defineComponent({
       }
       props["onUpdate:modelValue"]?.(value);
       props.onInput?.(value, e);
+      validateWithTrigger("onInput");
     };
     const handleInputChange = (e: Event) => {
       const { value } = e.target as HTMLInputElement;
       props.onChange?.(value, e);
+      validateWithTrigger("onChange");
     };
     return () => {
       return (
@@ -48,16 +78,17 @@ export default defineComponent({
         >
           <div
             style={{
-              color: props.error
-                ? isFocus.value
-                  ? props.focusColor
-                  : props.blurColor
-                : null,
+              color:
+                props.error || errorMessage.value
+                  ? isFocus.value
+                    ? props.focusColor
+                    : props.blurColor
+                  : null,
             }}
             class={[
               "adny-input__controller",
               isFocus.value ? "adny-input--focus" : null,
-              props.error ? "adny-input--error" : null,
+              props.error || errorMessage.value ? "adny-input--error" : null,
             ]}
           >
             <div
@@ -84,11 +115,16 @@ export default defineComponent({
                     "adny-input__input",
                     props.textarea ? "adny-input--textarea" : null,
                     props.disabled ? "adny-input--disabled" : null,
-                    props.error ? "adny-input--caret-error" : null,
+                    props.error || errorMessage.value
+                      ? "adny-input--caret-error"
+                      : null,
                   ]}
                   style={{
                     color: props.textColor,
-                    caretColor: !props.error ? props.focusColor : null,
+                    caretColor:
+                      !props.error || errorMessage.value
+                        ? props.focusColor
+                        : null,
                     resize: props.resize ? "vertical" : "none",
                   }}
                 />
@@ -140,11 +176,14 @@ export default defineComponent({
           {props.line ? (
             <div
               style={{
-                background: props.blurColor,
+                background: !errorMessage.value ? props.blurColor : null,
               }}
               class={[
                 "adny-input__line",
                 props.disabled ? "adny-input--line-disabled" : null,
+                errorMessage.value || props.error
+                  ? "var-input--line-error"
+                  : null,
               ]}
             >
               <div
@@ -152,12 +191,20 @@ export default defineComponent({
                   "adny-input__dot",
                   isFocus.value ? "adny-input--spread" : null,
                   props.disabled ? "adny-input--line-disabled" : null,
-                  props.error ? "adny-input--line-error" : null,
+                  props.error || errorMessage.value
+                    ? "adny-input--line-error"
+                    : null,
                 ]}
-                style={{ background: props.focusColor }}
+                style={{
+                  background: errorMessage.value ? props.focusColor : null,
+                }}
               ></div>
             </div>
           ) : null}
+          <adny-form-details
+            error-message={errorMessage.value}
+            maxlength-text={maxlengthText.value}
+          />
         </div>
       );
     };
