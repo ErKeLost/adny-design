@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import Schema from 'async-validator'
-import { isEmpty, isArray } from '../common'
+import { isArray } from '../common'
+// input 验证
 export function useValidate() {
   const errorMessage = ref('')
   const validate = async (rules, value) => {
@@ -32,3 +33,5 @@ export function useValidate() {
   }
   return { validate, errorMessage, validateOfTrigger, resetValidation }
 }
+
+// 表单 form 验证

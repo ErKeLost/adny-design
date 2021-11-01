@@ -1,7 +1,7 @@
 import { defineComponent, ref, computed, nextTick } from "vue";
 import AdnyFormDetails from "../../form-details";
 import { props } from "./props";
-import { isEmpty, useValidation } from "../../../utils/common";
+import { isEmpty } from "../../../utils/common";
 import { useValidate } from "../../../utils/async-validator";
 import "../../../styles/common.less";
 import "../../../styles/elevation.less";
