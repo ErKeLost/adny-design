@@ -8,44 +8,13 @@ export default defineComponent({
   props,
   setup(props, { emit, slots }) {
     const isFocus = ref(false);
-    const inputClass = [
-      "adny-input",
-      "adny--box",
-      props.disabled ? `adny-input--disabled` : null,
-    ];
-    const controlClass = [
-      "adny-input__controller",
-      isFocus.value ? "adny-input--focus" : null,
-    ];
-    const controlStyle = {
-      color: isFocus.value ? props.focusColor : props.blurColor,
-    };
-    const inputWrapClass = [
-      "adny-input__wrap",
-      !props.hint ? "adny-input--non-hint" : null,
-    ];
-    const inputPasswordClass = "adny-input__autocomplate";
-    const componentClass = [
-      "adny-input__input",
-      props.textarea ? "adny-input--textarea" : null,
-    ];
     const handleClick = (event: MouseEvent) => {};
-    const inputStyle = {
-      color: props.textColor,
-    };
-    const inputLineClass = [
-      "adny-input__line",
-      props.disabled ? "adny-input--line-disabled" : null,
-    ];
-
     const handleFocus = (e: FocusEvent) => {
       isFocus.value = true;
-      console.log(isFocus.value);
       props.onFocus?.(e);
     };
     const handleBlur = (e: FocusEvent) => {
       isFocus.value = false;
-      console.log(isFocus.value);
       props.onBlur?.(e);
     };
     const handleInput = (e: Event) => {
@@ -57,36 +26,33 @@ export default defineComponent({
       const { value } = e.target as HTMLInputElement;
       props.onChange?.(value, e);
     };
-    const computePlaceholderState = () => {
-      if (!props.hint) {
-        return "adny-input--placeholder-hidden";
-      }
-      if (props.hint && isFocus.value) {
-        return "adny-input--placeholder-hint";
-      }
-    };
-    const labelClass = [
-      props.textarea
-        ? "adny-input__textarea-placeholder"
-        : "adny-input__placeholder",
-      computePlaceholderState(),
-      !props.hint ? "adny-input--placeholder-non-hint" : null,
-    ];
-    const lineStyle = {
-      background: props.blurColor,
-    };
-    const lineMoveClass = [
-      "adny-input__dot",
-      isFocus.value ? "adny-input--spread" : null,
-      props.disabled ? "adny-input--line-disabled" : null,
-    ];
     return () => {
       return (
-        <div class={inputClass} onClick={handleClick}>
-          <div style={controlStyle} class={controlClass}>
-            <div class={inputWrapClass}>
+        <div
+          class={[
+            "adny-input",
+            "adny--box",
+            props.disabled ? `adny-input--disabled` : null,
+          ]}
+          onClick={handleClick}
+        >
+          <div
+            style={{
+              color: isFocus.value ? props.focusColor : props.blurColor,
+            }}
+            class={[
+              "adny-input__controller",
+              isFocus.value ? "adny-input--focus" : null,
+            ]}
+          >
+            <div
+              class={[
+                "adny-input__wrap",
+                !props.hint ? "adny-input--non-hint" : null,
+              ]}
+            >
               {props.type === "password" ? (
-                <input type={props.type} class={inputPasswordClass} />
+                <input type={props.type} class="adny-input__autocomplate" />
               ) : null}
               {props.textarea ? (
                 <textarea
@@ -94,8 +60,13 @@ export default defineComponent({
                   onBlur={handleBlur}
                   onInput={handleInput}
                   onChange={handleInputChange}
-                  class={componentClass}
-                  style={inputStyle}
+                  class={[
+                    "adny-input__input",
+                    props.textarea ? "adny-input--textarea" : null,
+                  ]}
+                  style={{
+                    color: props.textColor,
+                  }}
                 />
               ) : (
                 <input
@@ -103,17 +74,47 @@ export default defineComponent({
                   onBlur={handleBlur}
                   onInput={handleInput}
                   onChange={handleInputChange}
-                  class={componentClass}
-                  style={inputStyle}
+                  class={[
+                    "adny-input__input",
+                    props.textarea ? "adny-input--textarea" : null,
+                  ]}
+                  style={{
+                    color: props.textColor,
+                  }}
                 />
               )}
-              <label class={labelClass}>{props.placeholder}</label>
+              <label
+                class={[
+                  props.textarea
+                    ? "adny-input__textarea-placeholder"
+                    : "adny-input__placeholder",
+                  !props.hint ? "adny-input--placeholder-hidden" : null,
+                  props.hint && isFocus.value
+                    ? "adny-input--placeholder-hint"
+                    : null,
+                  !props.hint ? "adny-input--placeholder-non-hint" : null,
+                ]}
+              >
+                {props.placeholder}
+              </label>
             </div>
           </div>
           {props.line ? (
-            <div style={lineStyle} class={inputLineClass}>
+            <div
+              style={{
+                background: props.blurColor,
+              }}
+              class={[
+                "adny-input__line",
+                props.disabled ? "adny-input--line-disabled" : null,
+              ]}
+            >
               <div
-                class={lineMoveClass}
+                class={[
+                  "adny-input__dot",
+                  isFocus.value ? "adny-input--spread" : null,
+                  props.disabled ? "adny-input--line-disabled" : null,
+                ]}
                 style={{ background: props.focusColor }}
               ></div>
             </div>
