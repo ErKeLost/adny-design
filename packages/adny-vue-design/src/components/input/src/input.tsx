@@ -1,5 +1,6 @@
 import { defineComponent, ref, computed } from "vue";
 import { props } from "./props";
+import { isEmpty } from "../../../utils/common";
 import "../../../styles/common.less";
 import "../../../styles/elevation.less";
 import "../styles/input.less";
@@ -7,8 +8,13 @@ export default defineComponent({
   name: "AdnyInput",
   props,
   setup(props, { emit, slots }) {
+    const isInputValue = ref(false);
     const isFocus = ref(false);
-    const handleClick = (event: MouseEvent) => {};
+    const handleClick = (event: MouseEvent) => {
+      const { disabled, onClick } = props;
+      if (disabled) return;
+      onClick?.(event);
+    };
     const handleFocus = (e: FocusEvent) => {
       isFocus.value = true;
       props.onFocus?.(e);
@@ -19,6 +25,9 @@ export default defineComponent({
     };
     const handleInput = (e: Event) => {
       const { value } = e.target as HTMLInputElement;
+      if (!isEmpty(value)) {
+        isInputValue.value = true;
+      }
       props["onUpdate:modelValue"]?.(value);
       props.onInput?.(value, e);
     };
@@ -32,17 +41,23 @@ export default defineComponent({
           class={[
             "adny-input",
             "adny--box",
+            props.error ? "adny-input--error" : null,
             props.disabled ? `adny-input--disabled` : null,
           ]}
           onClick={handleClick}
         >
           <div
             style={{
-              color: isFocus.value ? props.focusColor : props.blurColor,
+              color: props.error
+                ? isFocus.value
+                  ? props.focusColor
+                  : props.blurColor
+                : null,
             }}
             class={[
               "adny-input__controller",
               isFocus.value ? "adny-input--focus" : null,
+              props.error ? "adny-input--error" : null,
             ]}
           >
             <div
@@ -58,14 +73,23 @@ export default defineComponent({
                 <textarea
                   onFocus={handleFocus}
                   onBlur={handleBlur}
+                  autocomplete="new-password"
                   onInput={handleInput}
                   onChange={handleInputChange}
+                  value={props.modelValue}
+                  maxlength={props.maxlength}
+                  disabled={props.disabled || props.readonly}
+                  rows={props.rows}
                   class={[
                     "adny-input__input",
                     props.textarea ? "adny-input--textarea" : null,
+                    props.disabled ? "adny-input--disabled" : null,
+                    props.error ? "adny-input--caret-error" : null,
                   ]}
                   style={{
                     color: props.textColor,
+                    caretColor: !props.error ? props.focusColor : null,
+                    resize: props.resize ? "vertical" : "none",
                   }}
                 />
               ) : (
@@ -74,22 +98,36 @@ export default defineComponent({
                   onBlur={handleBlur}
                   onInput={handleInput}
                   onChange={handleInputChange}
+                  value={props.modelValue}
+                  maxlength={props.maxlength}
+                  disabled={props.disabled || props.readonly}
+                  type={props.type}
                   class={[
                     "adny-input__input",
                     props.textarea ? "adny-input--textarea" : null,
+                    props.disabled ? "adny-input--disabled" : null,
+                    props.error ? "adny-input--caret-error" : null,
                   ]}
                   style={{
                     color: props.textColor,
+                    caretColor: !props.error ? props.focusColor : null,
+                    resize: props.resize ? "vertical" : "none",
                   }}
                 />
               )}
               <label
+                style={{
+                  color: props.focusColor,
+                }}
                 class={[
                   props.textarea
                     ? "adny-input__textarea-placeholder"
                     : "adny-input__placeholder",
-                  !props.hint ? "adny-input--placeholder-hidden" : null,
-                  props.hint && isFocus.value
+                  !props.hint &&
+                  (!isEmpty(props.modelValue) || isInputValue.value === true)
+                    ? "adny-input--placeholder-hidden"
+                    : null,
+                  props.hint && (!isEmpty(props.modelValue) || isFocus.value)
                     ? "adny-input--placeholder-hint"
                     : null,
                   !props.hint ? "adny-input--placeholder-non-hint" : null,
@@ -114,6 +152,7 @@ export default defineComponent({
                   "adny-input__dot",
                   isFocus.value ? "adny-input--spread" : null,
                   props.disabled ? "adny-input--line-disabled" : null,
+                  props.error ? "adny-input--line-error" : null,
                 ]}
                 style={{ background: props.focusColor }}
               ></div>

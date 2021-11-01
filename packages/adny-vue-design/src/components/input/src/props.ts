@@ -10,6 +10,10 @@ export const props = {
   modelValue: {
     type: String,
   },
+  error: {
+    type: Boolean,
+    default: false
+  },
   type: {
     type: String as PropType<'text' | 'password' | 'number'>,
     default: 'text',
