@@ -1,13 +1,12 @@
+
 <template>
-  <i class="icon-battery-charging"></i>
-  <i class="adny-icon-information-outline"></i>
   <component
-    class="var-icon"
+    class="adny-icon"
     :is="isURL(name) ? 'img' : 'i'"
     :class="[
       `${namespace}--set`,
-      isURL(name) ? 'var-icon__image' : `${namespace}-${nextName}`,
-      shrinking ? 'var-icon--shrinking' : null,
+      isURL(name) ? 'adny-icon__image' : `${namespace}-${nextName}`,
+      shrinking ? 'adny-icon--shrinking' : null,
     ]"
     :style="{
       color,
@@ -24,25 +23,21 @@
 <script lang="ts">
 import { defineComponent, watch, ref, nextTick } from 'vue'
 import { isURL, toNumber } from '../../utils/shared'
-import { props } from './props'
+import { props } from './src/props'
 import { toSizeUnit } from '../../utils/elements'
 import type { Ref } from 'vue'
-
 export default defineComponent({
-  name: 'VarIcon',
+  name: 'adny',
   props,
   setup(props) {
     const nextName: Ref<string | undefined> = ref('')
     const shrinking: Ref<boolean> = ref(false)
-
     const handleNameChange = async (newName: string | undefined, oldName: string | undefined) => {
       const { transition } = props
-
       if (oldName == null || toNumber(transition) === 0) {
         nextName.value = newName
         return
       }
-
       shrinking.value = true
       await nextTick()
       setTimeout(() => {
@@ -50,7 +45,6 @@ export default defineComponent({
         shrinking.value = false
       }, toNumber(transition))
     }
-
     watch(() => props.name, handleNameChange, { immediate: true })
     return {
       nextName,
@@ -62,7 +56,6 @@ export default defineComponent({
   },
 })
 </script>
-
 <style lang="less">
 @import '../../styles/common';
 

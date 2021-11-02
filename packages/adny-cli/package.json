@@ -25,5 +25,8 @@
   },
   "bugs": {
     "url": "https://github.com/ErKeLost/adny-ui/issues"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1"
   }
 }

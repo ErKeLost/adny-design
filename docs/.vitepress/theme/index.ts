@@ -3,6 +3,7 @@ import Button from '../../../packages/adny-vue-design/src/components/button/src/
 import Card from '../../../packages/adny-vue-design/src/components/card/src/card'
 import Input from '../../../packages/adny-vue-design/src/components/input/src/input'
 import Icon from '../../../packages/adny-vue-design/src/components/icon/src/icon'
+// import Icon from '../../../packages/adny-vue-design/src/components/icon/icon.vue'
 import FormDetails from '../../../packages/adny-vue-design/src/components/form-details/src/FormDetails.vue'
 import Demo from 'vitepress-theme-demoblock/components/Demo.vue'
 import DemoBlock from 'vitepress-theme-demoblock/components/DemoBlock.vue'

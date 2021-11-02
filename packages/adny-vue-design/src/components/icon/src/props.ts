@@ -12,7 +12,7 @@ export const props = {
   },
   namespace: {
     type: String,
-    default: 'var-icon',
+    default: 'adny-icon',
   },
   transition: {
     type: [Number, String],
