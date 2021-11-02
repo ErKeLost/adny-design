@@ -65,6 +65,7 @@ export default defineComponent({
       props.onChange?.(value, e);
       validateWithTrigger("onChange");
     };
+    
     return () => {
       return (
         <div

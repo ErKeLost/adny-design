@@ -12,15 +12,14 @@
     "lib": [
       "esnext",
       "dom"
-    ],
-    "types": [
-      "vite/client"
     ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "src/components/icon/iconfont.js",
+    "src/components/icon/plugin/index.js"
   ]
 }

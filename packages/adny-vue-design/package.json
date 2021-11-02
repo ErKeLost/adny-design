@@ -28,5 +28,6 @@
   },
   "dependencies": {
     "async-validator": "^4.0.7"
-  }
+  },
+  "devDependencies": {}
 }
