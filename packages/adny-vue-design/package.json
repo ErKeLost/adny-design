@@ -29,5 +29,7 @@
   "dependencies": {
     "async-validator": "^4.0.7"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "patch-vue-directive-ssr": "^0.0.1"
+  }
 }

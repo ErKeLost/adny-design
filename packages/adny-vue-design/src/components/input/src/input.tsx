@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, nextTick } from "vue";
+import { defineComponent, ref, computed, nextTick, inject, getCurrentInstance } from "vue";
 import AdnyFormDetails from "../../form-details";
 import { props } from "./props";
 import { isEmpty } from "../../../utils/common";
@@ -13,6 +13,8 @@ export default defineComponent({
     AdnyFormDetails,
   },
   setup(props, { emit, slots }) {
+    const inputInstance = getCurrentInstance()
+    const injectFormItem = inject('name', ref({}))
     const { resetValidation, validateOfTrigger, errorMessage } = useValidate();
     const validateWithTrigger = (trigger) => {
       nextTick(() => {
@@ -59,6 +61,7 @@ export default defineComponent({
       props["onUpdate:modelValue"]?.(value);
       props.onInput?.(value, e);
       validateWithTrigger("onInput");
+      inputInstance?.parent?.exposed?.validator()
     };
     const handleInputChange = (e: Event) => {
       const { value } = e.target as HTMLInputElement;
@@ -143,6 +146,8 @@ export default defineComponent({
                   onInput={handleInput}
                   onChange={handleInputChange}
                   value={props.modelValue}
+                  id={injectFormItem}
+                  name={injectFormItem}
                   maxlength={props.maxlength}
                   disabled={props.disabled || props.readonly}
                   type={props.type}

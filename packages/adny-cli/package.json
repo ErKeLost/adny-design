@@ -27,6 +27,7 @@
     "url": "https://github.com/ErKeLost/adny-ui/issues"
   },
   "devDependencies": {
+    "patch-vue-directive-ssr": "^0.0.1",
     "prettier": "^2.4.1"
   }
 }

@@ -13,6 +13,7 @@ const sidebar = {
                 { text: 'Card 卡片', link: '/components/card/' },
                 { text: 'Input 输入框', link: '/components/input/' },
                 { text: 'Icon 图标', link: '/components/icon/' },
+                { text: 'Form 表单', link: '/components/form/' },
             ]
         },
         { text: '导航' },

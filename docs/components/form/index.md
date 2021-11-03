@@ -1,0 +1,51 @@
+:::demo 使用 adny
+
+```vue
+<template>
+<a-form :model="data" :rules="rules" ref="model">
+  <a-form-item label="我是用户名" prop="username">
+    <a-input placeholder="请输入文字 " v-model="data.username" />
+  </a-form-item>
+  <a-form-item label="我是密码" prop="password">
+    <a-input placeholder="请输入密码" v-model="data.password" />
+  </a-form-item>
+  <a-form-item>
+    <a-btn @click="go">校验</a-btn>
+  </a-form-item>
+</a-form>
+</template>
+<script >
+import {defineComponent, ref, watch, reactive } from 'vue'
+export default defineComponent({
+  setup() {
+    const model = ref(null)
+    const data = reactive({
+      username: '',
+      password: ''
+    })
+    const go = () => {
+      model.value.validate((a) => {
+        if (a) {
+          console.log('成功')
+        } else {
+          console.log('失败')
+        }
+      })
+    }
+    watch(data, (ne) => {
+    })
+    return {
+      data,
+      model,
+      go,
+      rules: {
+        username: [{ required: true, message: '用户名必须填' }],
+        password: [{ required: true, message: '密码必须填' }]
+      }
+    }
+  }
+})
+</script>
+```
+
+:::     
