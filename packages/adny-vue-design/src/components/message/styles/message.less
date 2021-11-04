@@ -1,0 +1,20 @@
+.message {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  width: 100px;
+  z-index: 99999;
+  transform: translateX(-50%);
+  transition: all 0.4s ease-in-out;
+  border: 1px solid #fba;
+}
+
+.message-enter-from,
+.message-leave-to {
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.message-enter-to,
+.message-leave-from {
+  opacity: 1;
+}

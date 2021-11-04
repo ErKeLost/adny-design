@@ -39,7 +39,7 @@ export default defineComponent({
       model,
       go,
       rules: {
-        username: [{ required: true, message: '用户名必须填' }],
+        username: [{ required: true, message: '用户名必须填' }, {max: 5, message: '不能超过五个字'}],
         password: [{ required: true, message: '密码必须填' }]
       }
     }

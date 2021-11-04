@@ -24,44 +24,65 @@
     <slot />
   </button>
 </template>
-    
-<script lang="ts" setup>
-const props = withDefaults(defineProps<{
-    type?: string,
-    size?: string,
-    color?: string,
-    elevation?: string,
-    disabled?: boolean,
-    text?: boolean,
-    round?: boolean,
-    outline?: boolean,
-    block?: boolean,
-    depressed?: boolean,
-    fab?: boolean,
-    icon?: boolean,
-    tite?: boolean,
-}>(), {
-    type: 'default',
-    size: 'normal',
-    elevation: "2",
-    color: '',
-    text: false,
-    round: false,
-    outline: false,
-    block: false,
-    disabled: false,
-    depressed: false,
-    fab: false,
-    icon: false,
-    tite: false,
-})
-</script>
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { RippleDirective } from '../../../directives/ripple'
 export default defineComponent({
   directives: {
     ripple: RippleDirective
+  },
+  props: {
+    type: {
+      type: String,
+      default: 'default'
+    },
+    size: {
+      type: String,
+      default: 'normal'
+    },
+    color: {
+      type: String
+    },
+    elevation: {
+      type: String,
+      default: '2'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    text: {
+      type: Boolean,
+      default: false
+    },
+    round: {
+      type: Boolean,
+      default: false
+    },
+    outline: {
+      type: Boolean,
+      default: false
+    },
+    block: {
+      type: Boolean,
+      default: false
+    },
+    depressed: {
+      type: Boolean,
+      default: false
+    },
+    fab: {
+      type: Boolean,
+      default: false
+    },
+    icon: {
+      type: Boolean,
+      default: false
+    },
+    tite: {
+      type: Boolean,
+      default: false
+    }
   }
 })
 </script>

@@ -1,44 +1,42 @@
-import { defineComponent } from "vue";
-import { props } from "./props";
+import { defineComponent } from 'vue'
+import { props } from './props'
 // import useProps from '../../../compsables/card/useProps'
-import "../../../styles/common.less";
-import "../../../styles/elevation.less";
-import "../styles/card.less";
+import '../../../styles/common.less'
+import '../../../styles/elevation.less'
+import '../styles/card.less'
 export default defineComponent({
-  name: "AdnyCard",
+  name: 'AdnyCard',
   props,
   setup(props, ctx) {
     const cardClass = [
-      props.elevation
-        ? `adny-elevation--${props.elevation}`
-        : "adny-elevation--2",
-      "adny-card",
-      props.hover ? "adny-card__hover" : null,
-      props.shaped ? "adny-card__shaped" : null,
-      props.disabled ? "adny-card__disabled" : null,
-    ];
-    let footerPositionClass = "";
+      props.elevation ? `adny-elevation--${props.elevation}` : 'adny-elevation--2',
+      'adny-card',
+      props.hover ? 'adny-card__hover' : null,
+      props.shaped ? 'adny-card__shaped' : null,
+      props.disabled ? 'adny-card__disabled' : null
+    ]
+    let footerPositionClass = ''
     switch (props.footerPosition) {
-      case "left":
-        footerPositionClass = "adny-card__footer";
-        break;
-      case "center":
-        footerPositionClass = "adny-card__footer-center";
-        break;
-      case "right":
-        footerPositionClass = "adny-card__footer-right";
-        break;
-      case "undefined":
-        footerPositionClass = "adny-card__footer";
-        break;
-      case "":
-        footerPositionClass = "adny-card__footer";
-        break;
+      case 'left':
+        footerPositionClass = 'adny-card__footer'
+        break
+      case 'center':
+        footerPositionClass = 'adny-card__footer-center'
+        break
+      case 'right':
+        footerPositionClass = 'adny-card__footer-right'
+        break
+      case 'undefined':
+        footerPositionClass = 'adny-card__footer'
+        break
+      case '':
+        footerPositionClass = 'adny-card__footer'
+        break
     }
-    const titleStyle = { display: "flex", justifyContent: "space-between" };
+    const titleStyle = { display: 'flex', justifyContent: 'space-between' }
     const onClick = (e: MouseEvent) => {
-      props.onClick?.(e);
-    };
+      props.onClick?.(e)
+    }
 
     return () => {
       return (
@@ -69,36 +67,36 @@ export default defineComponent({
           {props.src && ctx.slots.cover === undefined ? (
             <img
               src={props.src}
-              style={{ height: props.height + "px", objectFit: props.fit }}
+              style={{ height: props.height + 'px', objectFit: props.fit }}
               alt={props.alt}
             />
           ) : (
-            ""
+            ''
           )}
           {props.title && ctx.slots.title === undefined ? (
             <div class="adny-card__title">{props.title}</div>
           ) : (
-            ""
+            ''
           )}
           {props.subtitle && ctx.slots.subtitle === undefined ? (
             <div class="adny-card__subtitle">{props.subtitle}</div>
           ) : (
-            ""
+            ''
           )}
           {props.content && ctx.slots.content === undefined ? (
             <div class="adny-card__content">{props.content}</div>
           ) : (
-            ""
+            ''
           )}
           {ctx.slots.footer ? (
             <div class={footerPositionClass}>
               <div class>{ctx.slots.footer?.()}</div>
             </div>
           ) : (
-            ""
+            ''
           )}
         </div>
-      );
-    };
-  },
-});
+      )
+    }
+  }
+})

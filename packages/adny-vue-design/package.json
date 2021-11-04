@@ -27,9 +27,9 @@
     "url": "https://github.com/ErKeLost/adny-ui/issues"
   },
   "dependencies": {
-    "async-validator": "^4.0.7"
+    "async-validator": "^4.0.7",
+    "vitepress": "^0.20.0"
   },
   "devDependencies": {
-    "patch-vue-directive-ssr": "^0.0.1"
   }
 }
