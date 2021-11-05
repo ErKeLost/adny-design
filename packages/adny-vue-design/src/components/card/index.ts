@@ -1,1 +1,3 @@
-import AdnyCard from './src/card'
+import ACard from './src/card'
+
+export default ACard

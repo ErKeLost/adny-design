@@ -1,20 +1,26 @@
 <template>
-  <transition name="message" @before-leave="onClose" @after-leave="$emit('destory')">
+  <transition name="notification" @before-leave="onClose" @after-leave="$emit('destory')">
     <div
-      class="adny-message adny-elevation--2"
       :id="id"
+      class="adny-notification adny-elevation--2"
       v-show="visible"
       :style="{ top: `${offset}px` }"
-      :class="[
-        type ? `adny-message__${type}` : null,
-      ]"
     >
-      <div class="adny-message--flex">
-        <div style="display: flex">
-          <a-icon :name="iconName"></a-icon>
-          <p style="margin: 0 15px">{{ message }}</p>
+      <div class="adny-notification-icon">
+        <a-icon size="30" v-if="prefixIcon" name="checkbox-marked-circle"></a-icon>
+      </div>
+      <div class="adny-notification--group">
+        <div class="adny-notification--content">
+          <p class="adny-notification--title" v-if="title">{{ title }}</p>
+          <div v-if="message">
+            <slot>
+              <span v-html="message"></span>
+            </slot>
+          </div>
         </div>
-        <a-icon @click="$emit('destory')" name="window-close"></a-icon>
+        <div class="adny-notification--closeicon">
+          <a-icon @click="$emit('destory')" v-if="showClose" name="window-close"></a-icon>
+        </div>
       </div>
     </div>
   </transition>
@@ -28,9 +34,16 @@ export default defineComponent({
     AIcon
   },
   props: {
-    type: {
-      type: String,
-      default: "info"
+    prefixIcon: {
+      type: Boolean,
+      default: true,
+    },
+    title: {
+      type: String
+    },
+    showClose: {
+      type: Boolean,
+      default: true
     },
     message: {
       type: String
@@ -67,27 +80,14 @@ export default defineComponent({
     onUnmounted(() => {
       clearTimeout(timer)
     })
-    const iconName = computed(() => {
-      switch (props.type) {
-        case 'success':
-          return 'check-circle-outline';
-        case 'info':
-          return 'information-outline';
-        case 'danger':
-          return 'alert-triangle';
-        case 'warning':
-          return 'warning'
-      }
-    })
     return {
       visible,
-      iconName
     }
   }
 })
 </script>
 
-<style lang="less" scoped>
-@import "../styles/message.less";
+<style scoped lang="less">
+@import "../styles/notification.less";
 @import "../../../styles/elevation.less";
 </style>

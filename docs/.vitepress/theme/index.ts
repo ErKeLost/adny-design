@@ -5,6 +5,7 @@ import Input from '../../../packages/adny-vue-design/src/components/input/src/in
 import Icon from '../../../packages/adny-vue-design/src/components/icon/src/icon'
 import Form from '../../../packages/adny-vue-design/src/components/form/src/form'
 import Message from '../../../packages/adny-vue-design/src/components/message'
+import Notification from '../../../packages/adny-vue-design/src/components/notification'
 import FormItem from '../../../packages/adny-vue-design/src/components/form/src/formItem'
 import FormDetails from '../../../packages/adny-vue-design/src/components/form-details/src/FormDetails.vue'
 import Demo from 'vitepress-theme-demoblock/components/Demo.vue'
@@ -14,6 +15,7 @@ export default {
   ...Theme,
   enhanceApp({ app }) {
     app.use(Message)
+    app.use(Notification)
     app.component('a-btn', Button)
     app.component('a-card', Card)
     app.component('a-input', Input)

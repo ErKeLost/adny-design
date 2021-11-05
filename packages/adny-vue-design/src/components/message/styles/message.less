@@ -1,12 +1,31 @@
-.message {
+.adny-message {
   position: fixed;
   top: 10%;
   left: 50%;
-  width: 100px;
+  width: 370px;
   z-index: 99999;
   transform: translateX(-50%);
   transition: all 0.4s ease-in-out;
-  border: 1px solid #fba;
+  padding: 8px 15px 8px 10px;
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  &--flex {
+    display: flex;
+    padding: 0 15px;
+    justify-content: space-between;
+  }
+  &__info {
+    background: #2196f3;
+  }
+  &__success {
+    background: #67c23a;
+  }
+  &__danger {
+    background: #ff5252;
+  }
+  &__warning {
+    background: #fb8c00;
+  }
 }
 
 .message-enter-from,

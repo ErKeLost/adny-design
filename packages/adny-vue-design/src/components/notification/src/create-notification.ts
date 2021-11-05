@@ -1,12 +1,10 @@
 import { createVNode, render, VNode } from 'vue'
 import { IMessageParams } from '../types/messageType'
-import AdnyMessage from './message.vue'
-
-export const messageTypes = ['success', 'info', 'warning', 'danger'] as const
+import AdnyNotification from './notification.vue'
 
 const instance: VNode[] = []
 let vmSeed = 1
-const Message = (options: IMessageParams) => {
+const Notification = (options: IMessageParams) => {
   if (typeof options === 'string') {
     options = { message: options }
   }
@@ -29,11 +27,13 @@ const Message = (options: IMessageParams) => {
   // 渲染到 body 上 动态创建 不能使用 teleport
   const container = document.createElement('div')
   container.className = `container_${id}`
-  const vm = createVNode(AdnyMessage, otps as any)
+  const vm = createVNode(AdnyNotification, otps as any)
   vm.props!.onDestory = () => {
     render(null, container)
   }
   render(vm, container)
+  console.log(vm)
+
   instance.push(vm)
   document.body.appendChild(container.firstElementChild!)
 }
@@ -61,17 +61,5 @@ export function close(id: string, userClose?: any) {
     instance[i].component!.props.offset = pos
   }
 }
-messageTypes.forEach((type) => {
-  Message[type] = (options = {}) => {
-    if (typeof options === 'string') {
-      options = {
-        message: options
-      }
-    }
-    return Message({
-      ...options,
-      type
-    })
-  }
-})
-export default Message
+
+export default Notification
