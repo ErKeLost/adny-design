@@ -14,7 +14,7 @@
           <a-icon :name="iconName"></a-icon>
           <p style="margin: 0 15px">{{ message }}</p>
         </div>
-        <a-icon @click="$emit('destory')" name="window-close"></a-icon>
+        <a-icon @click="close" name="window-close"></a-icon>
       </div>
     </div>
   </transition>
@@ -56,8 +56,11 @@ export default defineComponent({
     let timer: any = null
     const startTime = () => {
       timer = setTimeout(() => {
-        visible.value = false
+        close()
       }, props.duration)
+    }
+    function close() {
+      visible.value = false
     }
     onMounted(() => {
       startTime()
@@ -81,7 +84,8 @@ export default defineComponent({
     })
     return {
       visible,
-      iconName
+      iconName,
+      close
     }
   }
 })

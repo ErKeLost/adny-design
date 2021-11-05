@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="adny-notification--closeicon">
-          <a-icon @click="$emit('destory')" v-if="showClose" name="window-close"></a-icon>
+          <a-icon @click="close" v-if="showClose" name="window-close"></a-icon>
         </div>
       </div>
     </div>
@@ -72,6 +72,9 @@ export default defineComponent({
         visible.value = false
       }, props.duration)
     }
+    function close() {
+      visible.value = false
+    }
     onMounted(() => {
       startTime()
       visible.value = true
@@ -82,6 +85,7 @@ export default defineComponent({
     })
     return {
       visible,
+      close
     }
   }
 })
