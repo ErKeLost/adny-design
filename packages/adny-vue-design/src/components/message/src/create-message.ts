@@ -42,7 +42,6 @@ const Message = (options: IMessageParams) => {
 }
 
 export function close(id: string, userClose?: any) {
-  console.log(123)
   const idName = instance.findIndex((vm) => {
     const { id: _id } = vm.component!.props
     return id === _id

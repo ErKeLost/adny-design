@@ -2,6 +2,8 @@ import { createVNode, render, VNode } from 'vue'
 import { IMessageParams } from '../types/messageType'
 import AdnyNotification from './notification.vue'
 
+const notificationType = ['info', 'warning', 'danger', 'success']
+
 const instance: VNode[] = []
 let vmSeed = 1
 const Notification = (options: IMessageParams) => {
@@ -9,7 +11,7 @@ const Notification = (options: IMessageParams) => {
     options = { message: options }
   }
 
-  let offset = options.offset || 20
+  let offset = options.offset || 0
   instance.forEach((item) => {
     offset += (item.el!.offsetHeight || 0) + 16
   })
@@ -32,7 +34,6 @@ const Notification = (options: IMessageParams) => {
     render(null, container)
   }
   render(vm, container)
-  console.log(vm)
 
   instance.push(vm)
   document.body.appendChild(container.firstElementChild!)
@@ -61,5 +62,15 @@ export function close(id: string, userClose?: any) {
     instance[i].component!.props.offset = pos
   }
 }
-
+notificationType.forEach((type) => {
+  Notification[type] = (options = {}) => {
+    if (typeof options === 'string') {
+      options = { message: options }
+    }
+    return Notification({
+      ...options,
+      type
+    })
+  }
+})
 export default Notification

@@ -1,10 +1,14 @@
 <template>
-  <transition name="notification" @before-leave="onClose" @after-leave="$emit('destory')">
+  <transition
+    :name="`notification-${horizontalClass}`"
+    @before-leave="onClose"
+    @after-leave="$emit('destory')"
+  >
     <div
       :id="id"
-      class="adny-notification adny-elevation--2"
+      :class="['adny-notification', 'adny-elevation--2', `adny-notification--${type}`]"
+      :style="[positionStyle, verticalStyle]"
       v-show="visible"
-      :style="{ top: `${offset}px` }"
     >
       <div class="adny-notification-icon">
         <a-icon size="30" v-if="prefixIcon" name="checkbox-marked-circle"></a-icon>
@@ -34,6 +38,10 @@ export default defineComponent({
     AIcon
   },
   props: {
+    type: {
+      type: String,
+      default: "info"
+    },
     prefixIcon: {
       type: Boolean,
       default: true,
@@ -61,15 +69,20 @@ export default defineComponent({
     },
     id: {
       type: String
+    },
+    position: {
+      type: String,
+      default: 'top-right'
     }
   },
   emits: ['destory'],
   setup(props, { emit }) {
     const visible = ref(false)
     let timer: any = null
+    const transitionName = ref('')
     const startTime = () => {
       timer = setTimeout(() => {
-        visible.value = false
+        close()
       }, props.duration)
     }
     function close() {
@@ -83,9 +96,30 @@ export default defineComponent({
     onUnmounted(() => {
       clearTimeout(timer)
     })
+    const horizontalClass = computed(() =>
+      props.position.endsWith('right') ? 'right' : 'left'
+    )
+
+    const verticalProperty = computed(() =>
+      props.position.startsWith('top') ? 'top' : 'bottom'
+    )
+    const positionStyle = computed(() => {
+      return {
+        [verticalProperty.value]: `${props.offset}px`
+      }
+    })
+    const verticalStyle = computed(() => {
+      return {
+        [horizontalClass.value]: `10px`
+      }
+    })
     return {
       visible,
-      close
+      horizontalClass,
+      close,
+      positionStyle,
+      verticalStyle,
+      transitionName
     }
   }
 })
