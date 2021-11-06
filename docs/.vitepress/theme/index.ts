@@ -8,9 +8,7 @@ import Message from '../../../packages/adny-vue-design/src/components/message'
 import Notification from '../../../packages/adny-vue-design/src/components/notification'
 import FormItem from '../../../packages/adny-vue-design/src/components/form/src/formItem'
 import FormDetails from '../../../packages/adny-vue-design/src/components/form-details/src/FormDetails.vue'
-import Demo from 'vitepress-theme-demoblock/components/Demo.vue'
-import DemoBlock from 'vitepress-theme-demoblock/components/DemoBlock.vue'
-import 'vitepress-theme-demoblock/theme/styles/index.css'
+import { registerComponents } from './register-vitepress-components'
 export default {
   ...Theme,
   enhanceApp({ app }) {
@@ -23,7 +21,6 @@ export default {
     app.component('a-form', Form)
     app.component('a-form-item', FormItem)
     app.component('a-form-details', FormDetails)
-    app.component('Demo', Demo)
-    app.component('DemoBlock', DemoBlock)
+    registerComponents(app)
   }
 }

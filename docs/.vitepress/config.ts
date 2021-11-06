@@ -15,7 +15,8 @@ const sidebar = {
         { text: 'Icon 图标', link: '/components/icon/' },
         { text: 'Form 表单', link: '/components/form/' },
         { text: 'Message 消息', link: '/components/message/' },
-        { text: 'Notification 通知', link: '/components/notification/' }
+        { text: 'Notification 通知', link: '/components/notification/' },
+        { text: 'Progress-linear 进度条', link: '/components/progress-linear/' }
       ]
     },
     { text: '导航' },
