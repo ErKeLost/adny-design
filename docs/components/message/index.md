@@ -16,7 +16,7 @@ export default defineComponent({
     go() {
       this.$message({
         message: '保存成功',
-        backgroundColor: 'red',
+        backgroundColor: '#fba',
         type: 'success',
         icon: 'minus-circle-outline',
         showClose: true,

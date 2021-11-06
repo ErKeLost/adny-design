@@ -1,7 +1,8 @@
-import { defineComponent, inject, ref, provide } from 'vue'
+import { defineComponent, inject, ref, provide, getCurrentInstance } from 'vue'
 import Schema from 'async-validator'
 import { props } from './formItemProps'
 import AdnyFormDetail from '../../form-details'
+import { useValidate } from '../../../utils/async-validator'
 export default defineComponent({
   props,
   components: {
@@ -27,7 +28,7 @@ export default defineComponent({
     return () => {
       return (
         <>
-          {props.label ? <label>{props.label}</label> : null}
+          {/* {props.label ? <label>{props.label}</label> : null} */}
           {ctx.slots.default ? ctx.slots.default() : null}
           <adny-form-detail error-message={errorMessage.value} />
         </>

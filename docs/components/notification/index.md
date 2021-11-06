@@ -36,7 +36,6 @@ export default defineComponent({
         message: '外婆是哦的骄傲扣税的外婆是哦的骄傲扣税的外婆是哦的骄傲扣税的外婆是哦的骄傲扣税的外婆是哦的骄傲扣税的',
         title: '我是标题1',
         duration: 5000,
-        offset: 100
       })
     },
         goaaa() {
