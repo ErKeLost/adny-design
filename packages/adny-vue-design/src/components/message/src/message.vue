@@ -4,17 +4,17 @@
       class="adny-message adny-elevation--2"
       :id="id"
       v-show="visible"
-      :style="{ top: `${offset}px` }"
+      :style="{ top: `${offset}px`, backgroundColor }"
       :class="[
         type ? `adny-message__${type}` : null,
       ]"
     >
       <div class="adny-message--flex">
         <div style="display: flex">
-          <a-icon :name="iconName"></a-icon>
+          <a-icon :name="icon ?? iconName"></a-icon>
           <p style="margin: 0 15px">{{ message }}</p>
         </div>
-        <a-icon @click="close" name="window-close"></a-icon>
+        <a-icon v-if="showClose" @click="close" name="window-close"></a-icon>
       </div>
     </div>
   </transition>
@@ -28,9 +28,19 @@ export default defineComponent({
     AIcon
   },
   props: {
+    showClose: {
+      type: Boolean,
+      default: false,
+    },
+    backgroundColor: {
+      type: String,
+    },
+    icon: {
+      type: String,
+    },
     type: {
       type: String,
-      default: "info"
+      default: "default"
     },
     message: {
       type: String

@@ -11,7 +11,7 @@
       v-show="visible"
     >
       <div class="adny-notification-icon">
-        <a-icon size="30" v-if="prefixIcon" name="checkbox-marked-circle"></a-icon>
+        <a-icon :color="prefixIconColor" size="30" v-if="prefixIcon" name="checkbox-marked-circle"></a-icon>
       </div>
       <div class="adny-notification--group">
         <div class="adny-notification--content">
@@ -38,13 +38,17 @@ export default defineComponent({
     AIcon
   },
   props: {
+    prefixIconColor: {
+      type: String,
+      default: "#000"
+    },
     type: {
       type: String,
-      default: "info"
+      default: "default"
     },
     prefixIcon: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     title: {
       type: String

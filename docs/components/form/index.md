@@ -24,9 +24,10 @@ export default defineComponent({
       password: ''
     })
     const go = () => {
-      model.value.validate((a) => {
+      model.value.validate((a, value) => {
         if (a) {
           console.log('成功')
+          console.log(value)
         } else {
           console.log('失败')
         }

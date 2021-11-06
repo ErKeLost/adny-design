@@ -14,8 +14,12 @@ import {defineComponent, ref, watch } from 'vue'
 export default defineComponent({
   methods: {
     go() {
-      this.$message.success({
-        message: '保存成功'
+      this.$message({
+        message: '保存成功',
+        backgroundColor: 'red',
+        type: 'success',
+        icon: 'minus-circle-outline',
+        showClose: true,
       })
     },
         goa() {
@@ -30,7 +34,8 @@ export default defineComponent({
     },
         goaaa() {
       this.$message.warning({
-        message: 'this. is  a  message'
+        message: 'this. is  a  message',
+        showClose: true
       })
     }
   }
