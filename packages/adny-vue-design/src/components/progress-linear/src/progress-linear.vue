@@ -77,7 +77,7 @@ import { props } from './props'
 import { toNumber } from '../../../utils/shared'
 
 export default defineComponent({
-  name: 'adnyProgress',
+  name: 'AProgressLinear',
   inheritAttrs: false,
   props,
   setup(props) {

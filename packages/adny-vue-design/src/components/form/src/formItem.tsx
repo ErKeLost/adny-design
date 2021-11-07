@@ -1,9 +1,10 @@
 import { defineComponent, inject, ref, provide, getCurrentInstance } from 'vue'
 import Schema from 'async-validator'
 import { props } from './formItemProps'
-import AdnyFormDetail from '../../form-details'
+import { AdnyFormDetail } from '../../form-details'
 import { useValidate } from '../../../utils/async-validator'
 export default defineComponent({
+  name: 'AFormItem',
   props,
   components: {
     AdnyFormDetail

@@ -1,15 +1,15 @@
 <template>
   <div
-    class="var-image var--box"
+    class="adny-image adny--box"
     :style="{
       width: toSizeUnit(width),
       height: toSizeUnit(height),
       'border-radius': toSizeUnit(radius),
     }"
-    :class="[!block ? 'var--inline-block' : null]"
+    :class="[!block ? 'adny--inline-block' : null]"
   >
     <img
-      class="var-image__image"
+      class="adny-image__image"
       :alt="alt"
       :lazy-error="error"
       :lazy-loading="loading"
@@ -21,7 +21,7 @@
     />
 
     <img
-      class="var-image__image"
+      class="adny-image__image"
       :alt="alt"
       :style="{ objectFit: fit }"
       :src="src"
@@ -40,7 +40,7 @@ import { toSizeUnit } from '../../../utils/elements'
 // import type { LazyHTMLElement } from '../lazy'
 
 export default defineComponent({
-  name: 'VarImage',
+  name: 'AImg',
   props,
   setup(props) {
     const handleLoad = (e: Event) => {

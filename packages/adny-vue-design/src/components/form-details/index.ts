@@ -1,10 +1,17 @@
 import type { App } from 'vue'
 import AdnyFormDetail from './src/FormDetails.vue'
 
-// FormDetails.install = function (app: App) {
-//   app.component(FormDetails.name, FormDetails)
-// }
+AdnyFormDetail.install = function (app: App): void {
+  app.component(AdnyFormDetail.name, AdnyFormDetail)
+}
 
-// export const _FormDetailsComponent = FormDetails
+export { AdnyFormDetail }
 
-export default AdnyFormDetail
+export default {
+  title: 'AdnyFormDetail 校验表单',
+  category: '反馈',
+  status: '30%',
+  install(app: App): void {
+    app.use(AdnyFormDetail as any)
+  }
+}

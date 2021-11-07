@@ -6,7 +6,7 @@ import type { Ref } from 'vue'
 import '../../../styles/common.less'
 import '../styles/icon.less'
 export default defineComponent({
-  name: 'AdnyIcon',
+  name: 'AIcon',
   props,
   setup(props) {
     const name: Ref<string | undefined> = ref('')

@@ -28,6 +28,7 @@
 import { defineComponent } from 'vue'
 import { RippleDirective } from '../../../directives/ripple'
 export default defineComponent({
+  name: 'ABtn',
   directives: {
     ripple: RippleDirective
   },

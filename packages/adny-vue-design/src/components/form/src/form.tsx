@@ -2,6 +2,7 @@ import { defineComponent, provide, getCurrentInstance, ref, onMounted } from 'vu
 import { props } from './formProps'
 import { useValidate } from '../../../utils/async-validator'
 export default defineComponent({
+  name: 'AForm',
   props,
   setup(props, ctx) {
     const { errorMessage } = useValidate()

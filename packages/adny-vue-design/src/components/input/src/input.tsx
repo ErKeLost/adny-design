@@ -1,5 +1,5 @@
 import { defineComponent, ref, computed, nextTick, watch, inject, getCurrentInstance } from 'vue'
-import AdnyFormDetails from '../../form-details'
+import { AdnyFormDetail } from '../../form-details'
 import { props } from './props'
 import { isEmpty } from '../../../utils/common'
 import { useValidate } from '../../../utils/async-validator'
@@ -7,10 +7,10 @@ import '../../../styles/common.less'
 import '../../../styles/elevation.less'
 import '../styles/input.less'
 export default defineComponent({
-  name: 'AdnyInput',
+  name: 'AInput',
   props,
   components: {
-    AdnyFormDetails
+    AdnyFormDetail
   },
   setup(props, { emit, slots }) {
     const inputInstance = getCurrentInstance()
@@ -198,7 +198,7 @@ export default defineComponent({
             </div>
           ) : null}
           {props.rules ? (
-            <adny-form-details
+            <adny-form-detail
               error-message={errorMessage.value}
               maxlength-text={maxlengthText.value}
             />

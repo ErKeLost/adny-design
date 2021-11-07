@@ -5,7 +5,7 @@ import '../../../styles/common.less'
 import '../../../styles/elevation.less'
 import '../styles/card.less'
 export default defineComponent({
-  name: 'AdnyCard',
+  name: 'ACard',
   props,
   setup(props, ctx) {
     const cardClass = [
