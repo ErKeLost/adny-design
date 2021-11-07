@@ -2,7 +2,7 @@
 
 ```vue
 <template>
-  <a-img />
+  <a-img src="https://w.wallhaven.cc/full/3z/wallhaven-3z6v6v.jpg" />
 </template>
 <script >
 import {defineComponent, ref, watch } from 'vue'
