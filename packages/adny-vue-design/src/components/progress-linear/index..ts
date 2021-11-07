@@ -1,3 +1,3 @@
-import AProgressLinear from './src/progress-linear.vue'
+import ProgressLinear from './src/progress-linear.vue'
 
-export default AProgressLinear
+export default ProgressLinear

@@ -2,14 +2,19 @@
 
 ```vue
 <template>
-  <div>
-    <a-progress-linear indeterminate :track="true" />
-  </div>
+  <a-img />
 </template>
 <script >
 import {defineComponent, ref, watch } from 'vue'
 export default defineComponent({
-
+  setup() {
+    const value = ref('')
+    watch(() => value.value, (ne) => {
+    })
+    return {
+      value
+    }
+  }
 })
 </script>
 ```
