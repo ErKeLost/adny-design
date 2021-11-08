@@ -17,7 +17,8 @@ const sidebar = {
         { text: 'Message 消息', link: '/components/message/' },
         { text: 'Notification 通知', link: '/components/notification/' },
         { text: 'Progress-linear 进度条', link: '/components/progress-linear/' },
-        { text: 'Images 图像', link: '/components/images/' }
+        { text: 'Images 图像', link: '/components/images/' },
+        { text: 'Container 容器', link: '/components/container/' }
       ]
     },
     { text: '导航' },

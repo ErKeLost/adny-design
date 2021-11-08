@@ -10,7 +10,7 @@ import ImageInstall, { AImage } from './images'
 import MessageInstall, { Message } from './message'
 import NotificationInstall, { Notification } from './notification'
 import ProgressLinearInstall, { ProgressLinear } from './progress-linear'
-
+import ContainerInstall, { Aside, Footer, Header, Main, Contaniner } from './container'
 const installed = [
   ButtonInstall,
   CardInstall,
@@ -21,7 +21,8 @@ const installed = [
   ImageInstall,
   MessageInstall,
   NotificationInstall,
-  ProgressLinearInstall
+  ProgressLinearInstall,
+  ContainerInstall
 ]
 export {
   ABtn,
@@ -33,7 +34,12 @@ export {
   AImage,
   Message,
   Notification,
-  ProgressLinear
+  ProgressLinear,
+  Aside,
+  Footer,
+  Main,
+  Header,
+  Contaniner
 }
 export default {
   version: '0.0.1',

@@ -1,0 +1,50 @@
+@aside-width: 300px;
+@footer-height: 0px;
+@header-height: 0px;
+@footer-padding: 10px;
+@header-padding: 0px 20px;
+@main-padding: 20px;
+
+:root {
+  --aside-width: @aside-width;
+  --footer-height: @footer-height;
+  --header-height: @header-height;
+  --footer-padding: @footer-padding;
+  --header-padding: @header-padding;
+  --main-padding: @main-padding;
+}
+.adny-aside {
+  width: 300px;
+  overflow: auto;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.adny-footer {
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.adny-header {
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.adny-main {
+  display: block;
+  flex: 1;
+  flex-basis: auto;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.adny-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-basis: auto;
+  box-sizing: border-box;
+  min-width: 0;
+  &--vertical {
+    flex-direction: column;
+  }
+}
