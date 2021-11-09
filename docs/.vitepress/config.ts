@@ -19,7 +19,8 @@ const sidebar = {
         { text: 'Progress-linear 进度条', link: '/components/progress-linear/' },
         { text: 'Images 图像', link: '/components/images/' },
         { text: 'Container 容器', link: '/components/container/' },
-        { text: 'AppBar 应用栏', link: '/components/appbar/' }
+        { text: 'AppBar 应用栏', link: '/components/appbar/' },
+        { text: 'Grid 布局', link: '/components/grid/' }
       ]
     },
     { text: '导航' },

@@ -4,12 +4,16 @@
 <template>
   <div class="common-layout">
     <a-container class="a-container">
-      <a-header class="a-header">Header</a-header>
+      <a-header class="a-header">
+        <a-app-bar />
+      </a-header>
       <a-main class="a-main">Main</a-main>
     </a-container>
 
     <a-container class="a-container">
-      <a-header class="a-header">Header</a-header>
+      <a-header class="a-header">
+        <a-app-bar />
+      </a-header>
       <a-main class="a-main">Main</a-main>
       <a-footer class="a-footer">Footer</a-footer>
     </a-container>
@@ -20,7 +24,9 @@
     </a-container>
 
     <a-container class="a-container">
-      <a-header class="a-header">Header</a-header>
+      <a-header class="a-header">
+        <a-app-bar />
+      </a-header>
       <a-container class="a-container">
         <a-aside class="a-aside" width="200px">Aside</a-aside>
         <a-main class="a-main">Main</a-main>
@@ -28,7 +34,9 @@
     </a-container>
 
     <a-container class="a-container">
-      <a-header class="a-header">Header</a-header>
+      <a-header class="a-header">
+        <a-app-bar />
+      </a-header>
       <a-container class="a-container">
         <a-aside class="a-aside" width="200px">Aside</a-aside>
         <a-container>
@@ -41,7 +49,9 @@
     <a-container class="a-container">
       <a-aside class="a-aside" width="200px">Aside</a-aside>
       <a-container>
-        <a-header class="a-header">Header</a-header>
+        <a-header class="a-header">
+          <a-app-bar />
+        </a-header>
         <a-main class="a-main">Main</a-main>
       </a-container>
     </a-container>
@@ -49,7 +59,9 @@
     <a-container class="a-container">
       <a-aside class="a-aside" width="200px">Aside</a-aside>
       <a-container>
-        <a-header class="a-header">Header</a-header>
+        <a-header class="a-header">
+          <a-app-bar />
+        </a-header>
         <a-main class="a-main">Main</a-main>
         <a-footer class="a-footer">Footer</a-footer>
       </a-container>

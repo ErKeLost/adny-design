@@ -12,6 +12,7 @@ import NotificationInstall, { Notification } from './notification'
 import ProgressLinearInstall, { ProgressLinear } from './progress-linear'
 import ContainerInstall, { Aside, Footer, Header, Main, Contaniner } from './container'
 import AppBarInstall, { AppBar } from './app-bar'
+import GridInstall, { Grid, GridItem } from './grid'
 const installed = [
   ButtonInstall,
   CardInstall,
@@ -24,7 +25,8 @@ const installed = [
   NotificationInstall,
   ProgressLinearInstall,
   ContainerInstall,
-  AppBarInstall
+  AppBarInstall,
+  GridInstall
 ]
 export {
   ABtn,
@@ -42,7 +44,9 @@ export {
   Main,
   Header,
   Contaniner,
-  AppBar
+  AppBar,
+  Grid,
+  GridItem
 }
 export default {
   version: '0.0.1',
