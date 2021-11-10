@@ -29,7 +29,7 @@
   "dependencies": {
     "async-validator": "^4.0.7",
     "mitt": "^3.0.0",
-    "sass": "^1.43.4",
+    "sass": "1.32.6",
     "vitepress": "^0.20.0"
   }
 }

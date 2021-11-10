@@ -20,7 +20,8 @@ const sidebar = {
         { text: 'Images 图像', link: '/components/images/' },
         { text: 'Container 容器', link: '/components/container/' },
         { text: 'AppBar 应用栏', link: '/components/appbar/' },
-        { text: 'Grid 布局', link: '/components/grid/' }
+        { text: 'Grid 布局', link: '/components/grid/' },
+        { text: 'Chip 纸片', link: '/components/chip/' }
       ]
     },
     { text: '导航' },

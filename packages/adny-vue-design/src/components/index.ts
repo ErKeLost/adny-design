@@ -13,6 +13,7 @@ import ProgressLinearInstall, { ProgressLinear } from './progress-linear'
 import ContainerInstall, { Aside, Footer, Header, Main, Contaniner } from './container'
 import AppBarInstall, { AppBar } from './app-bar'
 import GridInstall, { Grid, GridItem } from './grid'
+import ChipInstall, { Chip } from './chip'
 const installed = [
   ButtonInstall,
   CardInstall,
@@ -26,7 +27,8 @@ const installed = [
   ProgressLinearInstall,
   ContainerInstall,
   AppBarInstall,
-  GridInstall
+  GridInstall,
+  ChipInstall
 ]
 export {
   ABtn,
@@ -46,7 +48,8 @@ export {
   Contaniner,
   AppBar,
   Grid,
-  GridItem
+  GridItem,
+  Chip
 }
 export default {
   version: '0.0.1',
