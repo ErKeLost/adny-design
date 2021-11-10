@@ -1,15 +1,110 @@
 import { App } from 'vue'
 
-import ADialog from './src/dialog.vue'
+import Dialog from './src/dialog.vue'
 
-export { ADialog }
+export { Dialog }
 
-ADialog.install = function (app: App) {
-  app.component(ADialog.name, ADialog)
+console.log(Dialog.name)
+
+Dialog.install = function (app: App) {
+  app.component(Dialog.name, Dialog)
 }
 
 export default {
   install(app: App) {
-    app.use(ADialog as any)
+    app.use(Dialog as any)
   }
 }
+// import { reactive, nextTick } from 'vue'
+// import { inBrowser, isString } from '../../utils/shared'
+// import { mountInstance } from '../../utils/components'
+// import type { TeleportProps } from 'vue'
+
+// interface DialogOptions {
+//   show?: boolean
+//   title?: string
+//   message?: string
+//   messageAlign?: string
+//   confirmButton?: boolean
+//   cancelButton?: boolean
+//   confirmButtonText?: string
+//   cancelButtonText?: string
+//   confirmButtonTextColor?: string
+//   cancelButtonTextColor?: string
+//   confirmButtonColor?: string
+//   cancelButtonColor?: string
+//   overlay?: boolean
+//   overlayClass?: string
+//   overlayStyle?: Record<string, any>
+//   lockScroll?: boolean
+//   closeOnClickOverlay?: boolean
+//   onOpen?: () => void
+//   onOpened?: () => void
+//   onBeforeClose?: (done: () => void) => void
+//   onClose?: () => void
+//   onClosed?: () => void
+//   onConfirm?: () => void
+//   onCancel?: () => void
+//   onClickOverlay?: () => void
+//   // internal
+//   teleport?: TeleportProps['to']
+// }
+
+// export type DialogActions = 'confirm' | 'cancel' | 'close'
+
+// let singletonOptions: DialogOptions | null
+
+// function Dialog(options: DialogOptions | string): Promise<DialogActions | void> {
+//   if (!inBrowser) {
+//     return Promise.resolve()
+//   }
+
+//   return new Promise((resolve) => {
+//     Dialog.close()
+
+//     const dialogOptions: DialogOptions = isString(options) ? { message: options } : options
+//     const reactiveDialogOptions: DialogOptions = reactive(dialogOptions)
+//     reactiveDialogOptions.teleport = 'body'
+//     singletonOptions = reactiveDialogOptions
+
+//     const { unmountInstance } = mountInstance(ADialog, reactiveDialogOptions, {
+//       onConfirm: () => {
+//         reactiveDialogOptions.onConfirm?.()
+//         resolve('confirm')
+//       },
+//       onCancel: () => {
+//         reactiveDialogOptions.onCancel?.()
+//         resolve('cancel')
+//       },
+//       onClose: () => {
+//         reactiveDialogOptions.onClose?.()
+//         resolve('close')
+//       },
+//       onClosed: () => {
+//         reactiveDialogOptions.onClosed?.()
+//         unmountInstance()
+//         singletonOptions === reactiveDialogOptions && (singletonOptions = null)
+//       },
+//       onRouteChange: () => {
+//         unmountInstance()
+//         singletonOptions === reactiveDialogOptions && (singletonOptions = null)
+//       },
+//       'onUpdate:show': (value: boolean) => {
+//         reactiveDialogOptions.show = value
+//       }
+//     })
+
+//     reactiveDialogOptions.show = true
+//   })
+// }
+
+// Dialog.close = () => {
+//   if (singletonOptions != null) {
+//     const prevSingletonOptions = singletonOptions
+//     singletonOptions = null
+
+//     nextTick().then(() => {
+//       prevSingletonOptions.show = false
+//     })
+//   }
+// }
