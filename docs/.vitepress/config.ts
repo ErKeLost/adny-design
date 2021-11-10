@@ -21,7 +21,8 @@ const sidebar = {
         { text: 'Container 容器', link: '/components/container/' },
         { text: 'AppBar 应用栏', link: '/components/appbar/' },
         { text: 'Grid 布局', link: '/components/grid/' },
-        { text: 'Chip 纸片', link: '/components/chip/' }
+        { text: 'Chip 纸片', link: '/components/chip/' },
+        { text: 'Drawer 抽屉', link: '/components/drawer/' }
       ]
     },
     { text: '导航' },

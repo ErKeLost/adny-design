@@ -14,6 +14,7 @@ import ContainerInstall, { Aside, Footer, Header, Main, Contaniner } from './con
 import AppBarInstall, { AppBar } from './app-bar'
 import GridInstall, { Grid, GridItem } from './grid'
 import ChipInstall, { Chip } from './chip'
+import DrawerInstall, { Drawer } from './drawer'
 const installed = [
   ButtonInstall,
   CardInstall,
@@ -28,7 +29,8 @@ const installed = [
   ContainerInstall,
   AppBarInstall,
   GridInstall,
-  ChipInstall
+  ChipInstall,
+  DrawerInstall
 ]
 export {
   ABtn,
@@ -49,7 +51,8 @@ export {
   AppBar,
   Grid,
   GridItem,
-  Chip
+  Chip,
+  Drawer
 }
 export default {
   version: '0.0.1',

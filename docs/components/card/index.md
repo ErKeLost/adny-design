@@ -11,7 +11,6 @@
     footerPosition="right"
     shaped
     hover
-    disabled
   >
     <template #cover>
       <img src="https://w.wallhaven.cc/full/x8/wallhaven-x89ezo.jpg" />
@@ -19,8 +18,8 @@
     <template #title> Card title </template>
     <template #extra> Extra Content </template>
     <template #footer>
-      <a-btn disabled text color="#1867c0">提交</a-btn>
-      <a-btn disabled text color="#1867c0">取消</a-btn>
+      <a-btn  text color="#1867c0">提交</a-btn>
+      <a-btn  text color="#1867c0">取消</a-btn>
     </template>
   </a-card>
 </template>
