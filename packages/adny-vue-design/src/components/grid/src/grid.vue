@@ -1,13 +1,13 @@
 
 
 <template>
-  <div class="adny-grid-container" :style="gridColsStyle">
+  <div :class="['adny-grid-container', `adny-grid--${span}`]" :style="gridColsStyle">
     <slot></slot>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, getCurrentInstance, provide, ref, onMounted } from 'vue'
 import { CSSProperties } from 'vue'
 import { gridProps } from './props'
 export default defineComponent({
@@ -15,24 +15,24 @@ export default defineComponent({
   props: gridProps,
   setup(props) {
     const gridColsStyle = computed<CSSProperties>(() => {
-      return props.cols || props.xGap || props.yGap ? {
-        gridTemplateColumns: `repeat(${props.cols}, minmax(0, 1fr))`,
-        gap: `${props.yGap}px ${props.xGap}px`
+      return props.gutter ? {
+        marginLeft: `(${props.gutter} / 2)px`,
+        marginRight: `(${props.gutter} / 2)px`
       } : null
     })
-    console.log(props.xGap);
-    console.log(gridColsStyle.value);
-
+    provide('gutter', props.gutter)
     return {
-      gridColsStyle
+      gridColsStyle,
     }
   }
 })
 </script>
 
-<style lang="less">
+<style lang="scss">
 .adny-grid-container {
-  display: grid;
-  grid-template-rows: repeat(3, 33.33%);
+  display: flex;
+  flex-wrap: wrap;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fill, 100px);
 }
 </style>

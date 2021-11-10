@@ -1,7 +1,36 @@
-const gridItemProps = {}
+const gridItemProps = {
+  span: {
+    type: Number,
+    default: 24
+  },
+  offset: {
+    type: Number,
+    default: 0
+  },
+  xs: {
+    type: Number || Object,
+    default: 0
+  },
+  sm: {
+    type: Number || Object,
+    default: 0
+  },
+  md: {
+    type: Number || Object,
+    default: 0
+  },
+  lg: {
+    type: Number || Object,
+    default: 0
+  },
+  xl: {
+    type: Number || Object,
+    default: 0
+  }
+}
 
 const gridProps = {
-  cols: {
+  span: {
     type: Number,
     default: 24
   },
@@ -9,7 +38,7 @@ const gridProps = {
     type: Number,
     default: 0
   },
-  xGap: {
+  gutter: {
     type: Number,
     default: 0
   }

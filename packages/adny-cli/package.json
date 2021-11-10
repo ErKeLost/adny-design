@@ -30,6 +30,7 @@
     "prettier": "^2.4.1"
   },
   "dependencies": {
+    "sass": "^1.43.4",
     "vitepress": "^0.20.0"
   }
 }
