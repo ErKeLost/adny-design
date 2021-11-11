@@ -99,9 +99,6 @@ export default defineComponent({
       }
     })
     onMounted(() => {
-      console.log(btn.value);
-
-      console.log(btn.value.style.backgroundColor = props.type);
     })
     const changeBg = () => {
       btn.value.style.backgroundColor = `${props.color}30`

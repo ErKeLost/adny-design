@@ -19,7 +19,6 @@ export default defineComponent({
         return
       }
       shrinking.value = true
-      console.log(name)
 
       await nextTick()
       setTimeout(() => {

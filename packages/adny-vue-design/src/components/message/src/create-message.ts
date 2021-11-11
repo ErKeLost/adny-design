@@ -15,8 +15,6 @@ const Message = (options: IMessageParams) => {
   instance.forEach((item) => {
     offset += (item.el!.offsetHeight || 0) + 16
   })
-  console.log(offset)
-
   offset += 16
   const id = 'message_' + vmSeed++
   let userClose = options.onClose

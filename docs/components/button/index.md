@@ -31,6 +31,11 @@
   <div class="a-btn">
     <a-btn tite elevation="12" type="success">DANGER</a-btn>
   </div>
+  <div class="a-btn">
+    <a-btn text type="success" icon>
+      <a-icon name="window-close"></a-icon>
+    </a-btn>
+  </div>
 </template>
 <style>
 .a-btn {

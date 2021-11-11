@@ -11,9 +11,7 @@ export default defineComponent({
     const validate = (callback) => {
       const result = formInstance?.subTree.children[0].children
       const a = result.filter((item) => item?.props?.prop)
-      console.log(a)
       const res = a.map((item) => item.component.exposed.validator())
-      console.log(res)
 
       return Promise.all(res)
         .then(() => callback(true))
