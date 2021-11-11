@@ -122,7 +122,7 @@ export default {
 
 .block {
   padding: 20px 24px;
-  width: 1550px;
+  width: 100%;
   color: #555;
 }
 .block-a {
