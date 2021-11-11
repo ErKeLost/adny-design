@@ -15,7 +15,8 @@
     :radius="false"
   >
       <template #cover>
-      <img src="https://w.wallhaven.cc/full/wq/wallhaven-wqd7pq.jpg" />
+      <!-- <img src="https://w.wallhaven.cc/full/wq/wallhaven-wqd7pq.jpg" /> -->
+      <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cbf6426ff65495ab1cfcd04f195b538~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp">
     </template>
     <template #title> Card title </template>
     <template #extra> Extra Content </template>

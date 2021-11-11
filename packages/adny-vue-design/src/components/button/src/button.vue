@@ -3,6 +3,8 @@
     ref="btn"
     id="btn"
     class="adny-button adny--box"
+    @mousemove="changeBg"
+    @mouseleave="moveBg"
     v-ripple="{ disabled }"
     :class="[
       `adny-button--${size}`,
@@ -89,16 +91,28 @@ export default defineComponent({
   },
   setup(props) {
     const btn = ref(null)
+
     const textBgColor = computed(() => {
       return {
         backgroundColor: `currentColor`
       }
     })
     onMounted(() => {
+      console.log(btn.value);
+
+      console.log(btn.value.style.backgroundColor = props.type);
     })
+    const changeBg = () => {
+      btn.value.style.backgroundColor = `${props.color}30`
+    }
+    const moveBg = () => {
+      btn.value.style.backgroundColor = ''
+    }
     return {
       textBgColor,
-      btn
+      btn,
+      changeBg,
+      moveBg
     }
   }
 })

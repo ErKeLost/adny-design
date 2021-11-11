@@ -12,10 +12,10 @@
     <a-btn disabled>DISABLED</a-btn>
   </div>
   <div class="a-btn">
-    <a-btn text outline type="success">SUCCESS</a-btn>
+    <a-btn text outline color="#fbafba">SUCCESS</a-btn>
   </div>
   <div class="a-btn">
-    <a-btn text type="danger">SUCCESS</a-btn>
+    <a-btn text color="#ff6347">SUCCESS</a-btn>
   </div>  <div class="a-btn">
     <a-btn elevation="12" type="primary">DANGER</a-btn>
   </div>
