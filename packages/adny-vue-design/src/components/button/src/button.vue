@@ -22,6 +22,7 @@
       fab && size === 'normal' ? 'adny-button--float-normal' : null,
       icon ? 'adny-button--icon' : null,
       tite ? 'adny-button--tite' : null,
+      text ? `adny-button--${type}__hover` : null,
     ]"
     :style="{ color }"
   >

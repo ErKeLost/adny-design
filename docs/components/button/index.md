@@ -16,6 +16,9 @@
   </div>
   <div class="a-btn">
     <a-btn text color="#ff6347">SUCCESS</a-btn>
+    <a-btn text type="primary">SUCCESS</a-btn>
+    <a-btn text type="success">SUCCESS</a-btn>
+    <a-btn text type="warning">SUCCESS</a-btn>
   </div>  <div class="a-btn">
     <a-btn elevation="12" type="primary">DANGER</a-btn>
   </div>
