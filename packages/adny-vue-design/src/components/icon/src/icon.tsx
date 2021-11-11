@@ -43,7 +43,7 @@ export default defineComponent({
     }
     return () => {
       return (
-        <>
+        <div style="display: inline-block">
           {isURL(props.name) ? (
             <img onClick={props.onClick} src={name.value} style={iconImgStyle} class={iconClass} />
           ) : (
@@ -58,7 +58,7 @@ export default defineComponent({
               ]}
             ></i>
           )}
-        </>
+        </div>
       )
     }
   }

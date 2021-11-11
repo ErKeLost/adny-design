@@ -5,6 +5,18 @@ function positionValidator(position: string): boolean {
 }
 
 export const props = {
+  iconColor: {
+    type: String,
+    default: ''
+  },
+  closeIcon: {
+    type: String,
+    default: ''
+  },
+  fullScreen: {
+    type: Boolean,
+    default: false
+  },
   show: {
     type: Boolean,
     default: false

@@ -2,23 +2,23 @@ import type { PropType } from 'vue'
 
 export const props = {
   name: {
-    type: String,
+    type: String
   },
   size: {
-    type: [Number, String],
+    type: [Number, String]
   },
   color: {
-    type: String,
+    type: String
   },
   namespace: {
     type: String,
-    default: 'adny-icon',
+    default: 'adny-icon'
   },
   transition: {
     type: [Number, String],
-    default: 0,
+    default: 0
   },
   onClick: {
-    type: Function as PropType<(event: Event) => void>,
-  },
+    type: Function as PropType<(event: Event) => void>
+  }
 }

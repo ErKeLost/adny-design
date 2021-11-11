@@ -1,5 +1,7 @@
 <template>
   <button
+    ref="btn"
+    id="btn"
     class="adny-button adny--box"
     v-ripple="{ disabled }"
     :class="[
@@ -25,7 +27,7 @@
   </button>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed, getCurrentInstance, ref, onMounted } from 'vue'
 import { RippleDirective } from '../../../directives/ripple'
 export default defineComponent({
   name: 'ABtn',
@@ -83,6 +85,20 @@ export default defineComponent({
     tite: {
       type: Boolean,
       default: false
+    }
+  },
+  setup(props) {
+    const btn = ref(null)
+    const textBgColor = computed(() => {
+      return {
+        backgroundColor: `currentColor`
+      }
+    })
+    onMounted(() => {
+    })
+    return {
+      textBgColor,
+      btn
     }
   }
 })

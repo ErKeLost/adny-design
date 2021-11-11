@@ -70,6 +70,11 @@
 </a-drawer>
 
 <a-drawer position="left" v-model:show="left">
+  <a-app-bar title="安东尼娅">
+    <template #left>
+      <a-icon name="window-close" :size="24" />
+    </template>
+  </a-app-bar>
   <div class="block">
     素胚勾勒出青花笔锋浓转淡, 
     瓶身描绘的牡丹一如你初妆,
@@ -78,8 +83,10 @@
   </div>
 </a-drawer>
 
-<a-drawer position="right" v-model:show="right">
-  <div class="block">
+<a-drawer closeIcon="cloud1" iconColor="red" size="30" fullScreen position="right" v-model:show="right">
+
+  <div class="block-a">
+    1321321
     素胚勾勒出青花笔锋浓转淡, 
     瓶身描绘的牡丹一如你初妆, 
     冉冉檀香透过窗心事我了然, 
@@ -115,7 +122,11 @@ export default {
 
 .block {
   padding: 20px 24px;
-  width: 250px;
+  width: 1550px;
+  color: #555;
+}
+.block-a {
+  padding: 20px 24px;
   color: #555;
 }
 </style>

@@ -27,6 +27,7 @@
         <a-btn
           class="var-dialog__button var-dialog__cancel-button"
           var-dialog-cover
+          hover
           text
           :text-color="cancelButtonTextColor"
           :color="cancelButtonColor"
