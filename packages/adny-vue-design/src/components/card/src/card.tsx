@@ -11,6 +11,7 @@ export default defineComponent({
     const cardClass = [
       props.elevation ? `adny-elevation--${props.elevation}` : 'adny-elevation--2',
       'adny-card',
+      !props.radius ? '' : 'adny-card__radius',
       props.hover ? 'adny-card__hover' : null,
       props.shaped ? 'adny-card__shaped' : null,
       props.disabled ? 'adny-card__disabled' : null

@@ -7,6 +7,10 @@ function messageAlignValidator(messageAlign: string): boolean {
 }
 
 export const props = {
+  custom: {
+    type: Boolean,
+    default: false
+  },
   show: {
     type: Boolean,
     default: false

@@ -16,7 +16,7 @@
     @route-change="onRouteChange"
     @click-overlay="handleClickOverlay"
   >
-    <div class="var--box var-dialog" v-bind="$attrs">
+    <div v-if="!custom" class="var--box var-dialog" v-bind="$attrs">
       <div class="var-dialog__title">
         <slot name="title">{{ title }}</slot>
       </div>
@@ -44,6 +44,9 @@
           @click="confirm"
         >确定</a-btn>
       </div>
+    </div>
+    <div v-else class="var--box var-dialog">
+      <slot></slot>
     </div>
   </a-drawer>
 </template>

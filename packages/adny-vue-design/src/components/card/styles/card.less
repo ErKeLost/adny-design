@@ -1,6 +1,5 @@
-@import "./_variables.less";
+@import './_variables.less';
 .adny-card {
-  border-radius: var(--card-border-radius);
   overflow: hidden;
   padding: var(--card-padding);
   line-height: var(--card-line-height);
@@ -8,6 +7,10 @@
     width: var(--card-image-width);
     height: var(--card-image-height);
     display: block;
+  }
+
+  &__radius {
+    border-radius: var(--card-border-radius);
   }
 
   &__shaped {
