@@ -16,6 +16,7 @@ import GridInstall, { Grid, GridItem } from './grid'
 import ChipInstall, { Chip } from './chip'
 import DrawerInstall, { Drawer } from './drawer'
 import DialogInstall, { Dialog } from './dialog'
+import DividerInstall, { ADivider } from './divider'
 const installed = [
   ButtonInstall,
   CardInstall,
@@ -32,7 +33,8 @@ const installed = [
   GridInstall,
   ChipInstall,
   DrawerInstall,
-  DialogInstall
+  DialogInstall,
+  DividerInstall
 ]
 export {
   ABtn,
@@ -55,7 +57,8 @@ export {
   GridItem,
   Chip,
   Drawer,
-  Dialog
+  Dialog,
+  ADivider
 }
 export default {
   version: '0.0.1',

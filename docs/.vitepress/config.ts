@@ -23,7 +23,8 @@ const sidebar = {
         { text: 'Grid 布局', link: '/components/grid/' },
         { text: 'Chip 纸片', link: '/components/chip/' },
         { text: 'Drawer 抽屉', link: '/components/drawer/' },
-        { text: 'Dialog 对话框', link: '/components/dialog/' }
+        { text: 'Dialog 对话框', link: '/components/dialog/' },
+        { text: 'Divider 分割线', link: '/components/divider/' }
       ]
     },
     { text: '导航' },
