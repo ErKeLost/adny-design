@@ -1,27 +1,43 @@
-import type { App } from 'vue'
+import type { App } from "vue";
 
-import ButtonInstall, { ABtn } from './button'
-import CardInstall, { ACard } from './card'
-import IputInstall, { AIput } from './input'
-import IconInstall, { AIcon } from './icon'
-import AdnyFormDetailInstall, { AdnyFormDetail } from './form-details'
-import FormInstall, { AForm, AFormItem } from './form'
-import ImageInstall, { AImage } from './images'
-import MessageInstall, { Message } from './message'
-import NotificationInstall, { Notification } from './notification'
-import ProgressLinearInstall, { ProgressLinear } from './progress-linear'
-import ContainerInstall, { Aside, Footer, Header, Main, Contaniner } from './container'
-import AppBarInstall, { AppBar } from './app-bar'
-import GridInstall, { Grid, GridItem } from './grid'
-import ChipInstall, { Chip } from './chip'
-import DrawerInstall, { Drawer } from './drawer'
-import DialogInstall, { Dialog } from './dialog'
-import DividerInstall, { ADivider } from './divider'
-import CarouselInstall, { ACarousel } from './carousel'
-import CarouselItemInstall, { ACarouselItem } from './carousel-item'
+import ButtonInstall, { ABtn } from "./button";
+import CardInstall, { ACard } from "./card";
+import IputInstall, { AIput } from "./input";
+import IconInstall, { AIcon } from "./icon";
+import AdnyFormDetailInstall, { AdnyFormDetail } from "./form-details";
+import FormInstall, { AForm, AFormItem } from "./form";
+import ImageInstall, { AImage } from "./images";
+import MessageInstall, { Message } from "./message";
+import NotificationInstall, { Notification } from "./notification";
+import ProgressLinearInstall, { ProgressLinear } from "./progress-linear";
+import ContainerInstall, {
+  Aside,
+  Footer,
+  Header,
+  Main,
+  Contaniner,
+} from "./container";
+import AppBarInstall, { AppBar } from "./app-bar";
+import GridInstall, { Grid, GridItem } from "./grid";
+import ChipInstall, { Chip } from "./chip";
+import DrawerInstall, { Drawer } from "./drawer";
+import DialogInstall, { Dialog } from "./dialog";
+import DividerInstall, { ADivider } from "./divider";
+import CarouselInstall, { ACarousel } from "./carousel";
+import CarouselItemInstall, { ACarouselItem } from "./carousel-item";
+import TabInstall, { ATab } from "./tab";
+import TabsInstall, { ATabs } from "./tabs";
+import TabItemInstall, { ATabItem } from "./tab-item";
+import TabsItemInstall, { ATabsItem } from "./tabs-item";
+import StickyInstall, { ASticky } from "./sticky";
 const installed = [
+  StickyInstall,
+  TabInstall,
+  TabsInstall,
   ButtonInstall,
+  TabItemInstall,
   CardInstall,
+  TabsItemInstall,
   IputInstall,
   IconInstall,
   AdnyFormDetailInstall,
@@ -38,9 +54,10 @@ const installed = [
   DialogInstall,
   DividerInstall,
   CarouselInstall,
-  CarouselItemInstall
-]
+  CarouselItemInstall,
+];
 export {
+  ASticky,
   ABtn,
   ACard,
   AIput,
@@ -64,11 +81,15 @@ export {
   Dialog,
   ADivider,
   ACarouselItem,
-  ACarousel
-}
+  ACarousel,
+  ATabs,
+  ATabItem,
+  ATabsItem,
+  ATab,
+};
 export default {
-  version: '0.0.1',
+  version: "0.0.1",
   install(app: App): void {
-    installed.forEach((p) => app.use(p as any))
-  }
-}
+    installed.forEach((p) => app.use(p as any));
+  },
+};

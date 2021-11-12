@@ -29,6 +29,7 @@ const sidebar = {
         { text: "Dialog 对话框", link: "/components/dialog/" },
         { text: "Divider 分割线", link: "/components/divider/" },
         { text: "Carousel 轮播", link: "/components/carousel/" },
+        { text: "Tabs 选项卡", link: "/components/tabs/" },
       ],
     },
     { text: "导航" },
