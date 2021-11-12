@@ -2258,7 +2258,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["onBeforeLeave"]);
 }
-var AdnyMessage = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-58cd66fe"]]);
+var AdnyMessage = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-8a9a840e"]]);
 const messageTypes = ["success", "info", "warning", "danger"];
 const instance$1 = [];
 let vmSeed$1 = 1;
@@ -2482,7 +2482,7 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["name", "onBeforeLeave"]);
 }
-var AdnyNotification = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-206fc4bd"]]);
+var AdnyNotification = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-6a8f1c45"]]);
 const notificationType = ["info", "warning", "danger", "success"];
 const instance = [];
 let vmSeed = 1;
@@ -2772,7 +2772,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     renderSlot(_ctx.$slots, "default", {}, void 0, true)
   ], 4);
 }
-var Footer = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c], ["__scopeId", "data-v-db16d160"]]);
+var Footer = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c], ["__scopeId", "data-v-6ae23670"]]);
 var header_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$b = defineComponent({
   name: "AHeader",
@@ -2798,7 +2798,7 @@ function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     renderSlot(_ctx.$slots, "default", {}, void 0, true)
   ], 4);
 }
-var Header = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b], ["__scopeId", "data-v-176d6470"]]);
+var Header = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b], ["__scopeId", "data-v-68947d80"]]);
 var main_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$a = defineComponent({
   name: "AMain"
@@ -2809,7 +2809,7 @@ function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     renderSlot(_ctx.$slots, "default", {}, void 0, true)
   ]);
 }
-var Main = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a], ["__scopeId", "data-v-6acd46a6"]]);
+var Main = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a], ["__scopeId", "data-v-31af7b96"]]);
 var aside_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$9 = defineComponent({
   name: "AAside",
@@ -2835,7 +2835,7 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     renderSlot(_ctx.$slots, "default", {}, void 0, true)
   ], 4);
 }
-var Aside = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9], ["__scopeId", "data-v-dc0ec6c0"]]);
+var Aside = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9], ["__scopeId", "data-v-26653e18"]]);
 var container_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$8 = defineComponent({
   name: "AContainer",
@@ -2874,7 +2874,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     renderSlot(_ctx.$slots, "default", {}, void 0, true)
   ], 2);
 }
-var Contaniner = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8], ["__scopeId", "data-v-fe90a1f8"]]);
+var Contaniner = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8], ["__scopeId", "data-v-1f6ce708"]]);
 Aside.install = function(app) {
   app.component(Aside.name, Aside);
 };

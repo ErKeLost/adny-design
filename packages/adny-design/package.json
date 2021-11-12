@@ -1,0 +1,56 @@
+{
+  "name": "adny-design",
+  "version": "0.0.0",
+  "main": "adny-design.umd.js",
+  "module": "adny-design.es.js",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "register:components": "vitepress-rc",
+    "cli:dev": "esbuild --bundle ./adny-cli/index.js --format=cjs --platform=node --outdir=./lib --watch",
+    "cli:build": "esbuild --bundle ./adny-cli/index.js --format=cjs --platform=node --outdir=./lib",
+    "cli": "node ./lib/index.js create",
+    "test": "jest",
+    "build:components": "node ./packages/adny-cli/commands/build.js",
+    "build:lib": "yarn build:components && cp package.json build && cp README.md build"
+  },
+  "dependencies": {
+    "vue": "^3.2.16"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/jest": "^27.0.2",
+    "@vitejs/plugin-vue": "^1.9.3",
+    "@vitejs/plugin-vue-jsx": "^1.2.0",
+    "@vue/babel-plugin-jsx": "^1.1.1",
+    "@vue/test-utils": "^2.0.0-rc.16",
+    "async-validator": "^4.0.7",
+    "babel-jest": "^27.3.1",
+    "commander": "^8.3.0",
+    "esbuild": "^0.13.10",
+    "fs-extra": "^10.0.0",
+    "inquirer": "^8.2.0",
+    "jest": "^27.3.1",
+    "kolorist": "^1.5.0",
+    "lerna": "^4.0.0",
+    "less": "^4.1.2",
+    "patch-vue-directive-ssr": "^0.0.1",
+    "sass": "1.32.6",
+    "typescript": "^4.4.3",
+    "vite": "^2.6.4",
+    "vitepress": "^0.20.0",
+    "vitepress-theme-demoblock": "^1.2.6",
+    "vue-template-compiler": "^2.6.14",
+    "vue-tsc": "^0.3.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "license": "MIT"
+}
