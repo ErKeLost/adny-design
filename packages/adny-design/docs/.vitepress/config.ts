@@ -30,6 +30,7 @@ const sidebar = {
         { text: "Divider 分割线", link: "/components/divider/" },
         { text: "Carousel 轮播", link: "/components/carousel/" },
         { text: "Tabs 选项卡", link: "/components/tabs/" },
+        { text: "Ripple 水波纹", link: "/components/ripple/" },
       ],
     },
     { text: "导航" },
