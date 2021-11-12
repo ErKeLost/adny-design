@@ -24,7 +24,8 @@ const sidebar = {
         { text: 'Chip 纸片', link: '/components/chip/' },
         { text: 'Drawer 抽屉', link: '/components/drawer/' },
         { text: 'Dialog 对话框', link: '/components/dialog/' },
-        { text: 'Divider 分割线', link: '/components/divider/' }
+        { text: 'Divider 分割线', link: '/components/divider/' },
+        { text: 'Carousel 轮播', link: '/components/carousel/' }
       ]
     },
     { text: '导航' },

@@ -7,6 +7,8 @@
   "description": "🎉 A Vue.js 3 UI Library made by ADNY ERKELOST",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "adny-design.umd.js",
+  "module": "adny-design.es.js",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -15,7 +17,9 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "lerna:build": "lerna run --stream --sort build",
-    "lerna:pub": "lerna publish ----include-merged-tags"
+    "lerna:pub": "lerna publish ----include-merged-tags",
+    "build:components": "node ./packages/adny-cli/commands/build.js",
+    "build:lib": "yarn build:components && cp package.json build && cp README.md build"
   },
   "dependencies": {
     "lerna": "^4.0.0",

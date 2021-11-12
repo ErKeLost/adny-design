@@ -17,6 +17,8 @@ import ChipInstall, { Chip } from './chip'
 import DrawerInstall, { Drawer } from './drawer'
 import DialogInstall, { Dialog } from './dialog'
 import DividerInstall, { ADivider } from './divider'
+import CarouselInstall, { ACarousel } from './carousel'
+import CarouselItemInstall, { ACarouselItem } from './carousel-item'
 const installed = [
   ButtonInstall,
   CardInstall,
@@ -34,7 +36,9 @@ const installed = [
   ChipInstall,
   DrawerInstall,
   DialogInstall,
-  DividerInstall
+  DividerInstall,
+  CarouselInstall,
+  CarouselItemInstall
 ]
 export {
   ABtn,
@@ -58,7 +62,9 @@ export {
   Chip,
   Drawer,
   Dialog,
-  ADivider
+  ADivider,
+  ACarouselItem,
+  ACarousel
 }
 export default {
   version: '0.0.1',
