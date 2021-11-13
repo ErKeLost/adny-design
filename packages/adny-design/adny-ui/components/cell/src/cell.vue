@@ -1,0 +1,44 @@
+<template>
+  <div class="var-cell" :class="[border ? 'var-cell--border' : null]">
+    <div class="var-cell__icon" :class="[iconClass ? iconClass : null]" v-if="$slots.icon || icon">
+      <slot name="icon">
+        <a-icon class="var--flex" :name="icon" />
+      </slot>
+    </div>
+    <div class="var-cell__content">
+      <div class="var-cell__title" :class="[titleClass ? titleClass : null]">
+        <slot>{{ title }}</slot>
+      </div>
+      <div
+        class="var-cell__desc"
+        :class="[descClass ? descClass : null]"
+        v-if="$slots.desc || desc"
+      >
+        <slot name="desc">{{ desc }}</slot>
+      </div>
+    </div>
+    <div class="var-cell__extra" :class="[extraClass ? extraClass : null]" v-if="$slots.extra">
+      <slot name="extra" />
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { props } from './props'
+import { AIcon } from '../../icon'
+
+export default defineComponent({
+  name: 'ACell',
+  components: {
+    AIcon,
+  },
+  props,
+})
+</script>
+
+<style lang="less">
+@import "../../../styles/common";
+@import "../../icon/styles/icon";
+@import "../styles/cell";
+</style>

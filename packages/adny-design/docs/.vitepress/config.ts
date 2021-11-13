@@ -31,6 +31,8 @@ const sidebar = {
         { text: "Carousel 轮播", link: "/components/carousel/" },
         { text: "Tabs 选项卡", link: "/components/tabs/" },
         { text: "Ripple 水波纹", link: "/components/ripple/" },
+        { text: "BackTop 回到顶部", link: "/components/backTop/" },
+        { text: "Cell 单元格", link: "/components/cell/" },
       ],
     },
     { text: "导航" },

@@ -30,6 +30,8 @@ import TabsInstall, { ATabs } from "./tabs";
 import TabItemInstall, { ATabItem } from "./tab-item";
 import TabsItemInstall, { ATabsItem } from "./tabs-item";
 import StickyInstall, { ASticky } from "./sticky";
+import BackTopInstall, { ABackTop } from "./back-top";
+import CellInstall, { ACell } from "./cell";
 const installed = [
   StickyInstall,
   TabInstall,
@@ -55,6 +57,8 @@ const installed = [
   DividerInstall,
   CarouselInstall,
   CarouselItemInstall,
+  BackTopInstall,
+  CellInstall,
 ];
 export {
   ASticky,
@@ -86,6 +90,8 @@ export {
   ATabItem,
   ATabsItem,
   ATab,
+  ABackTop,
+  ACell,
 };
 export default {
   version: "0.0.1",
