@@ -1,5 +1,5 @@
 import demoblock from "vitepress-theme-demoblock";
-
+import head from "./config/head";
 const sidebar = {
   "/": [
     {
@@ -43,9 +43,13 @@ const sidebar = {
   ],
 };
 const config = {
+  title: "Adny Design",
+  description: "Vue Marterial 组件库",
   themeConfig: {
     sidebar,
+    logo: "../../assets/love.svg",
   },
+  head,
   markdown: {
     config: (md) => {
       const { demoBlockPlugin } = demoblock;
