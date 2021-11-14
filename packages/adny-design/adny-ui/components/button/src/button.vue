@@ -22,6 +22,7 @@
       fab && size === 'normal' ? 'adny-button--float-normal' : null,
       fab ? 'adny-elevation--5' : null,
       icon ? 'adny-button--icon' : null,
+      icon && type ? `adny-button--text-${type}` : null,
       tile ? 'adny-button--tile' : null,
       text ? `adny-button--${type}__hover` : null,
     ]"

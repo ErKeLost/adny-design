@@ -130,7 +130,7 @@
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn icon color="#afbafb">
+      <a-btn icon  type="warning">
         <a-icon name="refresh" />
       </a-btn>
     </a-grid-item>

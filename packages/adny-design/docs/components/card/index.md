@@ -90,7 +90,7 @@
 
 :::
 
-## 带文字的媒体 其他情况 我们可以 使用 其他组件布局
+## 带文字的媒体 其他情况 我们可以 使用 其他组件布局 灵活使用
 
 使用布局系统，我们可以在背景中的任何位置添加自定义文本。
 
@@ -130,7 +130,7 @@
 
 ```vue
 <template>
-  <a-card continue color="rgb(38, 198, 218)">
+  <a-card continue color="#ff6b81">
     <template #title>
       <span style="color: white"> 王小波 </span>
     </template>
