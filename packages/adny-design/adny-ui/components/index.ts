@@ -32,8 +32,10 @@ import TabsItemInstall, { ATabsItem } from "./tabs-item";
 import StickyInstall, { ASticky } from "./sticky";
 import BackTopInstall, { ABackTop } from "./back-top";
 import CellInstall, { ACell } from "./cell";
+import SpinInstall, { ASpin } from "./spin";
 const installed = [
   StickyInstall,
+  SpinInstall,
   TabInstall,
   TabsInstall,
   ButtonInstall,
@@ -61,6 +63,7 @@ const installed = [
   CellInstall,
 ];
 export {
+  ASpin,
   ASticky,
   ABtn,
   ACard,

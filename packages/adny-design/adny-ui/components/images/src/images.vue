@@ -14,6 +14,7 @@
       :lazy-error="error"
       :lazy-loading="loading"
       :style="{ objectFit: fit }"
+      v-lazy="src"
       v-if="lazy"
       @load="handleLoad"
       @error="handleError"
@@ -37,10 +38,13 @@
 import { defineComponent } from 'vue'
 import { props } from './props'
 import { toSizeUnit } from '../../../utils/elements'
-// import type { LazyHTMLElement } from '../lazy'
+import { LazyDirective } from '../../../directives/lazy'
 
 export default defineComponent({
   name: 'AImg',
+  directives: {
+    lazy: LazyDirective
+  },
   props,
   setup(props) {
     const handleLoad = (e: Event) => {

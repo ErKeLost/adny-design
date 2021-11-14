@@ -33,6 +33,7 @@ const sidebar = {
         { text: "Ripple 水波纹", link: "/components/ripple/" },
         { text: "BackTop 回到顶部", link: "/components/backTop/" },
         { text: "Cell 单元格", link: "/components/cell/" },
+        { text: "Spin 加载中", link: "/components/spin/" },
       ],
     },
     { text: "导航" },
