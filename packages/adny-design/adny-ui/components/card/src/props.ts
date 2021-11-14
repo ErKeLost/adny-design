@@ -1,61 +1,71 @@
-import type { PropType } from 'vue'
+import type { PropType } from "vue";
 
 function fitValidator(fit: string) {
-  return ['fill', 'contain', 'cover', 'none', 'scale-down'].includes(fit)
+  return ["fill", "contain", "cover", "none", "scale-down"].includes(fit);
 }
 
 export const props = {
+  color: {
+    type: String,
+    default: null,
+  },
+  mediaTitle: {
+    type: String,
+    default: "",
+  },
   radius: {
     type: Boolean,
-    default: true
+    default: true,
   },
   footerPosition: {
     type: String,
-    default: 'left'
+    default: "left",
   },
   hover: {
     type: Boolean,
-    default: false
+    default: false,
   },
   shaped: {
     type: Boolean,
-    default: false
+    default: false,
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
   continue: {
     type: Boolean,
-    default: false
+    default: false,
   },
   src: {
-    type: String
+    type: String,
   },
   fit: {
-    type: String as PropType<'fill' | 'contain' | 'cover' | 'none' | 'scale-down'>,
+    type: String as PropType<
+      "fill" | "contain" | "cover" | "none" | "scale-down"
+    >,
     validator: fitValidator,
-    default: 'cover'
+    default: "cover",
   },
   height: {
-    type: [String, Number]
+    type: [String, Number],
   },
   alt: {
-    type: String
+    type: String,
   },
   title: {
-    type: String
+    type: String,
   },
   subtitle: {
-    type: String
+    type: String,
   },
   content: {
-    type: String
+    type: String,
   },
   elevation: {
-    type: [Number, String]
+    type: [Number, String],
   },
   onClick: {
-    type: Function as PropType<(e: Event) => void>
-  }
-}
+    type: Function as PropType<(e: Event) => void>,
+  },
+};

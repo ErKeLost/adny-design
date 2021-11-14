@@ -2,6 +2,8 @@
 
 ### ACard 组件是一个可用于从面板到静态图像的多功能组件。组件有许多帮助程序组件来尽可能简单地进行标记。
 
+### Tips : 所有属性都可以作用于插槽
+
 ## 基本使用 (Base Use)
 
 :::demo
@@ -29,11 +31,13 @@
 <template>
   <a-card continue>
     <template #cover>
-      <img src="https://w.wallhaven.cc/full/28/wallhaven-2828w6.jpg" />
+      <a-img
+        src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6b3a4120c9044578d9cafa0083c3f48~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp"
+      />
     </template>
     <template #title>王小波</template>
     <template #extra>
-      <a-btn icon text type="warning">
+      <a-btn icon color="#fbafba">
         <a-icon name="menu1" />
       </a-btn>
     </template>
@@ -41,7 +45,7 @@
       我认为每个人都是有本质的。像我的本质就是流氓，土匪。如果放到合适的地方就大放光彩，可是在城市里做个市民。在学校里做个教员就很不合适了。
     </template>
     <template #footer>
-      <a-btn text color="#1867c0">提交</a-btn>
+      <a-btn text color="#1867c0" style="margin-right: 15px;">提交</a-btn>
       <a-btn text color="#1867c0">取消</a-btn>
     </template>
   </a-card>
@@ -51,6 +55,7 @@
 :::
 
 ## 带文字的媒体
+
 使用布局系统，我们可以在背景中的任何位置添加自定义文本。
 
 :::demo
@@ -59,7 +64,12 @@
 <template>
   <a-card continue>
     <template #cover>
-      <img src="https://w.wallhaven.cc/full/28/wallhaven-2828w6.jpg" />
+      <a-img src="https://w.wallhaven.cc/full/28/wallhaven-2828w6.jpg" />
+    </template>
+    <template #mediaTitle>
+      <span style="font-weight: bold; font-size: 25px; color:white"
+        >Where there is a will, there is a way.</span
+      >
     </template>
     <template #title>王小波</template>
     <template #extra>
@@ -71,7 +81,39 @@
       我认为每个人都是有本质的。像我的本质就是流氓，土匪。如果放到合适的地方就大放光彩，可是在城市里做个市民。在学校里做个教员就很不合适了。
     </template>
     <template #footer>
-      <a-btn text color="#1867c0">提交</a-btn>
+      <a-btn text color="#1867c0" style="margin-right: 15px;">提交</a-btn>
+      <a-btn text color="#1867c0">取消</a-btn>
+    </template>
+  </a-card>
+</template>
+```
+
+:::
+
+## 带文字的媒体 其他情况 我们可以 使用 其他组件布局
+
+使用布局系统，我们可以在背景中的任何位置添加自定义文本。
+
+:::demo
+
+```vue
+<template>
+  <a-card continue>
+    <template #cover>
+      <a-img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cbf6426ff65495ab1cfcd04f195b538~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp" />
+      </a-img>
+    </template>
+    <template #title>王小波</template>
+    <template #extra>
+      <a-btn icon text type="warning">
+        <a-icon name="menu1" />
+      </a-btn>
+    </template>
+    <template #content>
+      我认为每个人都是有本质的。像我的本质就是流氓，土匪。如果放到合适的地方就大放光彩，可是在城市里做个市民。在学校里做个教员就很不合适了。
+    </template>
+    <template #footer>
+      <a-btn text color="#1867c0" style="margin-right: 15px;">提交</a-btn>
       <a-btn text color="#1867c0">取消</a-btn>
     </template>
   </a-card>
@@ -81,37 +123,41 @@
 :::
 
 ## 纯色卡片 (ColorFull Card)
+
 纯纯的
 
 :::demo
 
 ```vue
 <template>
-  <a-card continue>
-    <template #cover>
-      <img src="https://w.wallhaven.cc/full/28/wallhaven-2828w6.jpg" />
+  <a-card continue color="rgb(38, 198, 218)">
+    <template #title>
+      <span style="color: white"> 王小波 </span>
     </template>
-    <template #title>王小波</template>
     <template #extra>
-      <a-btn icon text type="warning">
+      <a-btn icon text>
         <a-icon name="menu1" />
       </a-btn>
     </template>
     <template #content>
-      我认为每个人都是有本质的。像我的本质就是流氓，土匪。如果放到合适的地方就大放光彩，可是在城市里做个市民。在学校里做个教员就很不合适了。
+      <span style="color: white">
+        我认为每个人都是有本质的。像我的本质就是流氓，土匪。如果放到合适的地方就大放光彩，可是在城市里做个市民。在学校里做个教员就很不合适了。</span
+      >
     </template>
     <template #footer>
-      <a-btn text color="#1867c0">提交</a-btn>
-      <a-btn text color="#1867c0">取消</a-btn>
+      <a-btn text color="#fff" style="margin-right: 15px;">提交</a-btn>
+      <a-btn text color="#fff">取消</a-btn>
     </template>
   </a-card>
 </template>
+<style></style>
 ```
 
 :::
 
 ## 布局卡片
-使用不同Components 搭配出好看的 layout
+
+使用不同 Components 搭配出好看的 layout
 
 :::demo
 
@@ -119,7 +165,9 @@
 <template>
   <a-card continue>
     <template #cover>
-      <img src="https://w.wallhaven.cc/full/28/wallhaven-2828w6.jpg" />
+      <img
+        src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78cdd31a6a8a428297289b9d87e38a78~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp"
+      />
     </template>
     <template #title>王小波</template>
     <template #extra>
@@ -131,7 +179,7 @@
       我认为每个人都是有本质的。像我的本质就是流氓，土匪。如果放到合适的地方就大放光彩，可是在城市里做个市民。在学校里做个教员就很不合适了。
     </template>
     <template #footer>
-      <a-btn text color="#1867c0">提交</a-btn>
+      <a-btn text color="#1867c0" style="margin-right: 15px;">提交</a-btn>
       <a-btn text color="#1867c0">取消</a-btn>
     </template>
   </a-card>

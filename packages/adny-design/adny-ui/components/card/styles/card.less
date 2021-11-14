@@ -1,4 +1,4 @@
-@import './_variables.less';
+@import "./_variables.less";
 .adny-card {
   overflow: hidden;
   padding: var(--card-padding);
@@ -7,6 +7,10 @@
     width: var(--card-image-width);
     height: var(--card-image-height);
     display: block;
+  }
+
+  &__cover {
+    position: relative;
   }
 
   &__radius {
@@ -32,6 +36,17 @@
     color: var(--card--disabled-color);
     cursor: not-allowed;
     user-select: none;
+  }
+  &__mediaTitle {
+    position: absolute;
+    bottom: 0%;
+    padding: 20px 16px;
+    display: block;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
   }
 
   &__title {

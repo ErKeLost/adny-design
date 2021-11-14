@@ -1,5 +1,6 @@
 # Button 按钮
-
+# bug: 1
+# 作用于 text 特性 在 type类型下 消失
 ### ABtn （按钮）组件采 Material Design 设计主题风格，
 
 ### 使用
@@ -68,7 +69,7 @@
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn fab text type="warning">
+      <a-btn fab text outline type="warning">
         <a-icon name="cloud-rain" />
       </a-btn>
     </a-grid-item>
@@ -185,7 +186,7 @@
       <a-btn text outline type="danger">Danger</a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn outline text icon color="#afbafb">
+      <a-btn text icon color="#afbafb">
         <a-icon name="map-marker-radius" />
       </a-btn>
     </a-grid-item>
