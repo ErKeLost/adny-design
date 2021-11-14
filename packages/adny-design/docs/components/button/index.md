@@ -49,6 +49,40 @@
 
 :::
 
+## Fab (浮动)
+多做用于 图标 按钮 提示交互
+
+:::demo
+
+```vue
+<template>
+  <a-grid>
+    <a-grid-item :span="6">
+      <a-btn fab type="primary">
+        <a-icon name="sunrise" />
+      </a-btn>
+    </a-grid-item>
+    <a-grid-item :span="6">
+      <a-btn fab type="success">
+        <a-icon name="cloud-off" />
+      </a-btn>
+    </a-grid-item>
+    <a-grid-item :span="6">
+      <a-btn fab text type="warning">
+        <a-icon name="cloud-rain" />
+      </a-btn>
+    </a-grid-item>
+    <a-grid-item :span="6">
+      <a-btn fab text type="danger">
+        <a-icon name="cloud-snow" />
+      </a-btn>
+    </a-grid-item>
+  </a-grid>
+</template>
+```
+
+:::
+
 ## Icon (图标)
 
 图标可以被用作按钮的主要内容。
@@ -57,25 +91,50 @@
 
 ```vue
 <template>
-  <a-cell style="fontSize: 20px; fontWeight: 600;">Normal</a-cell>
+  <a-cell style="fontSize: 20px; fontWeight: 600;">BigSize</a-cell>
   <a-grid>
     <a-grid-item :span="6">
-      <a-btn text icon color="#fbafba">
+      <a-btn icon color="#fbafba">
+        <a-icon size="35" name="heart" />
+      </a-btn>
+    </a-grid-item>
+    <a-grid-item :span="6">
+      <a-btn icon color="#fabfab">
+        <a-icon size="35" name="minus-circle-outline" />
+      </a-btn>
+    </a-grid-item>
+    <a-grid-item :span="6">
+      <a-btn icon color="#afbafb">
+        <a-icon size="35" name="refresh" />
+      </a-btn>
+    </a-grid-item>
+    <a-grid-item :span="6">
+      <a-btn icon color="#fdcb6e">
+        <a-icon size="35" name="checkbox-marked" />
+      </a-btn>
+    </a-grid-item>
+  </a-grid>
+    <a-cell style="marginTop: 50px;fontSize: 20px; fontWeight: 600;"
+    >Large</a-cell
+  >
+  <a-grid>
+    <a-grid-item :span="6">
+      <a-btn icon color="#fbafba">
         <a-icon name="heart" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn text icon color="#fabfab">
+      <a-btn icon color="#fabfab">
         <a-icon name="minus-circle-outline" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn text icon color="#afbafb">
+      <a-btn icon color="#afbafb">
         <a-icon name="refresh" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn text icon color="#fdcb6e">
+      <a-btn icon color="#fdcb6e">
         <a-icon name="checkbox-marked" />
       </a-btn>
     </a-grid-item>
@@ -85,22 +144,22 @@
   >
   <a-grid>
     <a-grid-item :span="6">
-      <a-btn text icon color="#fbafba">
+      <a-btn icon color="#fbafba">
         <a-icon name="heart" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn text icon color="#fabfab">
+      <a-btn icon color="#fabfab">
         <a-icon name="minus-circle-outline" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn text icon color="#afbafb">
+      <a-btn icon color="#afbafb">
         <a-icon name="refresh" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn text icon color="#fdcb6e">
+      <a-btn icon color="#fdcb6e">
         <a-icon name="checkbox-marked" />
       </a-btn>
     </a-grid-item>
@@ -232,6 +291,7 @@
 :::
 
 ## Tile (正方形)
+
 平铺按钮的行为与常规按钮相同，但没有边框半径。
 
 :::demo
@@ -240,16 +300,16 @@
 <template>
   <a-grid>
     <a-grid-item :span="6">
-      <a-btn tite type="primary">Primary</a-btn>
+      <a-btn tile type="primary">Primary</a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn tite type="success">Success</a-btn>
+      <a-btn tile type="success">Success</a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn tite type="warning">Warning</a-btn>
+      <a-btn tile type="warning">Warning</a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn tite type="danger">Danger</a-btn>
+      <a-btn tile type="danger">Danger</a-btn>
     </a-grid-item>
   </a-grid>
 </template>

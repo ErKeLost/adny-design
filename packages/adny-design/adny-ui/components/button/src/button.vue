@@ -20,8 +20,9 @@
       fab && size === 'small' ? 'adny-button--float-small' : null,
       fab && size === 'mini' ? 'adny-button--float-mini' : null,
       fab && size === 'normal' ? 'adny-button--float-normal' : null,
+      fab ? 'adny-elevation--5' : null,
       icon ? 'adny-button--icon' : null,
-      tite ? 'adny-button--tite' : null,
+      tile ? 'adny-button--tile' : null,
       text ? `adny-button--${type}__hover` : null,
     ]"
     :style="{ color }"
@@ -30,90 +31,101 @@
   </button>
 </template>
 <script lang="ts">
-import { defineComponent, computed, getCurrentInstance, ref, onMounted } from 'vue'
-import { RippleDirective } from '../../../directives/ripple'
+import {
+  defineComponent,
+  computed,
+  getCurrentInstance,
+  ref,
+  onMounted,
+} from "vue";
+import { RippleDirective } from "../../../directives/ripple";
 export default defineComponent({
-  name: 'ABtn',
+  name: "ABtn",
   directives: {
-    ripple: RippleDirective
+    ripple: RippleDirective,
   },
   props: {
     type: {
       type: String,
-      default: 'default'
+      default: "default",
     },
     size: {
       type: String,
-      default: 'normal'
+      default: "normal",
     },
     color: {
-      type: String
+      type: String,
     },
     elevation: {
       type: String,
-      default: '2'
+      default: "2",
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     text: {
       type: Boolean,
-      default: false
+      default: false,
     },
     round: {
       type: Boolean,
-      default: false
+      default: false,
     },
     outline: {
       type: Boolean,
-      default: false
+      default: false,
     },
     block: {
       type: Boolean,
-      default: false
+      default: false,
     },
     depressed: {
       type: Boolean,
-      default: false
+      default: false,
     },
     fab: {
       type: Boolean,
-      default: false
+      default: false,
     },
     icon: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    tite: {
+    tile: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup(props) {
-    const btn = ref(null)
-
+    const btn = ref(null);
+    const ICON_SIZE = 25
+    const btnIns = getCurrentInstance();
     const textBgColor = computed(() => {
       return {
-        backgroundColor: `currentColor`
-      }
-    })
+        backgroundColor: `currentColor`,
+      };
+    });
     onMounted(() => {
-    })
+      const iconIns = btnIns.subTree?.children[0]?.children[0].component;
+      if (iconIns?.ctx?.size > ICON_SIZE) {
+        btn.value.style.padding = `${iconIns?.ctx?.size * 3 / 4}px`
+      }
+    });
     const changeBg = () => {
-      btn.value.style.backgroundColor = `${props.color}30`
-    }
+      btn.value.style.backgroundColor = `${props.color}30`;
+    };
     const moveBg = () => {
-      btn.value.style.backgroundColor = ''
-    }
+      btn.value.style.backgroundColor = "";
+    };
     return {
       textBgColor,
       btn,
       changeBg,
-      moveBg
-    }
-  }
-})
+      moveBg,
+    };
+  },
+});
 </script>
 <style lang="less">
 @import "../../../styles/common";
