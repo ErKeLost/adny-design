@@ -1,129 +1,119 @@
 <template>
-  <div class="slot">
-    <slot></slot>
-    <div id="spinner" class="container-spinner" :class="[spinnerColor]">
-      <div class="fulfilling-square-spinner" v-if="'fulling' === spinnerType">
-        <div :style="{ background: spinnerColor }" class="spinner-inner"></div>
-      </div>
-      <div class="breeding-rhombus-spinner" v-if="'breeding' === spinnerType">
-        <div class="rhombus child-1"></div>
-        <div class="rhombus child-2"></div>
-        <div class="rhombus child-3"></div>
-        <div class="rhombus child-4"></div>
-        <div class="rhombus child-5"></div>
-        <div class="rhombus child-6"></div>
-        <div class="rhombus child-7"></div>
-        <div class="rhombus child-8"></div>
-        <div class="rhombus big"></div>
-      </div>
-      <div class="semipolar-spinner" v-if="'semipolar' === spinnerType">
-        <div class="ring"></div>
-        <div class="ring"></div>
-        <div class="ring"></div>
-        <div class="ring"></div>
-        <div class="ring"></div>
-      </div>
-      <div class="fulfilling-bouncing-circle-spinner" v-if="'circle' === spinnerType">
-        <div class="circle"></div>
-        <div class="orbit"></div>
-      </div>
-      <div class="self-building-square-spinner" v-if="'square' === spinnerType">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square clear"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square clear"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-      </div>
-      <div class="scaling-squares-spinner" v-if="'scaling' === spinnerType">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-      </div>
-      <p class="title">{{ loadingTip }}</p>
+  <div id="spinner" class="container-spinner" :class="[spinnerColor]">
+    <div class="fulfilling-square-spinner" v-if="'fulling' === spinnerType">
+      <div class="spinner-inner"></div>
     </div>
+    <div class="breeding-rhombus-spinner" v-if="'breeding' === spinnerType">
+      <div class="rhombus child-1"></div>
+      <div class="rhombus child-2"></div>
+      <div class="rhombus child-3"></div>
+      <div class="rhombus child-4"></div>
+      <div class="rhombus child-5"></div>
+      <div class="rhombus child-6"></div>
+      <div class="rhombus child-7"></div>
+      <div class="rhombus child-8"></div>
+      <div class="rhombus big"></div>
+    </div>
+    <div class="semipolar-spinner" v-if="'semipolar' === spinnerType">
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+    </div>
+    <div class="fulfilling-bouncing-circle-spinner" v-if="'circle' === spinnerType">
+      <div class="circle"></div>
+      <div class="orbit"></div>
+    </div>
+    <div class="self-building-square-spinner" v-if="'square' === spinnerType">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square clear"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square clear"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+    <div class="scaling-squares-spinner" v-if="'scaling' === spinnerType">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+    <p class="title">{{ loadingTip }}</p>
   </div>
 </template>
+
+
 <script lang="ts">
-export default {
-  name: 'ASpin'
-}
-</script>
-<script setup lang="ts">
-import { defineProps, withDefaults } from "vue";
-withDefaults(
-  defineProps<{
-    flower?: boolean;
-    square?: boolean;
-    circle?: boolean;
-    semipolar?: boolean;
-    breeding?: boolean;
-    fulling?: boolean;
-    loadingTip?: string;
-    spinnerType?: string;
-    spinnerColor?: string;
-  }>(),
-  {
-    flower: false,
-    square: false,
-    circle: false,
-    semipolar: false,
-    breeding: false,
-    fulling: false,
-    loadingTip: "正在加载中...",
-    spinnerType: "fulling",
-    spinnerColor: "warning",
+import { defineComponent, ref, computed, getCurrentInstance, onMounted } from "vue";
+export default defineComponent({
+  name: 'ASpin',
+  props: {
+    spinnerType: {
+      type: String,
+      default: ''
+    },
+    spinnerColor: {
+      type: String,
+      default: 'warning'
+    },
+    loadingTip: {
+      type: String,
+      default: 'Loading'
+    },
+    fulling: {
+      type: Boolean,
+      default: false
+    }
+
+  },
+  setup(props) {
+    const bgColor = computed(() => {
+      return `${props.spinnerColor}30`
+    })
+    console.log(bgColor.value);
+    return {
+      bgColor
+    }
   }
-);
+})
 </script>
 
 <style scoped lang="less">
-.title {
-  font-size: 15px;
-  letter-spacing: 1px;
-}
-.slot {
-  position: relative;
-  overflow: hidden;
-}
 .container-spinner {
-  position: absolute;
+  // position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 99;
+  border-radius: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: v-bind(bgColor);
+  border: 0.1px solid v-bind(spinnerColor);
   .title {
-    margin-top: 0px !important;
-  }
-}
-.primary {
-  background: #409eff30;
-  border: 0.1px solid #409eff;
-  .title {
-    color: #409eff;
+    color: v-bind(spinnerColor);
     user-select: none;
+    font-size: 15px;
+    letter-spacing: 1px;
   }
   .fulfilling-square-spinner {
     height: 50px;
     width: 50px;
     position: relative;
-    border: 4px solid #409eff;
+    border: 4px solid v-bind(spinnerColor);
     animation: fulfilling-square-spinner-animation 4s infinite ease;
   }
   .fulfilling-square-spinner .spinner-inner {
     vertical-align: top;
     display: inline-block;
-    background-color: #409eff;
+    background-color: v-bind(spinnerColor);
     width: 100%;
     opacity: 1;
     animation: fulfilling-square-spinner-inner-animation 4s infinite ease-in;
@@ -134,7 +124,7 @@ withDefaults(
     animation-duration: 2000ms;
     top: calc(50px / 2.3077);
     left: calc(50px / 2.3077);
-    background-color: #409eff;
+    background-color: v-bind(spinnerColor);
     position: absolute;
     animation-iteration-count: infinite;
   }
@@ -144,7 +134,7 @@ withDefaults(
     animation-duration: 2000ms;
     top: calc(50px / 3);
     left: calc(50px / 3);
-    background-color: #409eff;
+    background-color: v-bind(spinnerColor);
     animation: breeding-rhombus-spinner-animation-child-big 2s infinite;
     animation-delay: 0.5s;
   }
@@ -152,18 +142,18 @@ withDefaults(
     border-radius: 50%;
     position: absolute;
     border: calc(50px * 0.05) solid transparent;
-    border-top-color: #409eff;
-    border-left-color: #409eff;
+    border-top-color: v-bind(spinnerColor);
+    border-left-color: v-bind(spinnerColor);
     animation: semipolar-spinner-animation 2s infinite;
   }
   .fulfilling-bouncing-circle-spinner .circle {
     height: 60px;
     width: 60px;
-    color: #409eff;
+    color: v-bind(spinnerColor);
     display: block;
     border-radius: 50%;
     position: relative;
-    border: calc(60px * 0.1) solid #409eff;
+    border: calc(60px * 0.1) solid v-bind(spinnerColor);
     animation: fulfilling-bouncing-circle-spinner-circle-animation infinite
       4000ms ease;
     transform: rotate(0deg) scale(1);
@@ -175,7 +165,7 @@ withDefaults(
     top: 0;
     left: 0;
     border-radius: 50%;
-    border: calc(60px * 0.03) solid #409eff;
+    border: calc(60px * 0.03) solid v-bind(spinnerColor);
     animation: fulfilling-bouncing-circle-spinner-orbit-animation infinite
       4000ms ease;
   }
@@ -185,7 +175,7 @@ withDefaults(
     top: calc(-10px * 2 / 3);
     margin-right: calc(10px / 3);
     margin-top: calc(10px / 3);
-    background: #409eff;
+    background: v-bind(spinnerColor);
     float: left;
     position: relative;
     opacity: 0;
@@ -196,398 +186,15 @@ withDefaults(
     width: calc(50px * 0.25 / 1.3);
     margin-right: auto;
     margin-left: auto;
-    border: calc(50px * 0.04 / 1.3) solid #409eff;
+    border: calc(50px * 0.04 / 1.3) solid v-bind(spinnerColor);
     position: absolute;
     animation-duration: 1250ms;
     animation-iteration-count: infinite;
   }
-}
-.success {
-  background: #67c23a30;
-  border: 0.1px solid #67c23a;
   .title {
-    color: #67c23a;
-    user-select: none;
-  }
-  .fulfilling-square-spinner {
-    height: 50px;
-    width: 50px;
-    position: relative;
-    border: 4px solid #67c23a;
-    animation: fulfilling-square-spinner-animation 4s infinite ease;
-  }
-  .fulfilling-square-spinner .spinner-inner {
-    vertical-align: top;
-    display: inline-block;
-    background-color: #67c23a;
-    width: 100%;
-    opacity: 1;
-    animation: fulfilling-square-spinner-inner-animation 4s infinite ease-in;
-  }
-  .breeding-rhombus-spinner .rhombus {
-    height: calc(50px / 7.5);
-    width: calc(50px / 7.5);
-    animation-duration: 2000ms;
-    top: calc(50px / 2.3077);
-    left: calc(50px / 2.3077);
-    background-color: #67c23a;
-    position: absolute;
-    animation-iteration-count: infinite;
-  }
-  .breeding-rhombus-spinner .rhombus.big {
-    height: calc(50px / 3);
-    width: calc(50px / 3);
-    animation-duration: 2000ms;
-    top: calc(50px / 3);
-    left: calc(50px / 3);
-    background-color: #67c23a;
-    animation: breeding-rhombus-spinner-animation-child-big 2s infinite;
-    animation-delay: 0.5s;
-  }
-  .semipolar-spinner .ring {
-    border-radius: 50%;
-    position: absolute;
-    border: calc(50px * 0.05) solid transparent;
-    border-top-color: #67c23a;
-    border-left-color: #67c23a;
-    animation: semipolar-spinner-animation 2s infinite;
-  }
-  .fulfilling-bouncing-circle-spinner .circle {
-    height: 60px;
-    width: 60px;
-    color: #67c23a;
-    display: block;
-    border-radius: 50%;
-    position: relative;
-    border: calc(60px * 0.1) solid #67c23a;
-    animation: fulfilling-bouncing-circle-spinner-circle-animation infinite
-      4000ms ease;
-    transform: rotate(0deg) scale(1);
-  }
-  .fulfilling-bouncing-circle-spinner .orbit {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    border: calc(60px * 0.03) solid #67c23a;
-    animation: fulfilling-bouncing-circle-spinner-orbit-animation infinite
-      4000ms ease;
-  }
-  .self-building-square-spinner .square {
-    height: 10px;
-    width: 10px;
-    top: calc(-10px * 2 / 3);
-    margin-right: calc(10px / 3);
-    margin-top: calc(10px / 3);
-    background: #67c23a;
-    float: left;
-    position: relative;
-    opacity: 0;
-    animation: self-building-square-spinner 6s infinite;
-  }
-  .scaling-squares-spinner .square {
-    height: calc(50px * 0.25 / 1.3);
-    width: calc(50px * 0.25 / 1.3);
-    margin-right: auto;
-    margin-left: auto;
-    border: calc(50px * 0.04 / 1.3) solid #67c23a;
-    position: absolute;
-    animation-duration: 1250ms;
-    animation-iteration-count: infinite;
+    margin-top: 20px;
   }
 }
-.info {
-  background: #90939930;
-  border: 0.1px solid #909399;
-  .title {
-    color: #909399;
-    user-select: none;
-  }
-  .fulfilling-square-spinner {
-    height: 50px;
-    width: 50px;
-    position: relative;
-    border: 4px solid #909399;
-    animation: fulfilling-square-spinner-animation 4s infinite ease;
-  }
-  .fulfilling-square-spinner .spinner-inner {
-    vertical-align: top;
-    display: inline-block;
-    background-color: #909399;
-    width: 100%;
-    opacity: 1;
-    animation: fulfilling-square-spinner-inner-animation 4s infinite ease-in;
-  }
-  .breeding-rhombus-spinner .rhombus {
-    height: calc(50px / 7.5);
-    width: calc(50px / 7.5);
-    animation-duration: 2000ms;
-    top: calc(50px / 2.3077);
-    left: calc(50px / 2.3077);
-    background-color: #909399;
-    position: absolute;
-    animation-iteration-count: infinite;
-  }
-  .breeding-rhombus-spinner .rhombus.big {
-    height: calc(50px / 3);
-    width: calc(50px / 3);
-    animation-duration: 2000ms;
-    top: calc(50px / 3);
-    left: calc(50px / 3);
-    background-color: #909399;
-    animation: breeding-rhombus-spinner-animation-child-big 2s infinite;
-    animation-delay: 0.5s;
-  }
-  .semipolar-spinner .ring {
-    border-radius: 50%;
-    position: absolute;
-    border: calc(50px * 0.05) solid transparent;
-    border-top-color: #909399;
-    border-left-color: #909399;
-    animation: semipolar-spinner-animation 2s infinite;
-  }
-  .fulfilling-bouncing-circle-spinner .circle {
-    height: 60px;
-    width: 60px;
-    color: #909399;
-    display: block;
-    border-radius: 50%;
-    position: relative;
-    border: calc(60px * 0.1) solid #909399;
-    animation: fulfilling-bouncing-circle-spinner-circle-animation infinite
-      4000ms ease;
-    transform: rotate(0deg) scale(1);
-  }
-  .fulfilling-bouncing-circle-spinner .orbit {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    border: calc(60px * 0.03) solid #909399;
-    animation: fulfilling-bouncing-circle-spinner-orbit-animation infinite
-      4000ms ease;
-  }
-  .self-building-square-spinner .square {
-    height: 10px;
-    width: 10px;
-    top: calc(-10px * 2 / 3);
-    margin-right: calc(10px / 3);
-    margin-top: calc(10px / 3);
-    background: #909399;
-    float: left;
-    position: relative;
-    opacity: 0;
-    animation: self-building-square-spinner 6s infinite;
-  }
-  .scaling-squares-spinner .square {
-    height: calc(50px * 0.25 / 1.3);
-    width: calc(50px * 0.25 / 1.3);
-    margin-right: auto;
-    margin-left: auto;
-    border: calc(50px * 0.04 / 1.3) solid #909399;
-    position: absolute;
-    animation-duration: 1250ms;
-    animation-iteration-count: infinite;
-  }
-}
-.warning {
-  background: #e6a23c30;
-  border: 0.1px solid #e6a23c;
-  .title {
-    color: #e6a23c;
-    user-select: none;
-  }
-  .fulfilling-square-spinner {
-    height: 50px;
-    width: 50px;
-    position: relative;
-    border: 4px solid #e6a23c;
-    animation: fulfilling-square-spinner-animation 4s infinite ease;
-  }
-  .fulfilling-square-spinner .spinner-inner {
-    vertical-align: top;
-    display: inline-block;
-    background-color: #e6a23c;
-    width: 100%;
-    opacity: 1;
-    animation: fulfilling-square-spinner-inner-animation 4s infinite ease-in;
-  }
-  .breeding-rhombus-spinner .rhombus {
-    height: calc(50px / 7.5);
-    width: calc(50px / 7.5);
-    animation-duration: 2000ms;
-    top: calc(50px / 2.3077);
-    left: calc(50px / 2.3077);
-    background-color: #e6a23c;
-    position: absolute;
-    animation-iteration-count: infinite;
-  }
-  .breeding-rhombus-spinner .rhombus.big {
-    height: calc(50px / 3);
-    width: calc(50px / 3);
-    animation-duration: 2000ms;
-    top: calc(50px / 3);
-    left: calc(50px / 3);
-    background-color: #e6a23c;
-    animation: breeding-rhombus-spinner-animation-child-big 2s infinite;
-    animation-delay: 0.5s;
-  }
-  .semipolar-spinner .ring {
-    border-radius: 50%;
-    position: absolute;
-    border: calc(50px * 0.05) solid transparent;
-    border-top-color: #e6a23c;
-    border-left-color: #e6a23c;
-    animation: semipolar-spinner-animation 2s infinite;
-  }
-  .fulfilling-bouncing-circle-spinner .circle {
-    height: 60px;
-    width: 60px;
-    color: #e6a23c;
-    display: block;
-    border-radius: 50%;
-    position: relative;
-    border: calc(60px * 0.1) solid #e6a23c;
-    animation: fulfilling-bouncing-circle-spinner-circle-animation infinite
-      4000ms ease;
-    transform: rotate(0deg) scale(1);
-  }
-  .fulfilling-bouncing-circle-spinner .orbit {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    border: calc(60px * 0.03) solid #e6a23c;
-    animation: fulfilling-bouncing-circle-spinner-orbit-animation infinite
-      4000ms ease;
-  }
-  .self-building-square-spinner .square {
-    height: 10px;
-    width: 10px;
-    top: calc(-10px * 2 / 3);
-    margin-right: calc(10px / 3);
-    margin-top: calc(10px / 3);
-    background: #e6a23c;
-    float: left;
-    position: relative;
-    opacity: 0;
-    animation: self-building-square-spinner 6s infinite;
-  }
-  .scaling-squares-spinner .square {
-    height: calc(50px * 0.25 / 1.3);
-    width: calc(50px * 0.25 / 1.3);
-    margin-right: auto;
-    margin-left: auto;
-    border: calc(50px * 0.04 / 1.3) solid #e6a23c;
-    position: absolute;
-    animation-duration: 1250ms;
-    animation-iteration-count: infinite;
-  }
-}
-.danger {
-  background: #f56c6c30;
-  border: 0.1px solid #f56c6c;
-  .title {
-    color: #f56c6c;
-    user-select: none;
-  }
-  .fulfilling-square-spinner {
-    height: 50px;
-    width: 50px;
-    position: relative;
-    border: 4px solid #f56c6c;
-    animation: fulfilling-square-spinner-animation 4s infinite ease;
-  }
-  .fulfilling-square-spinner .spinner-inner {
-    vertical-align: top;
-    display: inline-block;
-    background-color: #f56c6c;
-    width: 100%;
-    opacity: 1;
-    animation: fulfilling-square-spinner-inner-animation 4s infinite ease-in;
-  }
-  .breeding-rhombus-spinner .rhombus {
-    height: calc(50px / 7.5);
-    width: calc(50px / 7.5);
-    animation-duration: 2000ms;
-    top: calc(50px / 2.3077);
-    left: calc(50px / 2.3077);
-    background-color: #f56c6c;
-    position: absolute;
-    animation-iteration-count: infinite;
-  }
-  .breeding-rhombus-spinner .rhombus.big {
-    height: calc(50px / 3);
-    width: calc(50px / 3);
-    animation-duration: 2000ms;
-    top: calc(50px / 3);
-    left: calc(50px / 3);
-    background-color: #f56c6c;
-    animation: breeding-rhombus-spinner-animation-child-big 2s infinite;
-    animation-delay: 0.5s;
-  }
-  .semipolar-spinner .ring {
-    border-radius: 50%;
-    position: absolute;
-    border: calc(50px * 0.05) solid transparent;
-    border-top-color: #f56c6c;
-    border-left-color: #f56c6c;
-    animation: semipolar-spinner-animation 2s infinite;
-  }
-  .fulfilling-bouncing-circle-spinner .circle {
-    height: 60px;
-    width: 60px;
-    color: #f56c6c;
-    display: block;
-    border-radius: 50%;
-    position: relative;
-    border: calc(60px * 0.1) solid #f56c6c;
-    animation: fulfilling-bouncing-circle-spinner-circle-animation infinite
-      4000ms ease;
-    transform: rotate(0deg) scale(1);
-  }
-  .fulfilling-bouncing-circle-spinner .orbit {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    border: calc(60px * 0.03) solid #f56c6c;
-    animation: fulfilling-bouncing-circle-spinner-orbit-animation infinite
-      4000ms ease;
-  }
-  .self-building-square-spinner .square {
-    height: 10px;
-    width: 10px;
-    top: calc(-10px * 2 / 3);
-    margin-right: calc(10px / 3);
-    margin-top: calc(10px / 3);
-    background: #f56c6c;
-    float: left;
-    position: relative;
-    opacity: 0;
-    animation: self-building-square-spinner 6s infinite;
-  }
-  .scaling-squares-spinner .square {
-    height: calc(50px * 0.25 / 1.3);
-    width: calc(50px * 0.25 / 1.3);
-    margin-right: auto;
-    margin-left: auto;
-    border: calc(50px * 0.04 / 1.3) solid #f56c6c;
-    position: absolute;
-    animation-duration: 1250ms;
-    animation-iteration-count: infinite;
-  }
-}
-// type Color 类型
-
 // 花朵
 .flower-spinner,
 .flower-spinner * {
