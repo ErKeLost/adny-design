@@ -21,7 +21,6 @@ export function useSwipe() {
   if (!bindParent || !parentProvider || !index) {
     throw Error("<var-swipe-item/> must in <var-swipe/>");
   }
-  console.log(index.value);
 
   return {
     index,

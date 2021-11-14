@@ -1,20 +1,18 @@
-import { App } from 'vue'
+import { App } from "vue";
 
-import Dialog from './src/dialog.vue'
+import Dialog from "./src/dialog.vue";
 
-export { Dialog }
-
-console.log(Dialog.name)
+export { Dialog };
 
 Dialog.install = function (app: App) {
-  app.component(Dialog.name, Dialog)
-}
+  app.component(Dialog.name, Dialog);
+};
 
 export default {
   install(app: App) {
-    app.use(Dialog as any)
-  }
-}
+    app.use(Dialog as any);
+  },
+};
 // import { reactive, nextTick } from 'vue'
 // import { inBrowser, isString } from '../../utils/shared'
 // import { mountInstance } from '../../utils/components'

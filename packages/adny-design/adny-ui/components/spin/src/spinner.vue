@@ -74,7 +74,6 @@ export default defineComponent({
     const bgColor = computed(() => {
       return `${props.spinnerColor}30`
     })
-    console.log(bgColor.value);
     return {
       bgColor
     }

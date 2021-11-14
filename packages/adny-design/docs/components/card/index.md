@@ -16,6 +16,7 @@
     content="勇者愤怒，抽刃向更强者；怯者愤怒，却抽刃向更弱者。不可救药的民族中，一定有许多英雄，专向孩子们瞪眼。这些孱头们"
     continue
     footerPosition="right"
+    v-loading
   >
   </a-card>
 </template>
