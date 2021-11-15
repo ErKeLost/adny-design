@@ -1,5 +1,5 @@
 <template>
-  <div id="spinner" class="container-spinner element">
+  <div id="spinner" class="container-spinner">
     <div class="fulfilling-square-spinner" v-if="'fulling' === spinnerType">
       <div class="spinner-inner"></div>
     </div>
@@ -86,8 +86,8 @@ export default defineComponent({
 
 <style scoped lang="less">
 .element {
-  // position: absolute;
-  // z-index: 9999;
+  position: absolute;
+  z-index: 9999;
   border-radius: 4px;
   border: 0.1px solid v-bind(spinnerColor);
 }

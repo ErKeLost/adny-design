@@ -1,4 +1,5 @@
 import type { Directive } from "vue";
+import { watch } from "vue";
 import { createApp, ref, defineComponent } from "vue";
 import { ASpin } from "../../../components/spin";
 const loadingCtor = createApp(ASpin).mount(document.createElement("div"));
@@ -15,16 +16,19 @@ const LoadingDirective: Directive = {
     if (binding.value) {
       append(el);
     }
-    if (binding.modifiers.fullscreen) {
-      removeClass(loadingElement, "element");
-      addClass(loadingElement, "fullscreen");
-      console.log(123);
-    }
   },
   updated(el: HTMLElement, binding) {
     if (binding.value !== binding.oldValue) {
       // 判断true 到 false  还是 false 到true
       binding.value ? append(el) : remove(el);
+    }
+    console.log(binding.modifiers);
+    if (binding.modifiers.fullscreen) {
+      addClass(loadingElement, "fullscreen");
+      removeClass(loadingElement, "element");
+    } else {
+      addClass(loadingElement, "element");
+      removeClass(loadingElement, "fullscreen");
     }
   },
   unmounted(el: HTMLElement, binding) {
