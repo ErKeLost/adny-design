@@ -17,8 +17,24 @@
 
 ```vue
 <template>
-  <a-btn size="large" type="primary" block>按钮</a-btn>
+  <a-btn
+   v-loading.fullscreen="fullscreenLoading" size="large" type="primary"  block>按钮</a-btn>
 </template>
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const fullscreenLoading = ref(true)
+    setTimeout(() => {
+      fullscreenLoading.value = false
+    }, 2000)
+    return {
+      fullscreenLoading,
+    }
+  },
+})
+</script>
 ```
 
 :::

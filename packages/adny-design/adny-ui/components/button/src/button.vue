@@ -1,35 +1,37 @@
 <template>
-  <button
-    ref="btn"
-    id="btn"
-    class="adny-button adny--box"
-    @mousemove="changeBg"
-    @mouseleave="moveBg"
-    v-ripple="{ disabled }"
-    :class="[
-      `adny-button--${size}`,
-      block ? 'adny--flex adny-button--block' : 'adny--inline-flex',
-      disabled ? 'adny-button--disabled' : null,
-      text ? `adny-button--text-${type}` : `adny-button--${type}`,
-      text ? 'adny-button--text' : `adny-elevation--${elevation}`,
-      text && disabled ? 'adny-button--text-disabled' : null,
-      round ? 'adny-button--round' : null,
-      outline ? 'adny-button--outline' : null,
-      depressed ? 'adny-button--depressed' : null,
-      fab && size === 'large' ? 'adny-button--float-large' : null,
-      fab && size === 'small' ? 'adny-button--float-small' : null,
-      fab && size === 'mini' ? 'adny-button--float-mini' : null,
-      fab && size === 'normal' ? 'adny-button--float-normal' : null,
-      fab ? 'adny-elevation--5' : null,
-      icon ? 'adny-button--icon' : null,
-      icon && type ? `adny-button--text-${type}` : null,
-      tile ? 'adny-button--tile' : null,
-      text ? `adny-button--${type}__hover` : null,
-    ]"
-    :style="{ color }"
-  >
-    <slot />
-  </button>
+  <div :class="[block ? '' : 'adny-button-display']">
+    <button
+      ref="btn"
+      id="btn"
+      class="adny-button adny--box"
+      @mousemove="changeBg"
+      @mouseleave="moveBg"
+      v-ripple="{ disabled }"
+      :class="[
+        `adny-button--${size}`,
+        block ? 'adny--flex adny-button--block' : 'adny--inline-flex',
+        disabled ? 'adny-button--disabled' : null,
+        text ? `adny-button--text-${type}` : `adny-button--${type}`,
+        text ? 'adny-button--text' : `adny-elevation--${elevation}`,
+        text && disabled ? 'adny-button--text-disabled' : null,
+        round ? 'adny-button--round' : null,
+        outline ? 'adny-button--outline' : null,
+        depressed ? 'adny-button--depressed' : null,
+        fab && size === 'large' ? 'adny-button--float-large' : null,
+        fab && size === 'small' ? 'adny-button--float-small' : null,
+        fab && size === 'mini' ? 'adny-button--float-mini' : null,
+        fab && size === 'normal' ? 'adny-button--float-normal' : null,
+        fab ? 'adny-elevation--5' : null,
+        icon ? 'adny-button--icon' : null,
+        icon && type ? `adny-button--text-${type}` : null,
+        tile ? 'adny-button--tile' : null,
+        text ? `adny-button--${type}__hover` : null,
+      ]"
+      :style="{ color }"
+    >
+      <slot />
+    </button>
+  </div>
 </template>
 <script lang="ts">
 import {

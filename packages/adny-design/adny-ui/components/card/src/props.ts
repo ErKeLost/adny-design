@@ -35,7 +35,7 @@ export const props = {
   },
   continue: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   src: {
     type: String,

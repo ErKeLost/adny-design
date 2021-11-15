@@ -14,9 +14,7 @@
     title=" Adny Design"
     subtitle="鲁迅"
     content="勇者愤怒，抽刃向更强者；怯者愤怒，却抽刃向更弱者。不可救药的民族中，一定有许多英雄，专向孩子们瞪眼。这些孱头们"
-    continue
     footerPosition="right"
-    v-loading
   >
   </a-card>
 </template>
@@ -30,7 +28,8 @@
 
 ```vue
 <template>
-  <a-card continue>
+  <a-card 
+  >
     <template #cover>
       <a-img
         src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6b3a4120c9044578d9cafa0083c3f48~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp"
@@ -38,8 +37,11 @@
     </template>
     <template #title>王小波</template>
     <template #extra>
-      <a-btn icon color="#fbafba">
-        <a-icon name="menu1" />
+      <a-btn
+      v-loading.fullscreen="fullscreenLoading"
+       icon color="#fbafba">
+        <a-icon
+         name="menu1" />
       </a-btn>
     </template>
     <template #content>
@@ -51,6 +53,21 @@
     </template>
   </a-card>
 </template>
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const fullscreenLoading = ref(true)
+    setTimeout(() => {
+      fullscreenLoading.value = false
+    }, 20000)
+    return {
+      fullscreenLoading,
+    }
+  },
+})
+</script>
 ```
 
 :::
@@ -63,7 +80,7 @@
 
 ```vue
 <template>
-  <a-card continue>
+  <a-card>
     <template #cover>
       <a-img src="https://w.wallhaven.cc/full/28/wallhaven-2828w6.jpg" />
     </template>
@@ -99,7 +116,7 @@
 
 ```vue
 <template>
-  <a-card continue>
+  <a-card>
     <template #cover>
       <a-img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cbf6426ff65495ab1cfcd04f195b538~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp" />
       </a-img>
@@ -131,7 +148,7 @@
 
 ```vue
 <template>
-  <a-card continue color="#ff6b81">
+  <a-card color="#ff6b81">
     <template #title>
       <span style="color: white"> 王小波 </span>
     </template>
@@ -164,7 +181,7 @@
 
 ```vue
 <template>
-  <a-card continue>
+  <a-card>
     <template #cover>
       <img
         src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78cdd31a6a8a428297289b9d87e38a78~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp"

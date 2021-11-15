@@ -1,64 +1,74 @@
-import { defineComponent, ref, nextTick, watch } from 'vue'
-import { props } from './props'
-import { isURL, toNumber } from '../../../utils/shared'
-import { toSizeUnit } from '../../../utils/elements'
-import type { Ref } from 'vue'
-import '../../../styles/common.less'
-import '../styles/icon.less'
+import { defineComponent, ref, nextTick, watch } from "vue";
+import { props } from "./props";
+import { isURL, toNumber } from "../../../utils/shared";
+import { toSizeUnit } from "../../../utils/elements";
+import type { Ref } from "vue";
+import "../../../styles/common.less";
+import "../styles/icon.less";
 export default defineComponent({
-  name: 'AIcon',
+  name: "AIcon",
   props,
   setup(props) {
-    const name: Ref<string | undefined> = ref('')
-    const shrinking: Ref<boolean> = ref(false)
+    const name: Ref<string | undefined> = ref("");
+    const shrinking: Ref<boolean> = ref(false);
 
-    const changeIcon = async (newIconName: string | undefined, oldIconName: string | undefined) => {
-      const { transition } = props
+    const changeIcon = async (
+      newIconName: string | undefined,
+      oldIconName: string | undefined
+    ) => {
+      const { transition } = props;
       if (oldIconName == null || toNumber(transition) === 0) {
-        name.value = newIconName
-        return
+        name.value = newIconName;
+        return;
       }
-      shrinking.value = true
+      shrinking.value = true;
 
-      await nextTick()
+      await nextTick();
       setTimeout(() => {
-        oldIconName != null && (name.value = oldIconName)
-        shrinking.value = false
-      }, toNumber(transition))
-    }
-    watch(() => props.name, changeIcon, { immediate: true })
+        oldIconName != null && (name.value = oldIconName);
+        shrinking.value = false;
+      }, toNumber(transition));
+    };
+    watch(() => props.name, changeIcon, { immediate: true });
     const handleClick = (e: MouseEvent) => {
-      props.onClick && props.onClick(e)
-    }
+      props.onClick && props.onClick(e);
+    };
     const iconiStyle = {
       color: props.color,
       transition: `all ${toNumber(props.transition)}ms`,
-      fontSize: toSizeUnit(props.size)
-    }
+      fontSize: toSizeUnit(props.size),
+    };
     const iconImgStyle = {
       transition: `all ${toNumber(props.transition)}ms`,
       width: toSizeUnit(props.size),
-      height: toSizeUnit(props.size)
-    }
+      height: toSizeUnit(props.size),
+    };
     return () => {
       return (
         <div style="display: inline-block">
           {isURL(props.name) ? (
-            <img onClick={props.onClick} src={name.value} style={iconImgStyle} class={iconClass} />
+            <img
+              onClick={props.onClick}
+              src={name.value}
+              style={iconImgStyle}
+              class={iconClass}
+            />
           ) : (
             <i
               onClick={props.onClick}
               style={iconiStyle}
               class={[
-                'adny-icon',
+                "adny-icon",
                 `${props.namespace}--set`,
-                isURL(props.name) ? 'adny-icon__image' : `${props.namespace}-${name.value}`,
-                shrinking.value ? 'adny-icon--shrinking' : null
+                isURL(props.name)
+                  ? "adny-icon__image"
+                  : `${props.namespace}-${name.value}`,
+                shrinking.value ? "adny-icon--shrinking" : null,
               ]}
             ></i>
           )}
         </div>
-      )
-    }
-  }
-})
+      );
+    };
+  },
+});

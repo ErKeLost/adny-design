@@ -1,5 +1,5 @@
 <template>
-  <div id="spinner" class="container-spinner" :class="[spinnerColor]">
+  <div id="spinner" class="container-spinner element">
     <div class="fulfilling-square-spinner" v-if="'fulling' === spinnerType">
       <div class="spinner-inner"></div>
     </div>
@@ -54,11 +54,11 @@ export default defineComponent({
   props: {
     spinnerType: {
       type: String,
-      default: ''
+      default: 'scaling'
     },
     spinnerColor: {
       type: String,
-      default: 'warning'
+      default: '#212121'
     },
     loadingTip: {
       type: String,
@@ -67,12 +67,15 @@ export default defineComponent({
     fulling: {
       type: Boolean,
       default: false
+    },
+    type: {
+      type: String,
+      default: 'fulling'
     }
-
   },
   setup(props) {
     const bgColor = computed(() => {
-      return `${props.spinnerColor}30`
+      return `${props.spinnerColor}50`
     })
     return {
       bgColor
@@ -82,118 +85,124 @@ export default defineComponent({
 </script>
 
 <style scoped lang="less">
-.container-spinner {
+.element {
   // position: absolute;
+  // z-index: 9999;
+  border-radius: 4px;
+  border: 0.1px solid v-bind(spinnerColor);
+}
+.fullscreen {
+  position: fixed;
+  z-index: 9999;
+}
+.container-spinner {
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  border-radius: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: v-bind(bgColor);
-  border: 0.1px solid v-bind(spinnerColor);
   .title {
     color: v-bind(spinnerColor);
     user-select: none;
     font-size: 15px;
     letter-spacing: 1px;
-  }
-  .fulfilling-square-spinner {
-    height: 50px;
-    width: 50px;
-    position: relative;
-    border: 4px solid v-bind(spinnerColor);
-    animation: fulfilling-square-spinner-animation 4s infinite ease;
-  }
-  .fulfilling-square-spinner .spinner-inner {
-    vertical-align: top;
-    display: inline-block;
-    background-color: v-bind(spinnerColor);
-    width: 100%;
-    opacity: 1;
-    animation: fulfilling-square-spinner-inner-animation 4s infinite ease-in;
-  }
-  .breeding-rhombus-spinner .rhombus {
-    height: calc(50px / 7.5);
-    width: calc(50px / 7.5);
-    animation-duration: 2000ms;
-    top: calc(50px / 2.3077);
-    left: calc(50px / 2.3077);
-    background-color: v-bind(spinnerColor);
-    position: absolute;
-    animation-iteration-count: infinite;
-  }
-  .breeding-rhombus-spinner .rhombus.big {
-    height: calc(50px / 3);
-    width: calc(50px / 3);
-    animation-duration: 2000ms;
-    top: calc(50px / 3);
-    left: calc(50px / 3);
-    background-color: v-bind(spinnerColor);
-    animation: breeding-rhombus-spinner-animation-child-big 2s infinite;
-    animation-delay: 0.5s;
-  }
-  .semipolar-spinner .ring {
-    border-radius: 50%;
-    position: absolute;
-    border: calc(50px * 0.05) solid transparent;
-    border-top-color: v-bind(spinnerColor);
-    border-left-color: v-bind(spinnerColor);
-    animation: semipolar-spinner-animation 2s infinite;
-  }
-  .fulfilling-bouncing-circle-spinner .circle {
-    height: 60px;
-    width: 60px;
-    color: v-bind(spinnerColor);
-    display: block;
-    border-radius: 50%;
-    position: relative;
-    border: calc(60px * 0.1) solid v-bind(spinnerColor);
-    animation: fulfilling-bouncing-circle-spinner-circle-animation infinite
-      4000ms ease;
-    transform: rotate(0deg) scale(1);
-  }
-  .fulfilling-bouncing-circle-spinner .orbit {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    border: calc(60px * 0.03) solid v-bind(spinnerColor);
-    animation: fulfilling-bouncing-circle-spinner-orbit-animation infinite
-      4000ms ease;
-  }
-  .self-building-square-spinner .square {
-    height: 10px;
-    width: 10px;
-    top: calc(-10px * 2 / 3);
-    margin-right: calc(10px / 3);
-    margin-top: calc(10px / 3);
-    background: v-bind(spinnerColor);
-    float: left;
-    position: relative;
-    opacity: 0;
-    animation: self-building-square-spinner 6s infinite;
-  }
-  .scaling-squares-spinner .square {
-    height: calc(50px * 0.25 / 1.3);
-    width: calc(50px * 0.25 / 1.3);
-    margin-right: auto;
-    margin-left: auto;
-    border: calc(50px * 0.04 / 1.3) solid v-bind(spinnerColor);
-    position: absolute;
-    animation-duration: 1250ms;
-    animation-iteration-count: infinite;
-  }
-  .title {
     margin-top: 20px;
   }
 }
+.fulfilling-square-spinner {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  border: 4px solid v-bind(spinnerColor);
+  animation: fulfilling-square-spinner-animation 4s infinite ease;
+}
+.fulfilling-square-spinner .spinner-inner {
+  vertical-align: top;
+  display: inline-block;
+  background-color: v-bind(spinnerColor);
+  width: 100%;
+  opacity: 1;
+  animation: fulfilling-square-spinner-inner-animation 4s infinite ease-in;
+}
+.breeding-rhombus-spinner .rhombus {
+  height: calc(50px / 7.5);
+  width: calc(50px / 7.5);
+  animation-duration: 2000ms;
+  top: calc(50px / 2.3077);
+  left: calc(50px / 2.3077);
+  background-color: v-bind(spinnerColor);
+  position: absolute;
+  animation-iteration-count: infinite;
+}
+.breeding-rhombus-spinner .rhombus.big {
+  height: calc(50px / 3);
+  width: calc(50px / 3);
+  animation-duration: 2000ms;
+  top: calc(50px / 3);
+  left: calc(50px / 3);
+  background-color: v-bind(spinnerColor);
+  animation: breeding-rhombus-spinner-animation-child-big 2s infinite;
+  animation-delay: 0.5s;
+}
+.semipolar-spinner .ring {
+  border-radius: 50%;
+  position: absolute;
+  border: calc(50px * 0.05) solid transparent;
+  border-top-color: v-bind(spinnerColor);
+  border-left-color: v-bind(spinnerColor);
+  animation: semipolar-spinner-animation 2s infinite;
+}
+.fulfilling-bouncing-circle-spinner .circle {
+  height: 60px;
+  width: 60px;
+  color: v-bind(spinnerColor);
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  border: calc(60px * 0.1) solid v-bind(spinnerColor);
+  animation: fulfilling-bouncing-circle-spinner-circle-animation infinite 4000ms
+    ease;
+  transform: rotate(0deg) scale(1);
+}
+.fulfilling-bouncing-circle-spinner .orbit {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border: calc(60px * 0.03) solid v-bind(spinnerColor);
+  animation: fulfilling-bouncing-circle-spinner-orbit-animation infinite 4000ms
+    ease;
+}
+.self-building-square-spinner .square {
+  height: 10px;
+  width: 10px;
+  top: calc(-10px * 2 / 3);
+  margin-right: calc(10px / 3);
+  margin-top: calc(10px / 3);
+  background: v-bind(spinnerColor);
+  float: left;
+  position: relative;
+  opacity: 0;
+  animation: self-building-square-spinner 6s infinite;
+}
+.scaling-squares-spinner .square {
+  height: calc(50px * 0.25 / 1.3);
+  width: calc(50px * 0.25 / 1.3);
+  margin-right: auto;
+  margin-left: auto;
+  border: calc(50px * 0.04 / 1.3) solid v-bind(spinnerColor);
+  position: absolute;
+  animation-duration: 1250ms;
+  animation-iteration-count: infinite;
+}
+
 // 花朵
 .flower-spinner,
 .flower-spinner * {
