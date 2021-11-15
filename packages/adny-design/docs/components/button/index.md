@@ -1,6 +1,9 @@
 # Button 按钮
+
 # bug: 1
-# 作用于 text 特性 在 type类型下 消失
+
+# 作用于 text 特性 在 type 类型下 消失
+
 ### ABtn （按钮）组件采 Material Design 设计主题风格，
 
 ### 使用
@@ -17,23 +20,15 @@
 
 ```vue
 <template>
-  <a-btn
-   v-loading.fullscreen="fullscreenLoading" size="large" type="primary"  block>按钮</a-btn>
+  <a-btn size="large" type="primary" block>按钮</a-btn>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   setup() {
-    const fullscreenLoading = ref(true)
-    setTimeout(() => {
-      fullscreenLoading.value = false
-    }, 2000)
-    return {
-      fullscreenLoading,
-    }
   },
-})
+});
 </script>
 ```
 
@@ -67,6 +62,7 @@ export default defineComponent({
 :::
 
 ## Fab (浮动)
+
 多做用于 图标 按钮 提示交互
 
 :::demo
@@ -131,7 +127,7 @@ export default defineComponent({
       </a-btn>
     </a-grid-item>
   </a-grid>
-    <a-cell style="marginTop: 50px;fontSize: 20px; fontWeight: 600;"
+  <a-cell style="marginTop: 50px;fontSize: 20px; fontWeight: 600;"
     >Large</a-cell
   >
   <a-grid>
@@ -146,7 +142,7 @@ export default defineComponent({
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn icon  type="warning">
+      <a-btn icon type="warning">
         <a-icon name="refresh" />
       </a-btn>
     </a-grid-item>
