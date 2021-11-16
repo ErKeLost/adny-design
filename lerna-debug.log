@@ -1,0 +1,11 @@
+0 silly argv {
+0 silly argv   _: [ 'add' ],
+0 silly argv   globs: [ 'packages/adng-design' ],
+0 silly argv   lernaVersion: '4.0.0',
+0 silly argv   '$0': '..\\..\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js',
+0 silly argv   pkg: 'vitepress-theme-demoblock@lastest'
+0 silly argv }
+1 notice cli v4.0.0
+2 verbose rootPath C:\Users\11963\Desktop\adny-design
+3 error vitepress-theme-demoblock: No matching version found for vitepress-theme-demoblock@lastest.
+3 error     at module.exports (C:\Users\11963\Desktop\adny-design\node_modules\npm-pick-manifest\index.js:209:23)

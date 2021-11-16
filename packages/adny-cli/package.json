@@ -26,6 +26,8 @@
     "build:components": "node ../adny-cli/commands/build.js",
     "build:lib": "yarn build:components && cp package.json build && cp README.md build"
   },
-  "bugs": {
+  "bugs": {},
+  "devDependencies": {
+    "vitepress-theme-demoblock": "^1.4.1"
   }
 }

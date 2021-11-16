@@ -1,15 +1,23 @@
 import type { Directive } from "vue";
 import { watch } from "vue";
-import { createApp, ref, defineComponent } from "vue";
-import { ASpin } from "../../../components/spin";
-const loadingCtor = createApp(ASpin).mount(document.createElement("div"));
-const loadingElement = loadingCtor.$el;
+import { createApp, ref, defineComponent, getCurrentInstance } from "vue";
+import ASpin from "../../../components/spin/src/spinner.vue";
+import { createrippleElement } from "./utils/createElement";
+
+// const div = document.createElement("div");
+let loadingCtor = null;
+let loadingElement = null;
 interface Spinner {
   loadingTip: string;
   prop: string;
 }
 const LoadingDirective: Directive = {
-  beforeMount(el: HTMLElement, binding) {
+  beforeMount(el, binding) {
+    loadingCtor = createApp(ASpin).mount(createrippleElement());
+    console.log(createrippleElement());
+    loadingElement = loadingCtor.$el;
+  },
+  mounted(el: HTMLElement, binding) {
     binding.value ?? console.log(binding.value);
     removeClass(loadingElement, (loadingCtor as any).spinnerColor);
     el.style.position = "relative";

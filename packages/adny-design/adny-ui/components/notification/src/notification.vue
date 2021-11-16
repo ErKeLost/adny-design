@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, ref, onMounted, Transition, onUnmounted } from 'vue'
-import AIcon from '../../icon'
+import { AIcon } from '../../icon'
 export default defineComponent({
   name: 'ANotification',
   components: {

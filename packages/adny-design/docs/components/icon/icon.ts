@@ -1,21 +1,4 @@
-:::demo 使用 adny
-
-```vue
-<template>
-  <a-grid>
-    <a-grid-item v-for="item in icon" :span="6" style="marginBottom: 20px;">
-      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <a-icon :name="item" color="#fba" />
-        <a-cell>{{ item }}</a-cell>
-      </div>
-    </a-grid-item>
-  </a-grid>
-</template>
-<script>
-import { defineComponent } from 'vue'
-export default defineComponent({
-  setup() {
-    const icon = [
+export const icon = [
   "activity",
   "airplay",
   "alert-circle",
@@ -401,12 +384,3 @@ export default defineComponent({
   "arrow-down",
   "heart",
 ];
-    return {
-      icon
-    }
-  }
-})
-</script>
-```
-
-:::

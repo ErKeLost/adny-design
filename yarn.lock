@@ -8070,6 +8070,20 @@ vitepress-theme-demoblock@^1.2.6:
     vitepress "^0.16.1"
     yaml "^2.0.0-6"
 
+vitepress-theme-demoblock@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.npmmirror.com/vitepress-theme-demoblock/download/vitepress-theme-demoblock-1.4.1.tgz#90d9252e4e4519daa21eda93b149b80da59c2409"
+  integrity sha512-ZoETTMiCzuPm9UwqGHwzfytnZpg7WhlCtugl2ydyA+QgSTcc6ulEQwxh22/xBoP+dBxzpapfcdAYQ4Ute+PKAQ==
+  dependencies:
+    camelcase "^6.2.0"
+    globby "^11.0.2"
+    kolorist "^1.5.0"
+    markdown-it "^12.0.4"
+    minimist "^1.2.5"
+    prettier "^2.2.1"
+    vitepress "^0.16.1"
+    yaml "^2.0.0-6"
+
 vitepress@^0.16.1:
   version "0.16.1"
   resolved "https://registry.npmmirror.com/vitepress/download/vitepress-0.16.1.tgz#70ba4326a4bdc7152f264868c0775615c0bc16d5"

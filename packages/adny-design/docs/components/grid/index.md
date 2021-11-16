@@ -11,6 +11,7 @@
     </a-grid-item>
   </a-grid>
 </template>
+
 <style>
 .light-green {
   height: 108px;

@@ -1,9 +1,5 @@
 # Button 按钮
 
-# bug: 1
-
-# 作用于 text 特性 在 type 类型下 消失
-
 ### ABtn （按钮）组件采 Material Design 设计主题风格，
 
 ### 使用
@@ -22,14 +18,6 @@
 <template>
   <a-btn size="large" type="primary" block>按钮</a-btn>
 </template>
-<script lang="ts">
-import { defineComponent, ref } from "vue";
-
-export default defineComponent({
-  setup() {
-  },
-});
-</script>
 ```
 
 :::
