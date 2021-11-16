@@ -34,6 +34,7 @@ const sidebar = {
         { text: "BackTop 回到顶部", link: "/components/backTop/" },
         { text: "Cell 单元格", link: "/components/cell/" },
         { text: "Spin 加载中", link: "/components/spin/" },
+        { text: "CountDown 倒计时", link: "/components/count-down/" },
       ],
     },
     { text: "导航" },

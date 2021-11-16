@@ -14,7 +14,6 @@ interface Spinner {
 const LoadingDirective: Directive = {
   beforeMount(el, binding) {
     loadingCtor = createApp(ASpin).mount(createrippleElement());
-    console.log(createrippleElement());
     loadingElement = loadingCtor.$el;
   },
   mounted(el: HTMLElement, binding) {
@@ -26,11 +25,12 @@ const LoadingDirective: Directive = {
     }
   },
   updated(el: HTMLElement, binding) {
+    console.log(binding.value);
+
     if (binding.value !== binding.oldValue) {
       // 判断true 到 false  还是 false 到true
       binding.value ? append(el) : remove(el);
     }
-    console.log(binding.modifiers);
     if (binding.modifiers.fullscreen) {
       addClass(loadingElement, "fullscreen");
       removeClass(loadingElement, "element");

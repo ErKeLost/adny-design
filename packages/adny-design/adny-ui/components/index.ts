@@ -33,7 +33,9 @@ import StickyInstall, { ASticky } from "./sticky";
 import BackTopInstall, { ABackTop } from "./back-top";
 import CellInstall, { ACell } from "./cell";
 import SpinInstall, { ASpin } from "./spin";
+import CountDownInstall, { CountDown } from "./count-down";
 const installed = [
+  CountDownInstall,
   StickyInstall,
   SpinInstall,
   TabInstall,
@@ -63,6 +65,7 @@ const installed = [
   CellInstall,
 ];
 export {
+  CountDown,
   ASpin,
   ASticky,
   ABtn,
