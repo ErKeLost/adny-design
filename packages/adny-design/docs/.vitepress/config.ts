@@ -35,6 +35,7 @@ const sidebar = {
         { text: "Cell 单元格", link: "/components/cell/" },
         { text: "Spin 加载中", link: "/components/spin/" },
         { text: "CountDown 倒计时", link: "/components/count-down/" },
+        { text: "Statistic 统计数值", link: "/components/statistic/" },
       ],
     },
     { text: "导航" },

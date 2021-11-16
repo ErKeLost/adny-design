@@ -1,7 +1,7 @@
 :::demo
 ```vue
 <template>
-  <a-countdown :time="time" format="DD 天 HH 时 mm 分 ss 秒" />
+  <a-countdown :time="time" format="DD 天 HH 时 mm 分 ss 秒 SS 毫秒" />
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
