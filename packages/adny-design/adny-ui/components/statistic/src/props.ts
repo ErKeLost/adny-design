@@ -1,3 +1,4 @@
+import { PropType } from "vue";
 export const props = {
   title: {
     type: String,

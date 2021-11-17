@@ -35,7 +35,9 @@ import CellInstall, { ACell } from "./cell";
 import SpinInstall, { ASpin } from "./spin";
 import CountDownInstall, { CountDown } from "./count-down";
 import StatisticInstall, { AStatistic } from "./statistic";
+import BadgeInstall, { ABadge } from "./badge";
 const installed = [
+  BadgeInstall,
   StatisticInstall,
   CountDownInstall,
   StickyInstall,
@@ -67,6 +69,7 @@ const installed = [
   CellInstall,
 ];
 export {
+  ABadge,
   AStatistic,
   CountDown,
   ASpin,

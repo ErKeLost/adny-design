@@ -36,6 +36,7 @@ const sidebar = {
         { text: "Spin 加载中", link: "/components/spin/" },
         { text: "CountDown 倒计时", link: "/components/count-down/" },
         { text: "Statistic 统计数值", link: "/components/statistic/" },
+        { text: "Badge 徽标", link: "/components/badge/" },
       ],
     },
     { text: "导航" },
