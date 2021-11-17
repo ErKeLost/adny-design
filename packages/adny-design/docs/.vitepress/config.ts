@@ -37,6 +37,7 @@ const sidebar = {
         { text: "CountDown 倒计时", link: "/components/count-down/" },
         { text: "Statistic 统计数值", link: "/components/statistic/" },
         { text: "Badge 徽标", link: "/components/badge/" },
+        { text: "Avatar 头像", link: "/components/avatar/" },
       ],
     },
     { text: "导航" },
