@@ -16,10 +16,11 @@
   --badge-info-color: @badge-info-color;
 }
 
-.var-badge {
+.adny-badge {
   display: inline-block;
   position: relative;
   z-index: 999;
+  transition: all 0.4s ease-in-out;
 
   &__content {
     color: #fff;
@@ -128,5 +129,16 @@
   &-fade-enter-from,
   &-fade-leave-to {
     opacity: 0;
+  }
+  &-hover-enter-active,
+  &-hover-leave-active {
+    transition: all 0.5s var(--cubic-bezier);
+    transform: translateX(20px);
+  }
+
+  &-hover-enter-from,
+  &-hover-leave-to {
+    opacity: 0;
+    transform: translateX(-20px);
   }
 }

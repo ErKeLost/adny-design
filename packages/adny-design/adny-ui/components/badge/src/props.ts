@@ -31,4 +31,8 @@ export const props = {
     type: String,
     default: "",
   },
+  hover: {
+    type: Boolean,
+    default: false,
+  },
 };
