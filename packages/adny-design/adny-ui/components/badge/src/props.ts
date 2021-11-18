@@ -25,7 +25,7 @@ export const props = {
   },
   value: {
     type: Number,
-    default: 0,
+    default: 99,
   },
   type: {
     type: String,

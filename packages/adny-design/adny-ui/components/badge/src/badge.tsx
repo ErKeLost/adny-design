@@ -48,24 +48,32 @@ export default defineComponent({
 
     const getPositionClass = (): string | undefined => {
       const { position, dot } = props;
-      if (dot && position.includes("right")) return "var-badge__dot--right";
-      if (dot && position.includes("left")) return "var-badge__dot--left";
+      if (dot && position.includes("bottom-right"))
+        return "var-badge__dot--right";
+      if (dot && position.includes("top-right"))
+        return "var-badge__dot--top-right";
+      if (dot && position.includes("bottom-left"))
+        return "var-badge__dot--left";
+      if (dot && position.includes("top-left"))
+        return "var-badge__dot--top-left";
     };
 
     return () => {
       return (
         <div class={badgeClass}>
           <Transition name={badgeTransition}>
-            <span
-              class={contentClass.value}
-              style={{ background: props.color }}
-            >
-              {props.icon && !props.dot ? (
-                <a-icon size="12" name={props.icon}></a-icon>
-              ) : (
-                <span>{values.value}</span>
-              )}
-            </span>
+            {props.value > 0 ? (
+              <span
+                class={contentClass.value}
+                style={{ background: props.color }}
+              >
+                {props.icon && !props.dot ? (
+                  <a-icon size="12" name={props.icon}></a-icon>
+                ) : (
+                  <span>{values.value}</span>
+                )}
+              </span>
+            ) : null}
           </Transition>
           {ctx.slots.default ? ctx.slots.default() : null}
         </div>
