@@ -12,9 +12,9 @@
   <a-badge color="#ff5252" position="top-right" icon="lock1">
     <a-btn type="danger" @click="dot = !dot">Lock Account</a-btn>
   </a-badge>
-  <a-dropdown style="display: block; margin-top:200px;"  alignment="bottom" v-model:show="bottom">
-      <a-badge :dot="dot" color="#ff5252" @click="bottom = true" position="top-right">
-        <a-avatar type="primary" size="62">
+  <a-dropdown :offset-x="-72" style="margin-top:200px;"  alignment="bottom" v-model:show="bottom">
+      <a-badge :dot="dot" color="#ff5252"  position="top-right">
+        <a-avatar type="primary" size="52" @click="bottom = true">
           <img src="https://w.wallhaven.cc/full/pk/wallhaven-pkgk6j.jpg" />
         </a-avatar>
       </a-badge>
@@ -43,5 +43,10 @@ export default defineComponent({
   }
 })
 </script>
+<style>
+.cell-list {
+  width: 300px;
+}
+</style>
 ```
 :::

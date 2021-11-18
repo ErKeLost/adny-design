@@ -1,5 +1,5 @@
 <template>
-  <div class="adny-avatar" :class="avatarClass" :style="avatarStyle">
+  <div class="adny-avatar" :class="avatarClass" :style="avatarStyle" @click="onClick">
     <slot></slot>
   </div>
 </template>

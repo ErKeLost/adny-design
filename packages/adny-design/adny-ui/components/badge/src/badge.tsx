@@ -45,14 +45,12 @@ export default defineComponent({
 
       return value;
     });
-    console.log(values.value);
 
     const getPositionClass = (): string | undefined => {
       const { position, dot } = props;
       if (dot && position.includes("right")) return "var-badge__dot--right";
       if (dot && position.includes("left")) return "var-badge__dot--left";
     };
-    console.log(contentClass.value);
 
     return () => {
       return (

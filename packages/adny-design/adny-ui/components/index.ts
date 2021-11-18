@@ -38,7 +38,15 @@ import StatisticInstall, { AStatistic } from "./statistic";
 import BadgeInstall, { ABadge } from "./badge";
 import AvatarInstall, { AAvatar } from "./avatar";
 import DropDownInstall, { ADropDown } from "./dropdown";
+import TooltipInstall, { ATooltip } from "./tooltip";
+import SelectInstall, { ASelect } from "./select";
+import SliderInstall, { ASlider } from "./slider";
+import RadioInstall, { ARadio } from "./radio";
 const installed = [
+  TooltipInstall,
+  SelectInstall,
+  SliderInstall,
+  RadioInstall,
   DropDownInstall,
   AvatarInstall,
   BadgeInstall,
@@ -73,6 +81,10 @@ const installed = [
   CellInstall,
 ];
 export {
+  ATooltip,
+  ASelect,
+  ASlider,
+  ARadio,
   ADropDown,
   AAvatar,
   ABadge,

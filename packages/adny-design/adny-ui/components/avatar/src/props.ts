@@ -7,4 +7,7 @@ export const props = {
     type: String,
     default: "primary",
   },
+  onClick: {
+    type: Function,
+  },
 };
