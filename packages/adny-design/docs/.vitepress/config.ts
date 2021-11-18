@@ -38,6 +38,7 @@ const sidebar = {
         { text: "Statistic 统计数值", link: "/components/statistic/" },
         { text: "Badge 徽标", link: "/components/badge/" },
         { text: "Avatar 头像", link: "/components/avatar/" },
+        { text: "ADropDown 下拉菜单", link: "/components/dropdown/" },
       ],
     },
     { text: "导航" },

@@ -37,7 +37,9 @@ import CountDownInstall, { CountDown } from "./count-down";
 import StatisticInstall, { AStatistic } from "./statistic";
 import BadgeInstall, { ABadge } from "./badge";
 import AvatarInstall, { AAvatar } from "./avatar";
+import DropDownInstall, { ADropDown } from "./dropdown";
 const installed = [
+  DropDownInstall,
   AvatarInstall,
   BadgeInstall,
   StatisticInstall,
@@ -71,6 +73,7 @@ const installed = [
   CellInstall,
 ];
 export {
+  ADropDown,
   AAvatar,
   ABadge,
   AStatistic,
