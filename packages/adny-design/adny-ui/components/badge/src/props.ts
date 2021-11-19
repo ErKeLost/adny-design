@@ -4,6 +4,14 @@ export type positionType = PropType<
 >;
 
 export const props = {
+  overlay: {
+    type: Boolean,
+    default: false,
+  },
+  bordered: {
+    type: Boolean,
+    default: false,
+  },
   icon: {
     type: String,
   },

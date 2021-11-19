@@ -33,14 +33,20 @@ export default defineComponent({
       computed(() => {
         const { type, position, dot, icon } = props;
         const positionBasic =
-          ctx.slots.default?.() &&
-          `adny-badge__position adny-badge--${position}`;
+          ctx.slots.default?.() && ` adny-badge--${position}`;
+        const positionOverlayBasic =
+          ctx.slots.default?.() && ` adny-badge--${position}-overlay`;
+        const bordered = props.bordered ? "adny-badge__position" : null;
         const dotClass = dot && "adny-badge__dot";
         const positionClass = getPositionClass();
         const iconClass = icon && "adny-badge__icon";
+        const positionReal = !props.overlay
+          ? positionBasic
+          : positionOverlayBasic;
         return [
           `adny-badge--${type}`,
-          positionBasic,
+          positionReal,
+          bordered,
           dotClass,
           positionClass,
           iconClass,
