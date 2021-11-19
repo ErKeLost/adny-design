@@ -15,7 +15,20 @@ export default defineComponent({
   setup(props, ctx) {
     const badgeClass = ["adny-badge"];
     const badgeTransition = "adny-badge-fade";
-    const hoverTransition = "adny-badge-hover";
+    const hoverTransition = computed(() => {
+      if (props.position === "top-right") {
+        return "adny-badge-top-right-hover";
+      }
+      if (props.position === "top-left") {
+        return "adny-badge-top-left-hover";
+      }
+      if (props.position === "bottom-right") {
+        return "adny-badge-bottom-right-hover";
+      }
+      if (props.position === "bottom-left") {
+        return "adny-badge-bottom-left-hover";
+      }
+    });
     const contentClass: ComputedRef<Array<string | false | undefined>> =
       computed(() => {
         const { type, position, dot, icon } = props;
@@ -74,7 +87,9 @@ export default defineComponent({
           onMousemove={hoverMove}
           onMouseleave={hoverLeave}
         >
-          <Transition name={props.hover ? hoverTransition : badgeTransition}>
+          <Transition
+            name={props.hover ? hoverTransition.value : badgeTransition}
+          >
             {props.hover ? (
               hoverStatus.value ? (
                 <span
