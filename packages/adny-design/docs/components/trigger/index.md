@@ -1,7 +1,12 @@
 :::demo
 ```vue
 <template>
-  <a-trigger></a-trigger>
+  <a-trigger top>
+    <span>Hover Me</span>
+    <template #content>
+      thing catr
+    </template>
+  </a-trigger>
 </template>
 ```
 :::

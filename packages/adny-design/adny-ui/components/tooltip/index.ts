@@ -1,4 +1,4 @@
-import ATooltip from "./src/tooltip.vue";
+import ATooltip from "./src/tooltip.tsx";
 import { App } from "vue";
 
 export { ATooltip };

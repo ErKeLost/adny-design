@@ -1,4 +1,4 @@
-import ATrigger from "./src/trigger";
+import ATrigger from "./src/trigger.vue";
 import { App } from "vue";
 
 export { ATrigger };

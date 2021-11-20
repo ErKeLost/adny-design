@@ -1,21 +1,15 @@
 import type { ExtractPropTypes } from "vue";
 
+export type TTooltip = "top" | "right" | "bottom" | "left";
+
 export const tooltipProps = {
-  left: {
-    type: Boolean,
-    default: false,
+  position: {
+    type: String,
+    default: "top",
   },
-  right: {
+  showAnimation: {
     type: Boolean,
-    default: false,
-  },
-  top: {
-    type: Boolean,
-    default: false,
-  },
-  bottom: {
-    type: Boolean,
-    default: false,
+    default: true,
   },
   content: {
     type: String,
