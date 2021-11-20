@@ -43,6 +43,8 @@ const sidebar = {
         { text: "ARadio 单选", link: "/components/radio/" },
         { text: "ASider 滑块", link: "/components/slider/" },
         { text: "ATooltip 提示", link: "/components/tooltip/" },
+        { text: "ATrigger 触发器", link: "/components/trigger/" },
+        { text: "AColorPicker 颜色选择器", link: "/components/color-picker/" },
       ],
     },
     { text: "导航" },

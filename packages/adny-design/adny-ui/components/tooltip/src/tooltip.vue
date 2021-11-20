@@ -1,15 +1,17 @@
 <template>
   <div class="adny-tooltip">
-    <slot></slot>
+    <slot name="host"></slot>
+    <div class="adny-tooltip-tooltips">
+      <slot></slot>
+    </div>
   </div>
 </template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { props } from './props'
+import { tooltipProps } from './props'
 export default defineComponent({
   name: 'ATooltip',
-  props,
+  props: tooltipProps,
   setup(props) {
     return {
 
@@ -17,6 +19,7 @@ export default defineComponent({
   }
 })
 </script>
+
 <style lang="less">
-@import "../styles/tooltip";
+@import "../styles/tooltip.less";
 </style>

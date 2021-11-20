@@ -42,7 +42,11 @@ import TooltipInstall, { ATooltip } from "./tooltip";
 import SelectInstall, { ASelect } from "./select";
 import SliderInstall, { ASlider } from "./slider";
 import RadioInstall, { ARadio } from "./radio";
+import TriggerInstall, { ATrigger } from "./trigger";
+import ColorPickerInstall, { AColorPicker } from "./color-picker";
 const installed = [
+  ColorPickerInstall,
+  TriggerInstall,
   TooltipInstall,
   SelectInstall,
   SliderInstall,
@@ -81,6 +85,8 @@ const installed = [
   CellInstall,
 ];
 export {
+  AColorPicker,
+  ATrigger,
   ATooltip,
   ASelect,
   ASlider,
