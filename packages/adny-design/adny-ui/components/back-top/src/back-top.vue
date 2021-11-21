@@ -45,10 +45,10 @@ export default defineComponent({
     const throttleScroll = throttle(scroll, 200)
 
     const getHTMLElement = () => {
-      if (!isString(props.target)) throw Error('[Varlet] BackTop: type of prop "target" should be a string')
+      if (!isString(props.target)) throw Error('[adny warning] BackTop: type of prop "target" should be a string')
 
       const el = document.querySelector(props.target)
-      if (!el) throw Error('[Varlet] BackTop: "target" should be a selector')
+      if (!el) throw Error('[adny warning] BackTop: "target" should be a selector')
 
       return el as HTMLElement
     }

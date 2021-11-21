@@ -1,7 +1,7 @@
 :::demo
 ```vue
 <template>
-  <a-color-picker :hsb="[10, 81, 45]"/>
+  <a-color-picker  :hsb="[50, 10, 30]" />
 </template>
 ```
 :::

@@ -12,6 +12,7 @@
     >
       <div class="var-slider__track">
         <div
+          v-bind="$attrs"
           class="var-slider__track-background"
           :style="{
             background: trackColor,
@@ -28,10 +29,9 @@
           left: `${item.value}%`,
           zIndex: thumbsProps[item.enumValue].active ? 1 : undefined,
         }"
-        @touchstart="start($event, item.enumValue)"
-        @touchmove="move($event, item.enumValue)"
-        @touchend="end(item.enumValue)"
-        @touchcancel="end(item.enumValue)"
+        @mousedown="start($event, item.enumValue)"
+        @mousemove="move($event, item.enumValue)"
+        @mouseup="end(item.enumValue)"
       >
         <slot name="button" :current-value="item.value">
           <div
@@ -117,6 +117,7 @@ export default defineComponent({
   components: {
     AdnyFormDetail,
   },
+  inheritAttrs: false,
   props,
   setup(props) {
     const { bindForm, form } = useForm()
@@ -212,17 +213,21 @@ export default defineComponent({
       return offsetToThumb1 <= offsetToThumb2 ? Thumbs.First : Thumbs.Second
     }
 
-    const start = (event: TouchEvent, type: keyof ThumbsProps) => {
+    const start = (event: MouseEvent, type: keyof ThumbsProps) => {
       if (!maxWidth.value) maxWidth.value = (sliderEl.value as HTMLDivElement).offsetWidth
+      console.log(event);
+
       if (isDisabled.value || isReadonly.value) return
       props.onStart?.()
       isScroll.value = true
-      thumbsProps[type].startPosition = event.touches[0].clientX
+      thumbsProps[type].startPosition = event.clientX
     }
 
-    const move = (event: TouchEvent, type: keyof ThumbsProps) => {
+    const move = (event: MouseEvent, type: keyof ThumbsProps) => {
+      console.log(34);
+
       if (isDisabled.value || isReadonly.value || !isScroll.value) return
-      let moveDistance = event.touches[0].clientX - thumbsProps[type].startPosition + thumbsProps[type].currentLeft
+      let moveDistance = event.clientX - thumbsProps[type].startPosition + thumbsProps[type].currentLeft
       thumbsProps[type].active = true
 
       if (moveDistance <= 0) moveDistance = 0
@@ -261,15 +266,15 @@ export default defineComponent({
     const stepValidator = () => {
       const stepNumber = toNumber(props.step)
       if (isNaN(stepNumber)) {
-        console.warn('[Varlet] Slider: type of prop "step" should be Number')
+        console.warn('[adny warning] Slider: type of prop "step" should be Number')
         return false
       }
       if (stepNumber < 1 || stepNumber > 100) {
-        console.warn('[Varlet] Slider: "step" should be >= 0 and <= 100')
+        console.warn('[adny warning] Slider: "step" should be >= 0 and <= 100')
         return false
       }
       if (parseInt(`${props.step}`, 10) !== stepNumber) {
-        console.warn('[Varlet] Slider: "step" should be an Integer')
+        console.warn('[adny warning] Slider: "step" should be an Integer')
         return false
       }
       return true
@@ -278,15 +283,15 @@ export default defineComponent({
     const valueValidator = () => {
       const { range, modelValue } = props
       if (range && !isArray(modelValue)) {
-        console.error('[Varlet] Slider: "modelValue" should be an Array')
+        console.error('[adny warning] Slider: "modelValue" should be an Array')
         return false
       }
       if (!range && isArray(modelValue)) {
-        console.error('[Varlet] Slider: "modelValue" should be a Number')
+        console.error('[adny warning] Slider: "modelValue" should be a Number')
         return false
       }
       if (range && isArray(modelValue) && modelValue.length < 2) {
-        console.error('[Varlet] Slider: "modelValue" should have two value')
+        console.error('[adny warning] Slider: "modelValue" should have two value')
         return false
       }
       return true
