@@ -1,26 +1,14 @@
 <template>
-  <div class="ph-color-sv" :style="svStyle" ref="esv" @click="onClick">
-    <div class="ph-color-sv-handler" :style="style"></div>
+  <div>
+    <div class="ph-color-sv" :style="svStyle" ref="esv" @click="onClick">
+      <div class="ph-color-sv-handler" :style="style"></div>
+    </div>
+    <slider-control></slider-control>
   </div>
-  <a-slider
-    track-color="linear-gradient(90deg,red,#fffc00 16.667%,#01b407 33.333%,#00eaff 50%,#000390 66.667%,#ff00c6 83.333%,red)"
-    thumb-color="#DADADAFF"
-    label-visible="never"
-    active-color="transparent"
-    track-height="10"
-    v-model="value"
-  />
-  <a-slider
-    label-visible="never"
-    class="adny-alpha-color"
-    active-color="transparent"
-    thumb-color="#DADADAFF"
-    track-height="10"
-  />
 </template>
 <script lang="ts">
 import { hsb2rgb, rgb2hexstr } from "../../../compsables/color";
-import { ASlider } from '../../slider'
+import sliderControl from './comp/sliderControler.vue'
 import {
   computed,
   defineComponent,
@@ -34,7 +22,7 @@ export default defineComponent({
     hsb: { type: Array, default: [10, 81, 45] },
   },
   components: {
-    ASlider
+    sliderControl
   },
   name: "AColorPicker",
   setup(props, { emit, attrs, slots }) {
@@ -49,9 +37,7 @@ export default defineComponent({
         "--ph-c-sv-bg": rgb2hexstr(hsb2rgb([props.hsb[0], 100, 100])),
       };
     });
-    const sliderAlpha = computed(() => {
-      return rgb2hexstr(hsb2rgb([props.hsb[0], 100, 100]))
-    })
+
     const style = computed(() => {
       const tx = (props.hsb[1] * state.svw) / 100,
         ty = ((100 - props.hsb[2]) * state.svh) / 100;
@@ -86,17 +72,14 @@ export default defineComponent({
         state.svh = esv.value.offsetHeight;
       });
     });
-    const value = ref(0)
     return {
-      value,
       onClick,
       onTouchmove,
       update,
       style,
       svStyle,
       esv,
-      state,
-      sliderAlpha
+      state
     };
   },
 });
@@ -155,18 +138,6 @@ export default defineComponent({
     &[active="true"] {
       transition: none;
     }
-  }
-}
-.adny-alpha-color {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbC1ydWxlPSJub256ZXJvIiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSIjRkZGIiBkPSJNMCAwaDE1djE1SDB6Ii8+PHBhdGggZmlsbD0iI0U2RTZFNiIgZD0iTTAgMGg3LjV2Ny41SDB6TTcuNSA3LjVIMTVWMTVINy41eiIvPjwvZz48L3N2Zz4=");
-  background-position: center;
-  &:before {
-    content: "";
-    position: absolute;
-    border-radius: inherit;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(90deg, transparent, v-bind(sliderAlpha));
   }
 }
 </style>
