@@ -45,6 +45,7 @@ const sidebar = {
         { text: "ATooltip 提示", link: "/components/tooltip/" },
         { text: "ATrigger 触发器", link: "/components/trigger/" },
         { text: "AColorPicker 颜色选择器", link: "/components/color-picker/" },
+        { text: "AInputNumber 数字输入框", link: "/components/input-number/" },
       ],
     },
     { text: "导航" },

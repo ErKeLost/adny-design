@@ -1,18 +1,18 @@
-import AIput from './src/input'
+import AInput from "./src/input";
 
-import type { App } from 'vue'
+import type { App } from "vue";
 
-AIput.install = function (app: App): void {
-  app.component(AIput.name, AIput)
-}
+AInput.install = function (app: App): void {
+  app.component(AInput.name, AInput);
+};
 
-export { AIput }
+export { AInput };
 
 export default {
-  title: 'AIput 输入框',
-  category: '反馈',
-  status: '30%',
+  title: "AIput 输入框",
+  category: "反馈",
+  status: "30%",
   install(app: App): void {
-    app.use(AIput as any)
-  }
-}
+    app.use(AInput as any);
+  },
+};

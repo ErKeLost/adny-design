@@ -4,11 +4,13 @@
       <div class="ph-color-sv-handler" :style="style"></div>
     </div>
     <slider-control></slider-control>
+    <color-control></color-control>
   </div>
 </template>
 <script lang="ts">
 import { hsb2rgb, rgb2hexstr } from "../../../compsables/color";
 import sliderControl from './comp/sliderControler.vue'
+import colorControl from './comp/colorControler.vue'
 import {
   computed,
   defineComponent,
@@ -22,7 +24,8 @@ export default defineComponent({
     hsb: { type: Array, default: [10, 81, 45] },
   },
   components: {
-    sliderControl
+    sliderControl,
+    colorControl
   },
   name: "AColorPicker",
   setup(props, { emit, attrs, slots }) {

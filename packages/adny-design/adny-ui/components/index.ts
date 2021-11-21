@@ -2,7 +2,7 @@ import type { App } from "vue";
 
 import ButtonInstall, { ABtn } from "./button";
 import CardInstall, { ACard } from "./card";
-import IputInstall, { AIput } from "./input";
+import IputInstall, { AInput } from "./input";
 import IconInstall, { AIcon } from "./icon";
 import AdnyFormDetailInstall, { AdnyFormDetail } from "./form-details";
 import FormInstall, { AForm, AFormItem } from "./form";
@@ -44,8 +44,10 @@ import SliderInstall, { ASlider } from "./slider";
 import RadioInstall, { ARadio } from "./radio";
 import TriggerInstall, { ATrigger } from "./trigger";
 import ColorPickerInstall, { AColorPicker } from "./color-picker";
+import InputNumberInstall, { AInputNumber } from "./input-number";
 const installed = [
   ColorPickerInstall,
+  InputNumberInstall,
   TriggerInstall,
   TooltipInstall,
   SelectInstall,
@@ -85,6 +87,7 @@ const installed = [
   CellInstall,
 ];
 export {
+  AInputNumber,
   AColorPicker,
   ATrigger,
   ATooltip,
@@ -100,7 +103,7 @@ export {
   ASticky,
   ABtn,
   ACard,
-  AIput,
+  AInput,
   AIcon,
   AdnyFormDetail,
   AForm,
