@@ -6,7 +6,10 @@
         <span>{{ item.text }}</span>
       </div>
     </div>
-    <a-input class="adny-color-ainput" v-if="colorType === 'HEX'" />
+    <div class="adny-color-ainput" v-if="colorType === 'HEX'">
+      <a-input textCenter maxlength="9" v-model="value" />
+      <!-- <span>HEX</span> -->
+    </div>
     <a-btn icon @click="changeColorType">
       <a-icon name="repeat" size="16"></a-icon>
     </a-btn>
@@ -40,7 +43,9 @@ export default defineComponent({
         colorType.value = colorTypeIndex[index.value].value
       }
     }
+    const value = ref('#FF0000FF')
     return {
+      value,
       colorControlers,
       changeColorType,
       colorType
@@ -82,6 +87,7 @@ export default defineComponent({
   }
   &-ainput {
     width: 250px;
+    text-align: center;
   }
 }
 </style>

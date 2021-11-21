@@ -1,12 +1,22 @@
-import type { PropType } from 'vue'
+import type { PropType } from "vue";
 
 export function typeValidator(type: string) {
-  return ['text', 'password', 'number'].includes(type)
+  return ["text", "password", "number"].includes(type);
 }
 
-export type ValidateTriggers = 'onFocus' | 'onBlur' | 'onChange' | 'onClick' | 'onClear' | 'onInput'
+export type ValidateTriggers =
+  | "onFocus"
+  | "onBlur"
+  | "onChange"
+  | "onClick"
+  | "onClear"
+  | "onInput";
 
 export const props = {
+  textCenter: {
+    type: Boolean,
+    default: false,
+  },
   modelValue: {
     type: String,
   },
@@ -16,15 +26,15 @@ export const props = {
   },
   error: {
     type: Boolean,
-    default: false
+    default: false,
   },
   // 校验
   prop: {
-    type: String
+    type: String,
   },
   type: {
-    type: String as PropType<'text' | 'password' | 'number'>,
-    default: 'text',
+    type: String as PropType<"text" | "password" | "number">,
+    default: "text",
     validator: typeValidator,
   },
   textarea: {
@@ -76,7 +86,7 @@ export const props = {
   },
   validateTrigger: {
     type: Array as PropType<ValidateTriggers[]>,
-    default: () => ['onInput', 'onClear'],
+    default: () => ["onInput", "onClear"],
   },
   rules: {
     type: Array as PropType<Array<(v: string) => any>>,
@@ -99,7 +109,7 @@ export const props = {
   onChange: {
     type: Function as PropType<(value: string, e: Event) => void>,
   },
-  'onUpdate:modelValue': {
+  "onUpdate:modelValue": {
     type: Function as PropType<(value: string) => void>,
   },
-}
+};
