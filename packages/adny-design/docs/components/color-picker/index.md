@@ -1,7 +1,16 @@
 :::demo
 ```vue
 <template>
-  <a-color-picker  :hsb="[50, 10, 30]" />
+  <a-color-picker v-model="color" />
 </template>
+<script lang="ts">
+export default {
+  data() {
+    return {
+      color: '#afb'
+    }
+  }
+}
+</script>
 ```
 :::

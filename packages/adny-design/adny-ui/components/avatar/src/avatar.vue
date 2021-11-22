@@ -12,12 +12,14 @@ export default defineComponent({
   setup(props, ctx) {
     const avatarClass = computed(() => {
       const color = `adny-avatar-${props.type}`
+      console.log(props.color);
       return [
-        color
+        props.color !== null ? null : color,
       ]
     })
     const avatarStyle = computed(() => {
       return {
+        backgroundColor: props.color,
         height: `${props.size}px`,
         width: `${props.size}px`,
         maxWidth: `${props.size}px`

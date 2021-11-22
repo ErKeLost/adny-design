@@ -1,6 +1,6 @@
 <template>
   <div class="adny-slider">
-    <a-avatar></a-avatar>
+    <a-avatar :color="avatarColor"></a-avatar>
 
     <div class="adny-slider-container">
       <a-slider
@@ -22,7 +22,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, ref, computed, watch } from 'vue'
 import { ASlider } from '../../../slider'
 import { AAvatar } from '../../../avatar'
 import { sliderProps } from '../props'
@@ -36,12 +36,23 @@ export default defineComponent({
   name: 'sliderControl',
   props: sliderProps,
   setup(props, ctx) {
+
     const value = ref(0)
     const sliderAlpha = computed(() => {
       return rgb2hexstr(hsb2rgb([80, 100, 100]))
     })
+    const avatarColor = ref('')
+    console.log(props.circleValue);
+
+    watch(() => props.circleValue, (newValue, oldValue) => {
+      console.log(newValue);
+      avatarColor.value = newValue
+    }, {
+      immediate: true,
+    })
     return {
       value,
+      avatarColor,
       sliderAlpha
     }
   }
