@@ -9,7 +9,7 @@
         label-visible="never"
         active-color="transparent"
         track-height="10"
-        v-model="value"
+        v-model="hue"
       />
       <a-slider
         label-visible="never"
@@ -17,6 +17,7 @@
         active-color="transparent"
         thumb-color="#DADADAFF"
         track-height="10"
+        v-model="alpha"
       />
     </div>
   </div>
@@ -35,14 +36,14 @@ export default defineComponent({
   },
   name: 'sliderControl',
   props: sliderProps,
-  setup(props, ctx) {
+  emits: ['update:h', 'update:a'],
+  setup(props, { emit }) {
 
     const value = ref(0)
     const sliderAlpha = computed(() => {
       return rgb2hexstr(hsb2rgb([80, 100, 100]))
     })
     const avatarColor = ref('')
-    console.log(props.circleValue);
 
     watch(() => props.circleValue, (newValue, oldValue) => {
       console.log(newValue);
@@ -50,8 +51,29 @@ export default defineComponent({
     }, {
       immediate: true,
     })
+    const hue = computed({
+      set(v: number) {
+        emit('update:h', v * 3.6)
+        console.log(v);
+      },
+      get() {
+        return props.h / 3.6
+      }
+    })
+    console.log(hue.value);
+
+    const alpha = computed({
+      set(v: number) {
+        emit('update:a', +v.toFixed(2))
+      },
+      get() {
+        return props.a
+      }
+    })
     return {
+      alpha,
       value,
+      hue,
       avatarColor,
       sliderAlpha
     }
@@ -68,7 +90,7 @@ export default defineComponent({
     border-radius: inherit;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(90deg, transparent, v-bind(sliderAlpha));
+    background-image: linear-gradient(90deg, transparent, v-bind(avatarColor));
   }
 }
 .adny-slider {

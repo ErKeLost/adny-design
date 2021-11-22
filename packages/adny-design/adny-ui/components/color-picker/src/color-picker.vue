@@ -1,7 +1,14 @@
 <template>
   <div>
     <color-canvas :hsb="hsb" @update-sb="onSv"></color-canvas>
-    <slider-control :circleValue="modelValue"></slider-control>
+    <slider-control
+      v-model:h="hue"
+      v-model:a="alpha"
+      :color="hex"
+      :acolor="state.value"
+      :oc="state.oc"
+      :circleValue="modelValue"
+    ></slider-control>
     <color-control></color-control>
   </div>
 </template>
@@ -50,8 +57,9 @@ export default defineComponent({
       cmode: initColorMeta.mode,
       sm: false
     })
-    console.log(state.value);
-
+    const hex = computed(() => {
+      return rgb2hexstr(rgba.value.slice(0, 3))
+    })
     const onClose = () => {
       state.visible = false
       props.close?.()
@@ -62,9 +70,6 @@ export default defineComponent({
     const rgba = computed(() => {
       return cstate.value.rgba
     })
-    console.log(rgba.value);
-
-
     const hsb = computed(() => {
       return rgb2hsb(rgba.value.slice(0, 3))
     })
@@ -87,13 +92,33 @@ export default defineComponent({
     }
     const onSv = (sv: Array<number>) => {
       const rgb = hsb2rgb([hsb.value[0], ...sv])
-      console.log(rgb);
       update([...rgb, rgba.value[3]])
     }
+    const hue = computed({
+      set(v: number) {
+        const rgb = hsb2rgb([v, hsb.value[1], hsb.value[2]])
+        update([...rgb, rgba.value[3]])
+      },
+      get() {
+        return hsb.value[0]
+      }
+    })
+    const alpha = computed({
+      set(v: number) {
+        update([...rgba.value.slice(0, 3), v])
+      },
+      get() {
+        return rgba.value[3]
+      }
+    })
     return {
+      hue,
+      alpha,
       onSv,
+      hex,
       hsb,
-      modelValue
+      modelValue,
+      state
     };
   },
 });
