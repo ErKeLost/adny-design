@@ -10,6 +10,7 @@
       :circleValue="modelValue"
     ></slider-control>
     <color-control :rgb="rgba" :hex="hex" :hsb="hsb"></color-control>
+    <color-block></color-block>
   </div>
 </template>
 <script lang="ts">
@@ -17,6 +18,7 @@ import { parseColor, ColorMode, rgb2hsb, rgb2hexstr, hsb2rgb, rgb2rgbstr, n2hex 
 import sliderControl from './comp/sliderControler.vue'
 import colorControl from './comp/colorControler.vue'
 import colorCanvas from './comp/colorCanvas.vue'
+import colorBlock from './comp/colorBlock.vue'
 import {
   computed,
   defineComponent,
@@ -41,7 +43,8 @@ export default defineComponent({
   components: {
     sliderControl,
     colorControl,
-    colorCanvas
+    colorCanvas,
+    colorBlock
   },
   name: "AColorPicker",
   setup(props, { emit, attrs, slots }) {

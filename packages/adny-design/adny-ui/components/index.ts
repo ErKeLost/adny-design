@@ -45,7 +45,15 @@ import RadioInstall, { ARadio } from "./radio";
 import TriggerInstall, { ATrigger } from "./trigger";
 import ColorPickerInstall, { AColorPicker } from "./color-picker";
 import InputNumberInstall, { AInputNumber } from "./input-number";
+import ASkeletonInstall, { ASkeleton } from "./skeleton";
+import APaginationInstall, { APagination } from "./pagination";
+import ASpaceInstall, { ASpace } from "./space";
+import ACounterInstall, { ACounter } from "./counter";
 const installed = [
+  ASkeletonInstall,
+  ACounterInstall,
+  APaginationInstall,
+  ASpaceInstall,
   ColorPickerInstall,
   InputNumberInstall,
   TriggerInstall,
@@ -87,6 +95,10 @@ const installed = [
   CellInstall,
 ];
 export {
+  ACounter,
+  ASkeleton,
+  APagination,
+  ASpace,
   AInputNumber,
   AColorPicker,
   ATrigger,
