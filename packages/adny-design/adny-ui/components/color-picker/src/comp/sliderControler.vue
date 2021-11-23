@@ -46,7 +46,6 @@ export default defineComponent({
     const avatarColor = ref('')
 
     watch(() => props.circleValue, (newValue, oldValue) => {
-      console.log(newValue);
       avatarColor.value = newValue
     }, {
       immediate: true,
@@ -54,14 +53,11 @@ export default defineComponent({
     const hue = computed({
       set(v: number) {
         emit('update:h', v * 3.6)
-        console.log(v);
       },
       get() {
         return props.h / 3.6
       }
     })
-    console.log(hue.value);
-
     const alpha = computed({
       set(v: number) {
         emit('update:a', +v.toFixed(2))

@@ -8,7 +8,6 @@
     </div>
     <div class="adny-color-ainput" v-if="colorType === 'HEX'">
       <a-input textCenter maxlength="9" v-model="value" />
-      <!-- <span>HEX</span> -->
     </div>
     <a-btn icon @click="changeColorType">
       <a-icon name="repeat" size="16"></a-icon>
@@ -22,7 +21,7 @@ import { AIcon } from '../../../icon'
 import { AInput } from '../../../input'
 import { colorProps } from '../props'
 import { hsb2rgb, rgb2hexstr } from "../../../../compsables/color";
-import { colorControlers, colorTypeIndex } from '../utils/colorControler';
+import { colorTypeIndex } from '../utils/colorControler';
 export default defineComponent({
   name: 'colorControl',
   props: colorProps,
@@ -32,6 +31,8 @@ export default defineComponent({
     AInput
   },
   setup(props, ctx) {
+    console.log(props.hsb
+    );
     const colorType = ref('rgba')
     const index = ref(0)
     const changeColorType = () => {
@@ -43,7 +44,61 @@ export default defineComponent({
         colorType.value = colorTypeIndex[index.value].value
       }
     }
-    const value = ref('#FF0000FF')
+    const colorControlers = computed(() => {
+      return [
+        {
+          text: "R",
+          value: props.rgb[0],
+          type: "rgba",
+          input: "number",
+        },
+        {
+          text: "G",
+          value: props.rgb[1],
+          type: "rgba",
+          input: "number",
+        },
+        {
+          text: "B",
+          value: props.rgb[2],
+          type: "rgba",
+          input: "number",
+        },
+        {
+          text: "A",
+          value: props.rgb[3],
+          type: "rgba",
+          input: "number",
+        },
+        {
+          text: "H",
+          value: props.rgb[0],
+          type: "hsla",
+          input: "number",
+        },
+        {
+          text: "S",
+          value: props.rgb[1],
+          type: "hsla",
+          input: "number",
+        },
+        {
+          text: "b",
+          value: props.rgb[2],
+          type: "hsla",
+          input: "number",
+        },
+        {
+          text: "HEX",
+          value: `#${props.hex?.replace("#", "")}`,
+          type: "hex",
+          input: "text",
+        },
+      ];
+    })
+    const value = computed(() => `#${props.hex?.replace("#", "")}`)
+    console.log(value.value);
+    console.log(props.hex);
     return {
       value,
       colorControlers,

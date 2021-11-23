@@ -12,7 +12,6 @@ export default defineComponent({
   setup(props, ctx) {
     const avatarClass = computed(() => {
       const color = `adny-avatar-${props.type}`
-      console.log(props.color);
       return [
         props.color !== null ? null : color,
       ]

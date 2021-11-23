@@ -215,7 +215,6 @@ export default defineComponent({
 
     const start = (event: MouseEvent, type: keyof ThumbsProps) => {
       if (!maxWidth.value) maxWidth.value = (sliderEl.value as HTMLDivElement).offsetWidth
-      console.log(event);
 
       if (isDisabled.value || isReadonly.value) return
       props.onStart?.()
@@ -224,7 +223,6 @@ export default defineComponent({
     }
 
     const move = (event: MouseEvent, type: keyof ThumbsProps) => {
-      console.log(34);
 
       if (isDisabled.value || isReadonly.value || !isScroll.value) return
       let moveDistance = event.clientX - thumbsProps[type].startPosition + thumbsProps[type].currentLeft

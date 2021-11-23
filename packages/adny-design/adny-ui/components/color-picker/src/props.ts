@@ -21,4 +21,17 @@ export const sliderProps = {
     type: String,
   },
 };
-export const colorProps = {};
+export const colorProps = {
+  hsb: {
+    type: Array,
+    default: () => [],
+  },
+  rgb: {
+    type: Array,
+    default: () => [],
+  },
+  hex: {
+    type: String,
+    default: "",
+  },
+};

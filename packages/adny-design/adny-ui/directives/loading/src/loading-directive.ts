@@ -25,8 +25,6 @@ const LoadingDirective: Directive = {
     }
   },
   updated(el: HTMLElement, binding) {
-    console.log(binding.value);
-
     if (binding.value !== binding.oldValue) {
       // 判断true 到 false  还是 false 到true
       binding.value ? append(el) : remove(el);

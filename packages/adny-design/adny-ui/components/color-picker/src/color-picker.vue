@@ -9,7 +9,7 @@
       :oc="state.oc"
       :circleValue="modelValue"
     ></slider-control>
-    <color-control></color-control>
+    <color-control :rgb="rgba" :hex="hex" :hsb="hsb"></color-control>
   </div>
 </template>
 <script lang="ts">
@@ -118,7 +118,8 @@ export default defineComponent({
       hex,
       hsb,
       modelValue,
-      state
+      state,
+      rgba
     };
   },
 });
