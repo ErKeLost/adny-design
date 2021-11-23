@@ -52,6 +52,7 @@ const sidebar = {
         { text: "ASpace 间隔", link: "/components/space/" },
         { text: "Lazy 懒加载", link: "/components/lazy/" },
         { text: "checkbox 复选框", link: "/components/checkbox/" },
+        { text: "ImagePreview 图片预览", link: "/components/image-preview/" },
       ],
     },
     { text: "导航" },

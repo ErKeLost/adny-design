@@ -1,8 +1,16 @@
 import RippleInstall, { RippleDirective } from "./ripple";
 import LoadingInstall, { LoadingDirective } from "./loading";
 import LazyInstall, { LazyDirective } from "./lazy";
+import ImagePreviewInstall, {
+  ImagePreviewDirective,
+} from "../components/image-preview";
 import { App } from "vue";
-const installed = [RippleInstall, LoadingInstall, LazyInstall];
+const installed = [
+  RippleInstall,
+  LoadingInstall,
+  LazyInstall,
+  ImagePreviewInstall,
+];
 
 export { RippleDirective };
 

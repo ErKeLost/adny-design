@@ -1,0 +1,110 @@
+.devui-image-preview {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: calc(1050 - 1);
+  background: #eee;
+  border-radius: 4px;
+  box-shadow: 5px 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  svg,
+  polygon,
+  g,
+  path {
+    fill: inherit;
+  }
+  @mixin fixed-button() {
+    position: fixed;
+    z-index: 1050;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #eee;
+    box-shadow: 5px 5px 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: #eee;
+    }
+
+    svg {
+      width: 38px;
+      height: 18px;
+    }
+  }
+
+  &-main-image {
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: -20px;
+    cursor: grab;
+  }
+
+  &-close-btn {
+    @include fixed-button();
+
+    top: 15px;
+    right: 20px;
+  }
+
+  &-arrow-left {
+    @include fixed-button();
+
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+
+  &-arrow-right {
+    @include fixed-button();
+
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+
+  &-toolbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    box-shadow: 5px 5px 5px;
+
+    button {
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      align-items: center;
+      justify-content: center;
+      color: red;
+    }
+
+    .devui-image-preview-index {
+      display: inline-flex;
+      width: 100px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    & > :not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+}
