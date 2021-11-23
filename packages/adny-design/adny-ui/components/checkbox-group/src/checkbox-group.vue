@@ -135,5 +135,5 @@ export default defineComponent({
 <style lang="less">
 @import "../../../styles/common";
 // @import '../form-details/formDetails';
-@import "../styles/checkboxGroup";
+@import "../styles/checkbox-group";
 </style>

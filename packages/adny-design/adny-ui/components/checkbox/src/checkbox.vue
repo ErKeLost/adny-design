@@ -12,7 +12,7 @@
         v-ripple="{ disabled: formReadonly || readonly || formDisabled || disabled || !ripple }"
       >
         <slot name="checked-icon" v-if="checked">
-          <var-icon
+          <a-icon
             class="var-checkbox__icon"
             name="checkbox-marked"
             :class="[withAnimation ? 'var-checkbox--with-animation' : null]"
@@ -21,7 +21,7 @@
           />
         </slot>
         <slot name="unchecked-icon" v-else>
-          <var-icon
+          <a-icon
             class="var-checkbox__icon"
             name="checkbox-blank-outline"
             :class="[withAnimation ? 'var-checkbox--with-animation' : null]"
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <var-form-details :error-message="errorMessage" />
+    <!-- <var-form-details :error-message="errorMessage" /> -->
   </div>
 </template>
 
@@ -193,6 +193,6 @@ export default defineComponent({
 <style lang="less">
 @import "../../../styles/common";
 // @import "../form-details/formDetails";
-// @import "../icon/icon";
+@import "../../icon/styles/icon";
 @import "../styles/checkbox";
 </style>

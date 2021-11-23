@@ -49,8 +49,12 @@ import ASkeletonInstall, { ASkeleton } from "./skeleton";
 import APaginationInstall, { APagination } from "./pagination";
 import ASpaceInstall, { ASpace } from "./space";
 import ACounterInstall, { ACounter } from "./counter";
+import ACheckboxInstall, { ACheckbox } from "./checkbox";
+import ACheckboxGroupInstall, { ACheckboxGroup } from "./checkbox-group";
 const installed = [
   ASkeletonInstall,
+  ACheckboxInstall,
+  ACheckboxGroupInstall,
   ACounterInstall,
   APaginationInstall,
   ASpaceInstall,
@@ -95,6 +99,8 @@ const installed = [
   CellInstall,
 ];
 export {
+  ACheckbox,
+  ACheckboxGroup,
   ACounter,
   ASkeleton,
   APagination,

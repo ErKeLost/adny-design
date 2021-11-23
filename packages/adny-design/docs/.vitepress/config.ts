@@ -51,6 +51,7 @@ const sidebar = {
         { text: "ACounter 计数器", link: "/components/counter/" },
         { text: "ASpace 间隔", link: "/components/space/" },
         { text: "Lazy 懒加载", link: "/components/lazy/" },
+        { text: "checkbox 复选框", link: "/components/checkbox/" },
       ],
     },
     { text: "导航" },
