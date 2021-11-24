@@ -5,7 +5,7 @@
   right: 0;
   bottom: 0;
   z-index: calc(1050 - 1);
-  background: #eee;
+  background: #52525250;
   border-radius: 4px;
   box-shadow: 5px 5px 5px;
   display: flex;
@@ -19,29 +19,6 @@
   path {
     fill: inherit;
   }
-  @mixin fixed-button() {
-    position: fixed;
-    z-index: 1050;
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #eee;
-    box-shadow: 5px 5px 5px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-      background: #eee;
-    }
-
-    svg {
-      width: 38px;
-      height: 18px;
-    }
-  }
-
   &-main-image {
     width: auto;
     height: auto;
@@ -52,14 +29,40 @@
   }
 
   &-close-btn {
-    @include fixed-button();
+    position: fixed;
+    z-index: 1050;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #eeeeee50;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    // &:hover {
+    //   background: #eee;
+    // }
 
     top: 15px;
     right: 20px;
   }
 
   &-arrow-left {
-    @include fixed-button();
+    position: fixed;
+    z-index: 1050;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #eeeeee50;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: #eee;
+    }
 
     top: 50%;
     left: 20px;
@@ -67,7 +70,20 @@
   }
 
   &-arrow-right {
-    @include fixed-button();
+    position: fixed;
+    z-index: 1050;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #eeeeee50;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: #eee;
+    }
 
     top: 50%;
     right: 20px;
@@ -83,7 +99,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #eee;
+    background: #52525250;
     box-shadow: 5px 5px 5px;
 
     button {
@@ -92,7 +108,7 @@
       height: 24px;
       align-items: center;
       justify-content: center;
-      color: red;
+      color: black;
     }
 
     .devui-image-preview-index {
@@ -101,6 +117,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      color: white;
     }
 
     & > :not(:first-child) {

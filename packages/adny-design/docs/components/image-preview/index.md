@@ -10,8 +10,8 @@
   export default defineComponent({
     setup() {
       const _imageList = [
-        'https://devui.design/components/assets/image1.png',
-        'https://devui.design/components/assets/image3.png'
+        'https://w.wallhaven.cc/full/pk/wallhaven-pkgk6j.jpg',
+        'https://w.wallhaven.cc/full/m9/wallhaven-m9y9j1.jpg'
       ]
       const imageList = ref(_imageList)
       return {
@@ -21,7 +21,7 @@
   })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .devui-image-preview-demo {
   display: flex;
   flex-wrap: wrap;

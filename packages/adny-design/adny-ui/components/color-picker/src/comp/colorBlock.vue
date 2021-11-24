@@ -18,7 +18,7 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss">
+<style lang="less">
 .ph-color-predef {
   height: var(--ph-c-predef);
   gap: var(--ph-c-predef-item-gap);

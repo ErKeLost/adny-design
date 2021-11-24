@@ -83,7 +83,7 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss">
+<style lang="less">
 .ph-color-sv {
   --ph-c-w: 230px;
   --ph-c-bg: var(--ph-bg-4);
