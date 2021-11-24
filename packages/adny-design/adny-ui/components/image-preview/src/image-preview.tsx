@@ -1,12 +1,5 @@
 import "../styles/image-preview.less";
-import {
-  defineComponent,
-  ref,
-  computed,
-  onMounted,
-  onUnmounted,
-  withDirectives,
-} from "vue";
+import { defineComponent, ref, computed, onMounted, onUnmounted } from "vue";
 import { imagePreviewProps, ImagePreviewProps } from "./image-preview-types";
 import ImagePreviewService from "./image-preview-service";
 import { ClickOutSideDirective } from "../../../directives/clickoutside";
@@ -40,13 +33,15 @@ export default defineComponent({
         (curUrl) => curUrl === props.url
       );
     }
-    function onPrev() {
+    function onPrev(e) {
       index.value =
         index.value <= 0 ? props.previewUrlList.length - 1 : index.value - 1;
+      preventDefaultEvent(e);
     }
-    function onNext() {
+    function onNext(e) {
       index.value =
         index.value >= props.previewUrlList.length - 1 ? 0 : index.value + 1;
+      preventDefaultEvent(e);
     }
     function onClose() {
       ImagePreviewService.close();
@@ -63,8 +58,9 @@ export default defineComponent({
     function onZoomBest() {
       transform.setZoomBest();
     }
-    function onZoomOriginal() {
+    function onZoomOriginal(e) {
       transform.setZoomOriginal();
+      preventDefaultEvent(e);
     }
 
     function onKeyDown(event: KeyboardEvent) {
@@ -84,6 +80,9 @@ export default defineComponent({
     function unKeyBoard() {
       document.removeEventListener("keydown", onKeyDown, false);
     }
+    function preventDefaultEvent(e: MouseEvent) {
+      e.stopPropagation();
+    }
 
     onMounted(() => {
       initIndex();
@@ -96,12 +95,13 @@ export default defineComponent({
 
     return () => {
       return (
-        <div class="devui-image-preview">
+        <div class="devui-image-preview" onClick={onClose}>
           {/* 预览图 */}
-          {withDirectives(
-            <img class="devui-image-preview-main-image" src={url.value} />,
-            [[ClickOutSideDirective, onClose]]
-          )}
+          <img
+            onClick={preventDefaultEvent}
+            class="devui-image-preview-main-image"
+            src={url.value}
+          />
           {/* 按钮区 */}
           {/* <a-btn icon class="devui-image-preview-close-btn" onClick={onClose}>
             <a-icon name="window-close" />
@@ -113,7 +113,10 @@ export default defineComponent({
             <a-icon name="chevron-right" />
           </a-btn>
           {/* 底部固定区 */}
-          <div class="devui-image-preview-toolbar">
+          <div
+            class="devui-image-preview-toolbar"
+            onClick={preventDefaultEvent}
+          >
             <a-btn icon onClick={onZoomIn}>
               <a-icon name="zoom-in1" />
             </a-btn>
