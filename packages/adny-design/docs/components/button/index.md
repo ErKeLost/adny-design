@@ -96,22 +96,22 @@
   <a-grid>
     <a-grid-item :span="6">
       <a-btn icon color="#fbafba">
-        <a-icon size="35" name="heart" />
+        <a-icon size="35" name="arrow-left-circle" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
       <a-btn icon color="#fabfab">
-        <a-icon size="35" name="minus-circle-outline" />
+        <a-icon size="35" name="at-sign" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
       <a-btn icon color="#afbafb">
-        <a-icon size="35" name="refresh" />
+        <a-icon size="35" name="book-open" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
       <a-btn icon color="#fdcb6e">
-        <a-icon size="35" name="checkbox-marked" />
+        <a-icon size="26" name="camera-off" />
       </a-btn>
     </a-grid-item>
   </a-grid>
@@ -121,22 +121,31 @@
   <a-grid>
     <a-grid-item :span="6">
       <a-btn icon color="#fbafba">
-        <a-icon name="heart" />
+        <a-icon name="chrome" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
       <a-btn icon color="#fabfab">
-        <a-icon name="minus-circle-outline" />
+        <a-icon name="coffee" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
       <a-btn icon type="warning">
-        <a-icon name="refresh" />
+        <a-icon name="download-cloud" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn icon color="#fdcb6e">
-        <a-icon name="checkbox-marked" />
+      <a-btn color="red" icon>
+        <!-- <a-icon name="feather" /> -->
+        <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1">
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <polygon
+              fill="#293040"
+              fill-rule="nonzero"
+              points="8 6.58578644 12.2426407 2.34314575 13.6568542 3.75735931 9.41421356 8 13.6568542 12.2426407 12.2426407 13.6568542 8 9.41421356 3.75735931 13.6568542 2.34314575 12.2426407 6.58578644 8 2.34314575 3.75735931 3.75735931 2.34314575"
+            ></polygon>
+          </g>
+        </svg>
       </a-btn>
     </a-grid-item>
   </a-grid>
@@ -145,23 +154,23 @@
   >
   <a-grid>
     <a-grid-item :span="6">
-      <a-btn icon color="#fbafba">
-        <a-icon name="heart" />
+      <a-btn disabled icon color="#fbafba">
+        <a-icon name="github1" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn icon color="#fabfab">
-        <a-icon name="minus-circle-outline" />
+      <a-btn disabled icon color="#fabfab">
+        <a-icon name="gitlab1" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn icon color="#afbafb">
-        <a-icon name="refresh" />
+      <a-btn disabled icon color="#afbafb">
+        <a-icon name="instagram" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn icon color="#fdcb6e">
-        <a-icon name="checkbox-marked" />
+      <a-btn disabled icon color="#fdcb6e">
+        <a-icon name="life-buoy" />
       </a-btn>
     </a-grid-item>
   </a-grid>

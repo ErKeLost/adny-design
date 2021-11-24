@@ -111,8 +111,8 @@ export default defineComponent({
     });
     onMounted(() => {
       const iconIns = btnIns.subTree?.children[0]?.children[0]?.children[0].component;
-      if (iconIns?.ctx?.size > ICON_SIZE) {
-        btn.value.style.padding = `${iconIns?.ctx?.size * 3 / 4}px`
+      if (iconIns?.ctx?.size > 1) {
+        btn.value.style.padding = `${iconIns?.ctx?.size * 8 / 9}px`
       }
     });
     const changeBg = () => {

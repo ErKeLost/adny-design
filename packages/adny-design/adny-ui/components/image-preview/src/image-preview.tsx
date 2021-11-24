@@ -117,28 +117,28 @@ export default defineComponent({
             class="devui-image-preview-toolbar"
             onClick={preventDefaultEvent}
           >
-            <a-btn icon onClick={onZoomIn}>
-              <a-icon name="zoom-in1" />
+            <a-btn color="#eee" icon onClick={onZoomIn}>
+              <a-icon size="18" name="zoom-in1" />
             </a-btn>
-            <a-btn icon onClick={onZoomOut}>
-              <a-icon name="zoom-out1" />
+            <a-btn color="#eee" icon onClick={onZoomOut}>
+              <a-icon size="18" name="zoom-out1" />
             </a-btn>
-            <a-btn icon onClick={onRotate}>
-              <a-icon name="refresh" />
+            <a-btn color="#eee" icon onClick={onRotate}>
+              <a-icon size="18" name="refresh" />
             </a-btn>
-            <a-btn icon onClick={onPrev}>
-              <a-icon name="chevron-left" />
+            <a-btn color="#eee" icon onClick={onPrev}>
+              <a-icon size="18" name="chevron-left" />
             </a-btn>
             <span class="devui-image-preview-index">
               {index.value + 1}:{props.previewUrlList.length}
             </span>
-            <a-btn icon class="devui-next" onClick={onNext}>
-              <a-icon name="chevron-right" />
+            <a-btn color="#eee" icon class="devui-next" onClick={onNext}>
+              <a-icon size="18" name="chevron-right" />
             </a-btn>
-            <a-btn icon onClick={onZoomBest}>
-              <a-icon name="radio-marked" />
+            <a-btn color="#eee" icon onClick={onZoomBest}>
+              <a-icon size="18" name="radio-marked" />
             </a-btn>
-            <a-btn icon onClick={onZoomOriginal}>
+            <a-btn color="#eee" icon onClick={onZoomOriginal}>
               <span>1:1</span>
             </a-btn>
           </div>

@@ -11,7 +11,8 @@
     setup() {
       const _imageList = [
         'https://w.wallhaven.cc/full/pk/wallhaven-pkgk6j.jpg',
-        'https://w.wallhaven.cc/full/m9/wallhaven-m9y9j1.jpg'
+        'https://w.wallhaven.cc/full/m9/wallhaven-m9y9j1.jpg',
+        'https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a8c8cdb109cb051163646151a4a5083b.png~tplv-uwbnlip3yd-webp.webp'
       ]
       const imageList = ref(_imageList)
       return {
