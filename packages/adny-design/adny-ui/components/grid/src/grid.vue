@@ -28,11 +28,9 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="less">
 .adny-grid-container {
   display: flex;
   flex-wrap: wrap;
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, 100px);
 }
 </style>

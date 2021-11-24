@@ -51,54 +51,53 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="less">
 .adny-grid {
   display: inline-block;
   box-sizing: border-box;
 }
-@media only screen and (max-width: 767px) {
-  @for $i from 1 through 24 {
-    .adny-grid-xs--#{$i} {
-      width: 100% / 24 * $i !important;
-    }
+each(range(24), {
+    .adny-grid--@{value} {
+    width: (100% / 24 * @value);
   }
-}
+  .adny-offset--@{value} {
+    margin-left: (100% / 24 * @value);
+  }
+})
+
 @media only screen and (min-width: 768px) {
-  @for $i from 1 through 24 {
-    .adny-grid-sm--#{$i} {
-      width: 100% / 24 * $i !important;
+    each(range(24), {
+    .adny-grid-sm--@{value} {
+      width: calc(100% / 24 * @value) !important;
     }
-  }
+  })
+}
+@media only screen and (max-width: 767px) {
+    each(range(24), {
+    .adny-grid-xs--@{value} {
+      width: calc(100% / 24 * @value) !important;
+    }
+  })
 }
 @media only screen and (min-width: 992px) {
-  @for $i from 1 through 24 {
-    .adny-grid-md--#{$i} {
-      width: 100% / 24 * $i !important;
+    each(range(24), {
+    .adny-grid-md--@{value} {
+      width: calc(100% / 24 * @value) !important;
     }
-  }
-}
-@media only screen and (min-width: 1200px) {
-  @for $i from 1 through 24 {
-    .adny-grid-lg--#{$i} {
-      width: 100% / 24 * $i !important;
-    }
-  }
+  })
 }
 @media only screen and (min-width: 1920px) {
-  @for $i from 1 through 24 {
-    .adny-grid-xl--#{$i} {
-      width: 100% / 24 * $i !important;
+    each(range(24), {
+    .adny-grid-xl--@{value} {
+      width: calc(100% / 24 * @value) !important;
     }
-  }
+  })
 }
-@for $i from 1 through 24 {
-  .adny-grid--#{$i} {
-    width: (100% / 24 * $i);
-  }
-}
-@for $i from 1 through 24 {
-  .adny-offset--#{$i} {
-    margin-left: (100% / 24 * $i);
-  }
+@media only screen and (min-width: 1200px) {
+    each(range(24), {
+    .adny-grid-lg--@{value} {
+      width: calc(100% / 24 * @value) !important;
+    }
+  })
 }
 </style>
