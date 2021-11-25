@@ -365,3 +365,22 @@ export default {
 ```
 
 :::
+### Button API
+
+
+| 参数        | 类型      | 默认     | 可选值                             | 说明                     |
+| ----------- | --------- | -------- | ---------------------------------- | ------------------------ |
+| tile        | `Boolean` | `false`  | `true \| false`                    | 正方形按钮               |
+| icon        | `Boolean` | `false`  | `true \| false`                    | 图片透明按钮             |
+| fab         | `Boolean` | `false`  | `true \| false`                    | 浮动 作用于 单个交互     |
+| depressed   | `Boolean` | `false`  | `true \| false`                    | 凹陷 移除海拔高度效果    |
+| block       | `Boolean` | `false`  | `true \| false`                    | 设置按钮为块级按钮       |
+| outline     | `Boolean` | `false`  | `true \| false`                    | outline 外边框           |
+| text        | `Boolean` | `false`  | `true \| false`                    | 文本样式                 |
+| disabled    | `Boolean` | `false`  | `true \| false`                    | 禁用按钮                 |
+| elevation   | `Boolean` | `2`      | `0~24`                             | 海拔效果                 |
+| color       | `String`  | `null`   | `CssProperties`                    | 背景颜色                 |
+| size        | `String`  | `normal` | `large \| small \| mini \| normal` | 按钮大小                 |
+| loading     | `Boolean` | `false`  | `true \| false`                    | 是否开启loading 加载模式 |
+| loadingType | `String`  | `circle` | `circle \|`                        | 文本颜色                 |
+| loadingSize | `String`  | `normal` | `large \| small \| mini \| normal` | loading加载 模式大小     |
