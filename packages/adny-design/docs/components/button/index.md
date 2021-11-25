@@ -32,7 +32,7 @@
 <template>
   <a-grid>
     <a-grid-item :span="6">
-      <a-btn depressed type="primary">Primary</a-btn>
+      <a-btn color="#fba" text-color="#000" type="primary">Primary</a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
       <a-btn depressed type="success">Success</a-btn>
@@ -95,22 +95,22 @@
   <a-cell style="fontSize: 20px; fontWeight: 600;">BigSize</a-cell>
   <a-grid>
     <a-grid-item :span="6">
-      <a-btn icon color="#fbafba">
+      <a-btn icon text-color="#fbafba">
         <a-icon size="35" name="arrow-left-circle" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn icon color="#fabfab">
+      <a-btn icon text-color="#fabfab">
         <a-icon size="35" name="at-sign" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn icon color="#afbafb">
+      <a-btn icon text-color="#afbafb">
         <a-icon size="35" name="book-open" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn icon color="#fdcb6e">
+      <a-btn icon text-color="#fdcb6e">
         <a-icon size="26" name="camera-off" />
       </a-btn>
     </a-grid-item>
@@ -120,12 +120,12 @@
   >
   <a-grid>
     <a-grid-item :span="6">
-      <a-btn icon color="#fbafba">
+      <a-btn icon text-color="#fbafba">
         <a-icon name="chrome" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn icon color="#fabfab">
+      <a-btn icon text-color="#fabfab">
         <a-icon name="coffee" />
       </a-btn>
     </a-grid-item>
@@ -135,17 +135,8 @@
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn color="red" icon>
-        <!-- <a-icon name="feather" /> -->
-        <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1">
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <polygon
-              fill="#293040"
-              fill-rule="nonzero"
-              points="8 6.58578644 12.2426407 2.34314575 13.6568542 3.75735931 9.41421356 8 13.6568542 12.2426407 12.2426407 13.6568542 8 9.41421356 3.75735931 13.6568542 2.34314575 12.2426407 6.58578644 8 2.34314575 3.75735931 3.75735931 2.34314575"
-            ></polygon>
-          </g>
-        </svg>
+      <a-btn text-color="red" icon>
+        <a-icon name="feather" />
       </a-btn>
     </a-grid-item>
   </a-grid>
@@ -154,22 +145,22 @@
   >
   <a-grid>
     <a-grid-item :span="6">
-      <a-btn disabled icon color="#fbafba">
+      <a-btn disabled icon text-color="#fbafba">
         <a-icon name="github1" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn disabled icon color="#fabfab">
+      <a-btn disabled icon text-color="#fabfab">
         <a-icon name="gitlab1" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn disabled icon color="#afbafb">
+      <a-btn disabled icon text-color="#afbafb">
         <a-icon name="instagram" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn disabled icon color="#fdcb6e">
+      <a-btn disabled icon text-color="#fdcb6e">
         <a-icon name="life-buoy" />
       </a-btn>
     </a-grid-item>
@@ -195,12 +186,12 @@
       <a-btn text outline type="danger">Danger</a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn text icon color="#afbafb">
+      <a-btn text icon text-color="#afbafb">
         <a-icon name="map-marker-radius" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn outline text icon color="#fdcb6e">
+      <a-btn outline text icon text-color="#fdcb6e">
         <a-icon name="bell-outline" />
       </a-btn>
     </a-grid-item>
@@ -226,12 +217,12 @@
       <a-btn text type="warning">ADNY</a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn text icon color="#afbafb">
+      <a-btn text icon text-color="#afbafb">
         <a-icon name="bluetooth" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn text icon color="#fdcb6e">
+      <a-btn text icon text-color="#fdcb6e">
         <a-icon name="anchor" />
       </a-btn>
     </a-grid-item>
@@ -257,10 +248,10 @@
       <a-btn text outline round type="warning">ADNY</a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn outline round text color="#afbafb"> DESIGN </a-btn>
+      <a-btn outline round text text-color="#afbafb"> DESIGN </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn outline text round color="#fd79a8"> ERKELOST </a-btn>
+      <a-btn outline text round text-color="#fd79a8"> ERKELOST </a-btn>
     </a-grid-item>
   </a-grid>
 </template>
@@ -285,12 +276,12 @@
       <a-btn size="small" text outline round type="warning">Small Button</a-btn>
     </a-grid-item>
     <a-grid-item>
-      <a-btn size="normal" outline round text color="#afbafb">
+      <a-btn size="normal" outline round text text-color="#afbafb">
         Normal Button
       </a-btn>
     </a-grid-item>
     <a-grid-item>
-      <a-btn size="large" outline text round color="#fd79a8">
+      <a-btn size="large" outline text round text-color="#fd79a8">
         Large Button
       </a-btn>
     </a-grid-item>

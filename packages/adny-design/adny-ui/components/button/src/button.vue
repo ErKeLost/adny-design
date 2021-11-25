@@ -11,7 +11,7 @@
         `adny-button--${size}`,
         block ? 'adny--flex adny-button--block' : 'adny--inline-flex',
         disabled ? 'adny-button--disabled' : null,
-        text ? `adny-button--text-${type}` : `adny-button--${type}`,
+        color === undefined && text ? `adny-button--text-${type}` : `adny-button--${type}`,
         text ? 'adny-button--text' : `adny-elevation--${elevation}`,
         text && disabled ? 'adny-button--text-disabled' : null,
         round ? 'adny-button--round' : null,
@@ -27,7 +27,7 @@
         tile ? 'adny-button--tile' : null,
         text ? `adny-button--${type}__hover` : null,
       ]"
-      :style="{ color }"
+      :style="{ color: textColor, background: color }"
     >
       <slot />
     </button>
@@ -51,6 +51,10 @@ export default defineComponent({
     type: {
       type: String,
       default: "default",
+    },
+    textColor: {
+      type: String,
+      default: ''
     },
     size: {
       type: String,
@@ -111,15 +115,15 @@ export default defineComponent({
     });
     onMounted(() => {
       const iconIns = btnIns.subTree?.children[0]?.children[0]?.children[0].component;
-      if (iconIns?.ctx?.size > 1) {
+      if (iconIns?.ctx?.size > ICON_SIZE) {
         btn.value.style.padding = `${iconIns?.ctx?.size * 8 / 9}px`
       }
     });
     const changeBg = () => {
-      btn.value.style.backgroundColor = `${props.color}30`;
+      btn.value.style.backgroundColor = `${props.textColor}30`;
     };
     const moveBg = () => {
-      btn.value.style.backgroundColor = "";
+      return props.color !== undefined ? '' : btn.value.style.backgroundColor = "";
     };
     return {
       textBgColor,
