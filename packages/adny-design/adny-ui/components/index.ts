@@ -51,7 +51,9 @@ import ASpaceInstall, { ASpace } from "./space";
 import ACounterInstall, { ACounter } from "./counter";
 import ACheckboxInstall, { ACheckbox } from "./checkbox";
 import ACheckboxGroupInstall, { ACheckboxGroup } from "./checkbox-group";
+import ALoadingInstall, { ALoading } from "./loading";
 const installed = [
+  ALoadingInstall,
   ASkeletonInstall,
   ACheckboxInstall,
   ACheckboxGroupInstall,
@@ -99,6 +101,7 @@ const installed = [
   CellInstall,
 ];
 export {
+  ALoading,
   ACheckbox,
   ACheckboxGroup,
   ACounter,

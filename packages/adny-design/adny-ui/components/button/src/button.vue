@@ -29,7 +29,16 @@
       ]"
       :style="{ color: textColor, background: color }"
     >
-      <slot />
+      <a-loading
+        class="adny-button__loading"
+        :type="loadingType"
+        :size="loadingSize"
+        :radius="loadingRadius"
+        v-if="loading"
+      />
+      <div class="adny-button__content" :class="[loading ? 'adny-button--hidden' : null]">
+        <slot />
+      </div>
     </button>
   </div>
 </template>
@@ -42,12 +51,32 @@ import {
   onMounted,
 } from "vue";
 import { RippleDirective } from "../../../directives/ripple";
+import { ALoading } from '../../loading'
 export default defineComponent({
   name: "ABtn",
   directives: {
     ripple: RippleDirective,
   },
+  components: {
+    ALoading
+  },
   props: {
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    loadingType: {
+      type: String,
+      default: 'circle'
+    },
+    loadingSize: {
+      type: String,
+      default: 'normal'
+    },
+    loadingRadius: {
+      type: [Number, String],
+      default: 12,
+    },
     type: {
       type: String,
       default: "",
@@ -114,7 +143,9 @@ export default defineComponent({
       };
     });
     onMounted(() => {
-      const iconIns = btnIns.subTree?.children[0]?.children[0]?.children[0].component;
+      console.log(btnIns.subTree);
+
+      const iconIns = btnIns.subTree?.children[0]?.children[1]?.children[0]?.children[0]?.component;
       if (iconIns?.ctx?.size > ICON_SIZE) {
         btn.value.style.padding = `${iconIns?.ctx?.size * 8 / 9}px`
       }

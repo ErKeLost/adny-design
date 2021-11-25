@@ -88,6 +88,41 @@
 
 :::
 
+## Loading (加载)
+
+多做用于 图标 按钮 提示交互
+
+:::demo
+
+```vue
+<template>
+  <a-grid>
+    <a-grid-item :span="6">
+      <a-btn loading type="primary">
+        <a-icon name="sunrise" />
+      </a-btn>
+    </a-grid-item>
+    <!-- <a-grid-item :span="6">
+      <a-btn loading type="success">
+        <a-icon name="cloud-off" />
+      </a-btn>
+    </a-grid-item>
+    <a-grid-item :span="6">
+      <a-btn loading text outline type="warning">
+        <a-icon name="cloud-rain" />
+      </a-btn>
+    </a-grid-item>
+    <a-grid-item :span="6">
+      <a-btn loading text type="danger">
+        <a-icon name="cloud-snow" />
+      </a-btn>
+    </a-grid-item> -->
+  </a-grid>
+</template>
+```
+
+:::
+
 ## Icon (图标)
 
 图标可以被用作按钮的主要内容。
