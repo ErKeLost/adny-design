@@ -26,6 +26,7 @@
         icon && type ? `adny-button--text-${type}` : null,
         tile ? 'adny-button--tile' : null,
         text ? `adny-button--${type}__hover` : null,
+        loading ? 'adny-button--loading' : null,
       ]"
       :style="{ color: textColor, background: color }"
     >
@@ -143,8 +144,6 @@ export default defineComponent({
       };
     });
     onMounted(() => {
-      console.log(btnIns.subTree);
-
       const iconIns = btnIns.subTree?.children[0]?.children[1]?.children[0]?.children[0]?.component;
       if (iconIns?.ctx?.size > ICON_SIZE) {
         btn.value.style.padding = `${iconIns?.ctx?.size * 8 / 9}px`

@@ -98,27 +98,36 @@
 <template>
   <a-grid>
     <a-grid-item :span="6">
-      <a-btn loading type="primary">
+      <a-btn :loading="load" type="primary">
         <a-icon name="sunrise" />
       </a-btn>
     </a-grid-item>
-    <!-- <a-grid-item :span="6">
-      <a-btn loading type="success">
+    <a-grid-item :span="6">
+      <a-btn :loading="load" type="success">
         <a-icon name="cloud-off" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn loading text outline type="warning">
+      <a-btn :loading="load" text outline type="warning">
         <a-icon name="cloud-rain" />
       </a-btn>
     </a-grid-item>
     <a-grid-item :span="6">
-      <a-btn loading text type="danger">
-        <a-icon name="cloud-snow" />
+      <a-btn :loading="load" text type="danger" @click="load = !load">
+        加载
       </a-btn>
-    </a-grid-item> -->
+    </a-grid-item>
   </a-grid>
 </template>
+<script lang="ts">
+export default {
+  data() {
+    return {
+      load: false
+    }
+  }
+}
+</script>
 ```
 
 :::
