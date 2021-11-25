@@ -16,7 +16,11 @@
 
 ```vue
 <template>
-  <a-btn size="large" type="primary" block>按钮</a-btn>
+  <a-btn size="large" type="primary" block>
+    <div style="color: #fba">
+      块级按钮
+    </div>
+  </a-btn>
 </template>
 ```
 

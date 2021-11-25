@@ -50,7 +50,7 @@ export default defineComponent({
   props: {
     type: {
       type: String,
-      default: "default",
+      default: "",
     },
     textColor: {
       type: String,
@@ -119,7 +119,25 @@ export default defineComponent({
         btn.value.style.padding = `${iconIns?.ctx?.size * 8 / 9}px`
       }
     });
+    const typeColor = ref(null);
+    switch (props.type) {
+      case 'primary':
+        typeColor.value = '#409eff'
+        break;
+      case 'success':
+        typeColor.value = '#67c23a'
+        break;
+      case 'warning':
+        typeColor.value = '#e6a23c'
+        break;
+      case 'danger':
+        typeColor.value = '#f56c6c'
+        break;
+    }
     const changeBg = () => {
+      if (props.type !== '' && props.icon) {
+        btn.value.style.backgroundColor = `${typeColor.value}30`;
+      }
       btn.value.style.backgroundColor = `${props.textColor}30`;
     };
     const moveBg = () => {
