@@ -6,7 +6,7 @@
       class="adny-button adny--box"
       @mousemove="changeBg"
       @mouseleave="moveBg"
-      v-ripple="{ disabled }"
+      v-ripple="{ disabled: disabled || loading }"
       :class="[
         `adny-button--${size}`,
         block ? 'adny--flex adny-button--block' : 'adny--inline-flex',
@@ -35,7 +35,7 @@
         :type="loadingType"
         :size="loadingSize"
         :radius="loadingRadius"
-        v-if="loading"
+        v-show="loading"
       />
       <div class="adny-button__content" :class="[loading ? 'adny-button--hidden' : null]">
         <slot />
@@ -144,9 +144,18 @@ export default defineComponent({
       };
     });
     onMounted(() => {
-      const iconIns = btnIns.subTree?.children[0]?.children[1]?.children[0]?.children[0]?.component;
-      if (iconIns?.ctx?.size > ICON_SIZE) {
-        btn.value.style.padding = `${iconIns?.ctx?.size * 8 / 9}px`
+      // btnIns.slots.default().forEach(item => {
+      //   console.log(item);
+      //   if (item.props === null) {
+      //     // item?.forEach(item => {
+      //     console.log(item?.children?.forEach(item));
+
+      //     //   console.log(item);
+      //     // })
+      //   }
+      // })
+      if (btnIns.slots.default()[0]?.props?.size > ICON_SIZE) {
+        btn.value.style.padding = `${btnIns.slots.default()[0]?.props?.size * 8 / 9}px`
       }
     });
     const typeColor = ref(null);
