@@ -2,20 +2,21 @@
 
 ```vue
 <template>
-  <a-grid>
+  <a-grid :gutter="50">
     <a-grid-item v-for="item in icon" :span="6" style="marginBottom: 20px;">
-      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <div style="cursor: pointer; padding: 20px 0px 0px 0; border-radius: 4px; border: 1px solid #fba" @click="makeSure" v-copy="item" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
         <a-icon :name="item" color="#fba" />
         <a-cell>{{ item }}</a-cell>
       </div>
     </a-grid-item>
   </a-grid>
 </template>
+
 <script>
-import { defineComponent } from 'vue'
-export default defineComponent({
-  setup() {
-    const icon = [
+export default {
+  data() {
+    return {
+      icon: [
   "activity",
   "airplay",
   "alert-circle",
@@ -400,12 +401,20 @@ export default defineComponent({
   "cellphone",
   "arrow-down",
   "heart",
-];
-    return {
-      icon
+]
+    }
+  },
+  methods: {
+    makeSure()  {
+      this.$message({
+        message: '复制成功',
+        type: 'info',
+        icon: 'check1',
+        showClose: true,
+      })
     }
   }
-})
+}
 </script>
 ```
 

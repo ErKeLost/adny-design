@@ -2,6 +2,7 @@ import RippleInstall, { RippleDirective } from "./ripple";
 import LoadingInstall, { LoadingDirective } from "./loading";
 import LazyInstall, { LazyDirective } from "./lazy";
 import ClickOutSideInstall, { ClickOutSideDirective } from "./clickoutside";
+import CopyInstall, { CopyDirective } from "./copy";
 import ImagePreviewInstall, {
   ImagePreviewDirective,
 } from "../components/image-preview";
@@ -11,6 +12,7 @@ const installed = [
   LoadingInstall,
   LazyInstall,
   ImagePreviewInstall,
+  CopyInstall,
   ClickOutSideInstall,
 ];
 

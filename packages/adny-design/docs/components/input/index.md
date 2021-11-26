@@ -220,31 +220,32 @@ export default defineComponent({
 ### Input API
 
 
-| 参数            | 类型      | 默认    | 可选值                    | 说明                          |
-| --------------- | --------- | ------- | ------------------------- | ----------------------------- |
-| textCenter      | `Boolean` | `false` | `true \| false`           | 卡片背景颜色， 适用于纯色卡片 |
-| modelValue      | `String`  | ``      | ``                        | 卡片媒体标题 作用于背景图之下 |
-| success         | `Boolean` | `false` | `true \| false`           | 卡片是否带有圆角              |
-| error           | `String`  | `left`  | `left \| right \| center` | 卡片底部位置                  |
-| prop            | `Boolean` | `false` | `true \| false`           | 设置hover 状态 卡片海拔高度   |
-| type            | `String`  | `text`  | `text \| textarea`        | 设置按钮为块级按钮            |
-| textarea        | `Boolean` | `false` | `true \| false`           | outline 外边框                |
-| rows            | `String`  | `8`     | ``                        | 文本样式                      |
-| line            | `String`  | ``      | ``                        | 卡片图片src                   |
-| hint            | `String`  | `text`  | `text \| textarea`        | 设置按钮为块级按钮            |
-| textColor       | `Boolean` | `false` | `true \| false`           | outline 外边框                |
-| focusColor      | `String`  | `8`     | ``                        | 文本样式                      |
-| blurColor       | `String`  | ``      | ``                        | 卡片图片src                   |
-| maxlength       | `String`  | ``      | ``                        | 卡片图片src                   |
-| disabled        | `String`  | `text`  | `text \| textarea`        | 设置按钮为块级按钮            |
-| readonly        | `Boolean` | `false` | `true \| false`           | outline 外边框                |
-| clearable       | `String`  | `8`     | ``                        | 文本样式                      |
-| resize          | `String`  | ``      | ``                        | 卡片图片src                   |
-| validateTrigger | `String`  | ``      | ``                        | 卡片图片src                   |
-| rules           | `String`  | `text`  | `text \| textarea`        | 设置按钮为块级按钮            |
-| onBlur          | `Boolean` | `false` | `true \| false`           | outline 外边框                |
-| onClick         | `String`  | `8`     | ``                        | 文本样式                      |
-| onClear         | `String`  | ``      | ``                        | 卡片图片src                   |
-| onInput         | `String`  | `text`  | `text \| textarea`        | 设置按钮为块级按钮            |
-| onChange        | `Boolean` | `false` | `true \| false`           | outline 外边框                |
+| 参数             | 类型               | 默认      | 可选值                                                          | 说明                           |
+| ---------------- | ------------------ | --------- | --------------------------------------------------------------- | ------------------------------ |
+| text-center      | `Boolean`          | `false`   | `true \| false`                                                 | input 文本居中                 |
+| placeholder      | `String`           | ``        | ``                                                              | input 占位符                   |
+| v-model          | `String`           | ``        | ``                                                              | 双向绑定                       |
+| success          | `Boolean`          | `false`   | `true \| false`                                                 | 卡片是否带有圆角               |
+| error            | `String`           | `left`    | `left \| right \| center`                                       | 卡片底部位置                   |
+| prop             | `Boolean`          | `false`   | `true \| false`                                                 | 设置hover 状态 卡片海拔高度    |
+| type             | `String`           | `text`    | `text \| password \| number`                                    | 输入框类型                     |
+| textarea         | `Boolean`          | `false`   | `true \| false`                                                 | 设置input 为文本域             |
+| rows             | `string \| number` | `8`       | ``                                                              | input TextArea文本的显示行数   |
+| line             | `Boolean`          | `true`    | `true \| false`                                                 | 是否显示分割线                 |
+| hint             | `Boolean`          | `true`    | `true \| false`                                                 | 是否使用占位符作为提示         |
+| text-color       | `String`           | ``        |                                                                 | 文字颜色                       |
+| focusColor       | `String`           | `8`       | ``                                                              | 聚焦时的主要颜色               |
+| blurColor        | `String`           | ``        | ``                                                              | 失焦时的主要颜色               |
+| maxlength        | `Number \| string` | ``        | ``                                                              | 最大长度                       |
+| disabled         | `String`           | `text`    | `text \| textarea`                                              | 禁用                           |
+| readonly         | `Boolean`          | `false`   | `true \| false`                                                 | 只读                           |
+| clearable        | `String`           | `8`       | ``                                                              | 显示移除全部文本按钮           |
+| resize           | `String`           | ``        | ``                                                              | Textarea是否可以拖动调整尺寸   |
+| validate-trigger | `String`           | `onInput` | `onFocus \|onBlur \| onChange \| onClick \| onClear \| onInput` | 触发验证的时机                 |
+| rules            | `Array`            | ``        | `text \| textarea`                                              | 验证规则  遵循async-valiadator |
+| onBlur           | `Function`         | ``        |                                                                 |                                |
+| onClick          | `Function`         | `8`       | ``                                                              |                                |
+| onClear          | `Function`         | ``        | ``                                                              |                                |
+| onInput          | `Function`         | `text`    |                                                                 |                                |
+| onChange         | `Function`         | `false`   |                                                                 |                                |
 
