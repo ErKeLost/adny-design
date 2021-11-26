@@ -10,7 +10,7 @@
       ]"
     >
       <div class="adny-message--flex">
-        <div style="display: flex">
+        <div style="display: flex; align-items: center; justify-content: center">
           <a-icon :name="icon ?? iconName"></a-icon>
           <p style="margin: 0 15px">{{ message }}</p>
         </div>

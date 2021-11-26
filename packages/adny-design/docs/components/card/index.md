@@ -37,7 +37,7 @@
     </template>
     <template #title>王小波</template>
     <template #extra>
-      <a-btn icon color="#fbafba">
+      <a-btn icon text-color="#fbafba">
         <a-icon name="menu1" />
       </a-btn>
     </template>
@@ -45,8 +45,8 @@
       我认为每个人都是有本质的。像我的本质就是流氓，土匪。如果放到合适的地方就大放光彩，可是在城市里做个市民。在学校里做个教员就很不合适了。
     </template>
     <template #footer>
-      <a-btn text color="#1867c0" style="margin-right: 15px;">提交</a-btn>
-      <a-btn text color="#1867c0">取消</a-btn>
+      <a-btn text text-color="#1867c0" style="margin-right: 15px;">提交</a-btn>
+      <a-btn text text-color="#1867c0">取消</a-btn>
     </template>
   </a-card>
 </template>
@@ -81,8 +81,8 @@
       我认为每个人都是有本质的。像我的本质就是流氓，土匪。如果放到合适的地方就大放光彩，可是在城市里做个市民。在学校里做个教员就很不合适了。
     </template>
     <template #footer>
-      <a-btn text color="#1867c0" style="margin-right: 15px;">提交</a-btn>
-      <a-btn text color="#1867c0">取消</a-btn>
+      <a-btn text text-color="#1867c0" style="margin-right: 15px;">提交</a-btn>
+      <a-btn text text-color="#1867c0">取消</a-btn>
     </template>
   </a-card>
 </template>
@@ -113,8 +113,8 @@
       我认为每个人都是有本质的。像我的本质就是流氓，土匪。如果放到合适的地方就大放光彩，可是在城市里做个市民。在学校里做个教员就很不合适了。
     </template>
     <template #footer>
-      <a-btn text color="#1867c0" style="margin-right: 15px;">提交</a-btn>
-      <a-btn text color="#1867c0">取消</a-btn>
+      <a-btn text text-color="#1867c0" style="margin-right: 15px;">提交</a-btn>
+      <a-btn text text-color="#1867c0">取消</a-btn>
     </template>
   </a-card>
 </template>
@@ -145,8 +145,8 @@
       >
     </template>
     <template #footer>
-      <a-btn text color="#fff" style="margin-right: 15px;">提交</a-btn>
-      <a-btn text color="#fff">取消</a-btn>
+      <a-btn text text-color="#fff" style="margin-right: 15px;">提交</a-btn>
+      <a-btn text text-color="#fff">取消</a-btn>
     </template>
   </a-card>
 </template>
@@ -179,11 +179,32 @@
       我认为每个人都是有本质的。像我的本质就是流氓，土匪。如果放到合适的地方就大放光彩，可是在城市里做个市民。在学校里做个教员就很不合适了。
     </template>
     <template #footer>
-      <a-btn text color="#1867c0" style="margin-right: 15px;">提交</a-btn>
-      <a-btn text color="#1867c0">取消</a-btn>
+      <a-btn text text-color="#1867c0" style="margin-right: 15px;">提交</a-btn>
+      <a-btn text text-color="#1867c0">取消</a-btn>
     </template>
   </a-card>
 </template>
 ```
 
 :::
+
+### Card API
+
+
+| 参数           | 类型               | 默认                                             | 可选值                             | 说明                          |
+| -------------- | ------------------ | ------------------------------------------------ | ---------------------------------- | ----------------------------- |
+| color          | `String`           | `CssProperies`                                   | ``                                 | 卡片背景颜色， 适用于纯色卡片 |
+| mediaTitle     | `String`           | ``                                               | ``                                 | 卡片媒体标题 作用于背景图之下 |
+| radius         | `Boolean`          | `false`                                          | `true \| false`                    | 卡片是否带有圆角              |
+| footerPosition | `String`           | `left`                                           | `left \| right \| center`          | 卡片底部位置                  |
+| hover          | `Boolean`          | `false`                                          | `true \| false`                    | 设置hover 状态 卡片海拔高度   |
+| shaped         | `Boolean`          | `false`                                          | `true \| false`                    | 设置按钮为块级按钮            |
+| disabled       | `Boolean`          | `false`                                          | `true \| false`                    | outline 外边框                |
+| continue       | `Boolean`          | `false`                                          | `true \| false`                    | 文本样式                      |
+| src            | `String`           | ``                                               | ``                                 | 卡片图片src                   |
+| elevation      | `Boolean`          | `2`                                              | `0~24`                             | 海拔效果                      |
+| height         | `String \| Number` | `null`                                           | `CssProperties`                    | 背景颜色                      |
+| fit            | `String`           | `cover \| fill \| contain \| none \| scale-down` | `large \| small \| mini \| normal` | 按钮大小                      |
+| subtitle       | `String`           | ``                                               | ``                                 | 卡片二级标题                  |
+| content        | `String`           | ``                                               | ``                        卡片内容 |
+| onClick        | `Function`         | ``                                               | ``                                 | 点击事件                      |

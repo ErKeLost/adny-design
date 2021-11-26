@@ -371,6 +371,7 @@ export default {
 | 参数        | 类型      | 默认     | 可选值                             | 说明                     |
 | ----------- | --------- | -------- | ---------------------------------- | ------------------------ |
 | tile        | `Boolean` | `false`  | `true \| false`                    | 正方形按钮               |
+| round       | `Boolean` | `false`  | `true \| false`                    | 圆角按钮                 |
 | icon        | `Boolean` | `false`  | `true \| false`                    | 图片透明按钮             |
 | fab         | `Boolean` | `false`  | `true \| false`                    | 浮动 作用于 单个交互     |
 | depressed   | `Boolean` | `false`  | `true \| false`                    | 凹陷 移除海拔高度效果    |

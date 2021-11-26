@@ -25,3 +25,226 @@ export default defineComponent({
 ```
 
 :::
+
+## 朴素模式 (Plain)
+
+:::demo
+
+```vue
+<template>
+  <a-input 
+  :hint="false" 
+  :line="false" 
+  placeholder="请输入文本"
+  v-model="value"
+/>
+</template>
+<script >
+import {defineComponent, ref, watch } from 'vue'
+export default defineComponent({
+  setup() {
+    const value = ref('')
+    watch(() => value.value, (ne) => {
+    })
+    return {
+      value
+    }
+  }
+})
+</script>
+```
+
+:::
+
+
+## 文本区域 (TextArea)
+
+:::demo
+
+```vue
+<template>
+  <a-input placeholder="请输入文本" textarea v-model="value" />
+</template>
+<script >
+import {defineComponent, ref, watch } from 'vue'
+export default defineComponent({
+  setup() {
+    const value = ref('')
+    watch(() => value.value, (ne) => {
+    })
+    return {
+      value
+    }
+  }
+})
+</script>
+```
+
+:::
+
+
+
+## 最大长度 (MaxLength)
+
+:::demo
+
+```vue
+<template>
+  <a-input placeholder="请输入文本" :maxlength="10" v-model="value" />
+</template>
+<script >
+import {defineComponent, ref, watch } from 'vue'
+export default defineComponent({
+  setup() {
+    const value = ref('')
+    watch(() => value.value, (ne) => {
+    })
+    return {
+      value
+    }
+  }
+})
+</script>
+```
+
+:::
+
+## 禁用 (Disabled)
+
+:::demo
+
+```vue
+<template>
+  <a-input placeholder="请输入文本" disabled v-model="value" />
+</template>
+<script >
+import {defineComponent, ref, watch } from 'vue'
+export default defineComponent({
+  setup() {
+    const value = ref('')
+    watch(() => value.value, (ne) => {
+    })
+    return {
+      value
+    }
+  }
+})
+</script>
+```
+
+:::
+
+## 只读属性 (Readonly)
+
+:::demo
+
+```vue
+<template>
+  <a-input placeholder="请输入文本" readonly v-model="value" />
+</template>
+<script >
+import {defineComponent, ref, watch } from 'vue'
+export default defineComponent({
+  setup() {
+    const value = ref('')
+    watch(() => value.value, (ne) => {
+    })
+    return {
+      value
+    }
+  }
+})
+</script>
+```
+
+:::
+
+## 是否可以清除 (clearAbled)
+
+:::demo
+
+```vue
+<template>
+  <a-input placeholder="请输入文本" clearable v-model="value" />
+</template>
+<script >
+import {defineComponent, ref, watch } from 'vue'
+export default defineComponent({
+  setup() {
+    const value = ref('')
+    watch(() => value.value, (ne) => {
+    })
+    return {
+      value
+    }
+  }
+})
+</script>
+```
+
+:::
+
+## 显示图标 (Icon)
+
+:::demo
+
+```vue
+<template>
+  <a-input placeholder="请输入文本" v-model="value">
+    <template #prefix>
+      <a-icon name="plus"/>
+    </template>
+    <template #suffix>
+      <a-icon name="minus"/>
+    </template>
+  </a-input>
+</template>
+<script >
+import {defineComponent, ref, watch } from 'vue'
+export default defineComponent({
+  setup() {
+    const value = ref('')
+    watch(() => value.value, (ne) => {
+    })
+    return {
+      value
+    }
+  }
+})
+</script>
+```
+
+:::
+
+
+### Input API
+
+
+| 参数            | 类型      | 默认    | 可选值                    | 说明                          |
+| --------------- | --------- | ------- | ------------------------- | ----------------------------- |
+| textCenter      | `Boolean` | `false` | `true \| false`           | 卡片背景颜色， 适用于纯色卡片 |
+| modelValue      | `String`  | ``      | ``                        | 卡片媒体标题 作用于背景图之下 |
+| success         | `Boolean` | `false` | `true \| false`           | 卡片是否带有圆角              |
+| error           | `String`  | `left`  | `left \| right \| center` | 卡片底部位置                  |
+| prop            | `Boolean` | `false` | `true \| false`           | 设置hover 状态 卡片海拔高度   |
+| type            | `String`  | `text`  | `text \| textarea`        | 设置按钮为块级按钮            |
+| textarea        | `Boolean` | `false` | `true \| false`           | outline 外边框                |
+| rows            | `String`  | `8`     | ``                        | 文本样式                      |
+| line            | `String`  | ``      | ``                        | 卡片图片src                   |
+| hint            | `String`  | `text`  | `text \| textarea`        | 设置按钮为块级按钮            |
+| textColor       | `Boolean` | `false` | `true \| false`           | outline 外边框                |
+| focusColor      | `String`  | `8`     | ``                        | 文本样式                      |
+| blurColor       | `String`  | ``      | ``                        | 卡片图片src                   |
+| maxlength       | `String`  | ``      | ``                        | 卡片图片src                   |
+| disabled        | `String`  | `text`  | `text \| textarea`        | 设置按钮为块级按钮            |
+| readonly        | `Boolean` | `false` | `true \| false`           | outline 外边框                |
+| clearable       | `String`  | `8`     | ``                        | 文本样式                      |
+| resize          | `String`  | ``      | ``                        | 卡片图片src                   |
+| validateTrigger | `String`  | ``      | ``                        | 卡片图片src                   |
+| rules           | `String`  | `text`  | `text \| textarea`        | 设置按钮为块级按钮            |
+| onBlur          | `Boolean` | `false` | `true \| false`           | outline 外边框                |
+| onClick         | `String`  | `8`     | ``                        | 文本样式                      |
+| onClear         | `String`  | ``      | ``                        | 卡片图片src                   |
+| onInput         | `String`  | `text`  | `text \| textarea`        | 设置按钮为块级按钮            |
+| onChange        | `Boolean` | `false` | `true \| false`           | outline 外边框                |
+

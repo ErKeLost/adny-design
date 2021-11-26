@@ -129,9 +129,9 @@ export default defineComponent({
             <a-btn color="#eee" icon onClick={onPrev}>
               <a-icon size="18" name="chevron-left" />
             </a-btn>
-            <span class="devui-image-preview-index">
+            {/* <span class="devui-image-preview-index">
               {index.value + 1}:{props.previewUrlList.length}
-            </span>
+            </span> */}
             <a-btn color="#eee" icon class="devui-next" onClick={onNext}>
               <a-icon size="18" name="chevron-right" />
             </a-btn>

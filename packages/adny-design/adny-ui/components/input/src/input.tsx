@@ -11,6 +11,7 @@ import { AdnyFormDetail } from "../../form-details";
 import { props } from "./props";
 import { isEmpty } from "../../../utils/common";
 import { useValidate } from "../../../utils/async-validator";
+import { AIcon } from "../../icon";
 import "../../../styles/common.less";
 import "../../../styles/elevation.less";
 import "../styles/input.less";
@@ -19,6 +20,7 @@ export default defineComponent({
   props,
   components: {
     AdnyFormDetail,
+    AIcon,
   },
   setup(props, { emit, slots }) {
     const inputInstance = getCurrentInstance();
@@ -77,6 +79,18 @@ export default defineComponent({
       props.onChange?.(value, e);
       validateWithTrigger("onChange");
     };
+    const handleClear = () => {
+      const { disabled, readonly, clearable, onClear } = props;
+
+      if (disabled || readonly || !clearable) {
+        return;
+      }
+
+      props["onUpdate:modelValue"]?.("");
+      onClear?.("");
+
+      validateWithTrigger("onClear");
+    };
 
     return () => {
       return (
@@ -108,6 +122,14 @@ export default defineComponent({
                 : null,
             ]}
           >
+            <div
+              class={[
+                !props.hint ? "adny-input--non-hint" : null,
+                "adny-input__icon",
+              ]}
+            >
+              {slots.prefix ? slots.prefix?.() : null}
+            </div>
             <div
               class={[
                 "adny-input__wrap",
@@ -198,6 +220,23 @@ export default defineComponent({
                 {props.placeholder}
               </label>
             </div>
+            <div
+              class={[
+                !props.hint ? "adny-input--non-hint" : null,
+                "adny-input__icon",
+              ]}
+            >
+              {slots.suffix ? (
+                slots.suffix?.()
+              ) : props.clearable ? (
+                <a-icon
+                  class="adny-input__clear-icon"
+                  name="close-circle"
+                  size="14px"
+                  click={handleClear}
+                />
+              ) : null}
+            </div>
           </div>
           {props.line ? (
             <div
@@ -208,7 +247,7 @@ export default defineComponent({
                 "adny-input__line",
                 props.disabled ? "adny-input--line-disabled" : null,
                 errorMessage.value || props.error
-                  ? "var-input--line-error"
+                  ? "adny-input--line-error"
                   : null,
                 props.success && !errorMessage.value
                   ? "adny-input--line-success"
