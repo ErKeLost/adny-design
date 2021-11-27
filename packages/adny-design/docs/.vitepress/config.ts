@@ -53,6 +53,7 @@ const sidebar = {
         { text: "Lazy 懒加载", link: "/components/lazy/" },
         { text: "checkbox 复选框", link: "/components/checkbox/" },
         { text: "ImagePreview 图片预览", link: "/components/image-preview/" },
+        { text: "DatePicker 日期选择器", link: "/components/date-picker/" },
       ],
     },
     { text: "导航" },

@@ -52,7 +52,9 @@ import ACounterInstall, { ACounter } from "./counter";
 import ACheckboxInstall, { ACheckbox } from "./checkbox";
 import ACheckboxGroupInstall, { ACheckboxGroup } from "./checkbox-group";
 import ALoadingInstall, { ALoading } from "./loading";
+import ADatePickerInstall, { ADatePicker } from "./date-picker";
 const installed = [
+  ADatePickerInstall,
   ALoadingInstall,
   ASkeletonInstall,
   ACheckboxInstall,
@@ -99,6 +101,7 @@ const installed = [
   CarouselItemInstall,
   BackTopInstall,
   CellInstall,
+  ADatePicker,
 ];
 export {
   ALoading,
