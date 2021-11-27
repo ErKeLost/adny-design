@@ -101,9 +101,9 @@ const installed = [
   CarouselItemInstall,
   BackTopInstall,
   CellInstall,
-  ADatePicker,
 ];
 export {
+  ADatePicker,
   ALoading,
   ACheckbox,
   ACheckboxGroup,
