@@ -45,7 +45,7 @@ export default defineComponent({
     };
     return () => {
       return (
-        <div style="display: flex; justify-content: center; align-items: center">
+        <div style="display: inline-flex; justify-content: center; align-items: center">
           {isURL(props.name) ? (
             <img
               onClick={props.onClick}
