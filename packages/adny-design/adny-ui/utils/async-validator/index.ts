@@ -1,37 +1,43 @@
-import { ref } from 'vue'
-import Schema from 'async-validator'
-import { isArray } from '../common'
+import { ref, computed } from "vue";
+import Schema from "async-validator";
+import { isArray } from "../common";
 // input 验证
 export function useValidate() {
-  const errorMessage = ref('')
+  const errorMessage = ref("");
   const validate = async (rules, value) => {
     if (!isArray(rules) || !rules.length) {
-      return true
+      return true;
     }
     const descriptor = {
-      inputValidator: rules
-    }
+      inputValidator: rules,
+    };
     const data = {
-      inputValidator: value
-    }
-    const validator = new Schema(descriptor)
-    validator.validate(data)
-      .then(() => {
-        errorMessage.value = ''
+      inputValidator: value,
+    };
+    const validator = new Schema(descriptor);
 
-      }, ({ err, fields }) => {
-        errorMessage.value = fields.inputValidator[0].message || null
-      })
-  }
-  const validateOfTrigger = async <T>(validateTrigger: T[], trigger: T, rules: any, value: any) => {
+    validator.validate(data).then(
+      () => {
+        errorMessage.value = "";
+      },
+      ({ err, fields }) => {
+        errorMessage.value = fields.inputValidator[0].message || null;
+      }
+    );
+  };
+  const validateOfTrigger = async <T>(
+    validateTrigger: T[],
+    trigger: T,
+    rules: any,
+    value: any
+  ) => {
     if (validateTrigger.includes(trigger)) {
-      ; (await validate(rules, value)) && (errorMessage.value = '')
+      (await validate(rules, value)) && (errorMessage.value = "");
     }
-  }
+  };
   const resetValidation = () => {
-    errorMessage.value = ''
-  }
-  return { validate, errorMessage, validateOfTrigger, resetValidation }
+    errorMessage.value = "";
+  };
+  return { validate, errorMessage, validateOfTrigger, resetValidation };
 }
-
 // 表单 form 验证

@@ -72,7 +72,8 @@ export default defineComponent({
       props["onUpdate:modelValue"]?.(value);
       props.onInput?.(value, e);
       validateWithTrigger("onInput");
-      inputInstance?.parent?.exposed?.validator();
+      // inputInstance?.parent?.exposed?.validator();
+      // console.log(inputInstance?.parent?.exposed);
     };
     const handleInputChange = (e: Event) => {
       const { value } = e.target as HTMLInputElement;

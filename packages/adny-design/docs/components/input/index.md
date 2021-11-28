@@ -63,7 +63,7 @@ export default defineComponent({
 
 ```vue
 <template>
-  <a-input placeholder="请输入文本" textarea v-model="value" />
+  <a-input placeholder="请输入文本" :rules="[{ required: true, message: 'required'}]" textarea v-model="value" />
 </template>
 <script >
 import {defineComponent, ref, watch } from 'vue'

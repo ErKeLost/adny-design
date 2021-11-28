@@ -1,31 +1,31 @@
-import { defineComponent, inject, ref, provide, getCurrentInstance } from 'vue'
-import Schema from 'async-validator'
-import { props } from './formItemProps'
-import { AdnyFormDetail } from '../../form-details'
-import { useValidate } from '../../../utils/async-validator'
+import { defineComponent, inject, ref, provide, getCurrentInstance } from "vue";
+import Schema from "async-validator";
+import { props } from "./formItemProps";
+import { AdnyFormDetail } from "../../form-details";
+import { useValidate } from "../../../utils/async-validator";
 export default defineComponent({
-  name: 'AFormItem',
+  name: "AFormItem",
   props,
   components: {
-    AdnyFormDetail
+    AdnyFormDetail,
   },
   setup(props, ctx) {
-    const errorMessage = ref('')
-    const formInstance: any = inject('formInstance')
-    provide('name', props.prop)
+    const errorMessage = ref("");
+    const formInstance: any = inject("formInstance");
+    provide("name", props.prop);
     const validator = () => {
-      const value = formInstance.model[props.prop]
-      const rule = formInstance.rules[props.prop]
-      const schema = new Schema({ [props.prop]: rule })
+      const value = formInstance.model[props.prop];
+      const rule = formInstance.rules[props.prop];
+      const schema = new Schema({ [props.prop]: rule });
       return schema.validate({ [props.prop]: value }, (err, item) => {
         if (err) {
-          errorMessage.value = err[0].message
+          errorMessage.value = err[0].message ?? "校验发生错误";
         } else {
-          errorMessage.value = ''
+          errorMessage.value = "";
         }
-      })
-    }
-    ctx.expose({ validator })
+      });
+    };
+    ctx.expose({ validator, errorMessage });
     return () => {
       return (
         <>
@@ -33,7 +33,7 @@ export default defineComponent({
           {ctx.slots.default ? ctx.slots.default() : null}
           <adny-form-detail error-message={errorMessage.value} />
         </>
-      )
-    }
-  }
-})
+      );
+    };
+  },
+});

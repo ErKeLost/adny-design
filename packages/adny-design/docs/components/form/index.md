@@ -9,10 +9,10 @@
 <template>
 <a-form :model="data" :rules="rules" ref="model">
   <a-form-item label="我是用户名" prop="username">
-    <a-input placeholder="请输入文字" :error="error" v-model="data.username" />
+    <a-input placeholder="请输入文字"  v-model="data.username" />
   </a-form-item>
   <a-form-item label="我是密码" prop="password">
-    <a-input placeholder="请输入密码" :error="error" v-model="data.password" />
+    <a-input placeholder="请输入密码" v-model="data.password" />
   </a-form-item>
   <a-form-item>
     <a-btn @click="go">校验</a-btn>
@@ -34,7 +34,6 @@ export default defineComponent({
         if (a) {
           console.log('成功')
         } else {
-          error.value = true
           console.log('失败')
         }
       })
