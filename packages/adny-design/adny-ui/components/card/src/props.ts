@@ -50,6 +50,9 @@ export const props = {
   height: {
     type: [String, Number],
   },
+  width: {
+    type: [String, Number],
+  },
   alt: {
     type: String,
   },

@@ -14,6 +14,8 @@
         title="Users Sales"
         :value="542235111"
         :value-from="5000000000"
+        :title-style="{color: 'red'}"
+        :content-style="{color: '#fba'}"
         animation
         extra="我是erkelost"
         start
@@ -30,8 +32,7 @@
         
     </a-grid-item>
     <a-grid-item :span="12">
-      <a-statistic title="Account Weekly Sales (CNY)" :value="112893.99" 
-        :precision="5"
+      <a-statistic title="Account Weekly Sales (CNY)" animation :value="9999999999" :valueFrom="99119289399" 
        />
     </a-grid-item>
   </a-gr>

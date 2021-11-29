@@ -46,7 +46,11 @@ export default defineComponent({
       return (
         <div
           class={cardClass}
-          style={{ backgroundColor: props.color }}
+          style={{
+            backgroundColor: props.color,
+            width: props.width,
+            height: props.height,
+          }}
           onClick={onClick}
         >
           <div class="adny-card__cover">

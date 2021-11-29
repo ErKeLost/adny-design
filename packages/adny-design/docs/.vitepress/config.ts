@@ -54,6 +54,8 @@ const sidebar = {
         { text: "checkbox 复选框", link: "/components/checkbox/" },
         { text: "ImagePreview 图片预览", link: "/components/image-preview/" },
         { text: "DatePicker 日期选择器", link: "/components/date-picker/" },
+        { text: "StepGuide 操作引导", link: "/components/steps-guide/" },
+        { text: "overlay 遮罩层", link: "/components/overlay/" },
       ],
     },
     { text: "导航" },

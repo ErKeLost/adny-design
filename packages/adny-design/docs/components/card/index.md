@@ -29,7 +29,7 @@
 
 ```vue
 <template>
-  <a-card>
+  <a-card width="500px">
     <template #cover>
       <a-img
         src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6b3a4120c9044578d9cafa0083c3f48~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp"

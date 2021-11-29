@@ -53,7 +53,11 @@ import ACheckboxInstall, { ACheckbox } from "./checkbox";
 import ACheckboxGroupInstall, { ACheckboxGroup } from "./checkbox-group";
 import ALoadingInstall, { ALoading } from "./loading";
 import ADatePickerInstall, { ADatePicker } from "./date-picker";
+import AStepsGuideInstall, { AStepsGuide } from "./steps-guide";
+import AOverlayInstall, { AOverlay } from "./overlay";
 const installed = [
+  AOverlayInstall,
+  AStepsGuideInstall,
   ADatePickerInstall,
   ALoadingInstall,
   ASkeletonInstall,
@@ -103,6 +107,8 @@ const installed = [
   CellInstall,
 ];
 export {
+  AStepsGuide,
+  AOverlay,
   ADatePicker,
   ALoading,
   ACheckbox,
