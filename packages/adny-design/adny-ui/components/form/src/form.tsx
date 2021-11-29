@@ -1,26 +1,31 @@
-import { defineComponent, provide, getCurrentInstance, ref, onMounted } from 'vue'
-import { props } from './formProps'
-import { useValidate } from '../../../utils/async-validator'
+import {
+  defineComponent,
+  provide,
+  getCurrentInstance,
+  ref,
+  onMounted,
+} from "vue";
+import { props } from "./formProps";
+import { useValidate } from "../../../utils/async-validator";
 export default defineComponent({
-  name: 'AForm',
+  name: "AForm",
   props,
   setup(props, ctx) {
-    const { errorMessage } = useValidate()
-    const formInstance = getCurrentInstance()
-    provide('formInstance', props)
+    const { errorMessage } = useValidate();
+    const formInstance = getCurrentInstance();
+    provide("formInstance", props);
     const validate = (callback) => {
-      const result = formInstance?.subTree.children[0].children
-      const a = result.filter((item) => item?.props?.prop)
-      const res = a.map((item) => item.component.exposed.validator())
-
+      const result = formInstance?.subTree.children[0].children;
+      const a = result.filter((item) => item?.props?.prop);
+      const res = a.map((item) => item.component.exposed.validator());
       return Promise.all(res)
         .then(() => callback(true))
-        .catch(() => callback(false))
-    }
+        .catch(() => callback(false));
+    };
 
-    ctx.expose({ validate })
+    ctx.expose({ validate });
     return () => {
-      return <div>{ctx.slots.default ? ctx.slots.default() : null}</div>
-    }
-  }
-})
+      return <div>{ctx.slots.default ? ctx.slots.default() : null}</div>;
+    };
+  },
+});

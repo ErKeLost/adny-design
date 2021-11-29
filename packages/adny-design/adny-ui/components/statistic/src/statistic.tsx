@@ -11,17 +11,12 @@ export default defineComponent({
   setup(props: StatisticProps, ctx) {
     const innerValue = ref(props.valueFrom ?? props.value);
     const tween = ref(null);
-    const statisticValue = computed(() => {
-      return analysisValueType(
-        props.value,
-        props.groupSeparator,
-        props.precision
-      );
-    });
-    console.log(statisticValue.value);
+
     const animation = (
       from: number = props.valueFrom ?? 0,
-      to: number = props.value
+      to: number = typeof props.value === "number"
+        ? props.value
+        : Number(props.value)
     ) => {
       if (from !== to) {
         tween.value = new Tween({
@@ -32,7 +27,7 @@ export default defineComponent({
             value: to,
           },
           duration: props.animationDuration,
-          easing: "quartOut",
+          easing: props.easing,
           onUpdate: (keys: any) => {
             innerValue.value = keys.value;
           },
@@ -44,14 +39,15 @@ export default defineComponent({
       }
     };
 
-    const animationFixedNumber = ref(0);
-    if (props.animation) {
-      animationFixedNumber.value =
-        props.value.toString().length - props.value.toString().indexOf(".") - 1;
-    }
-
-    const animationValue = computed(() => {
-      return innerValue.value.toFixed(animationFixedNumber.value);
+    const statisticValue = computed(() => {
+      return analysisValueType(
+        innerValue.value,
+        props.value,
+        props.groupSeparator,
+        props.precision,
+        props.showGroupSeparator,
+        props.animation
+      );
     });
     onMounted(() => {
       if (props.animation && props.start) {
@@ -71,7 +67,7 @@ export default defineComponent({
       return (
         <div class="devui-statistic" {...ctx.attrs}>
           <div class="devui-statistic-title" style={props.titleStyle}>
-            {props.title}
+            {ctx.slots.title?.() || props.title}
           </div>
           <div class="devui-statistic-content" style={props.contentStyle}>
             {props.prefix || ctx.slots.prefix?.() ? (
@@ -79,15 +75,14 @@ export default defineComponent({
                 {ctx.slots.prefix?.() || props.prefix}
               </span>
             ) : null}
-            <span class="devui-statistic--value">
-              {props.animation ? animationValue.value : statisticValue.value}
-            </span>
+            <span class="devui-statistic--value">{statisticValue.value}</span>
             {props.suffix || ctx.slots.suffix?.() ? (
               <span class="devui-statistic-suffix">
                 {ctx.slots.suffix?.() || props.suffix}
               </span>
             ) : null}
           </div>
+          {ctx.slots.extra?.() || props.extra}
         </div>
       );
     };

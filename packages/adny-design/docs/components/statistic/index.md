@@ -13,12 +13,26 @@
       <a-statistic
         title="Users Sales"
         :value="542235111"
+        :value-from="5000000000"
         animation
+        extra="我是erkelost"
         start
-        style="position: absolute" />
+        :precision="5"
+        suffix="%"
+        groupSeparator=","
+        :animation-duration="5000"
+        :showGroupSeparator="true"
+        style="position: absolute">
+        <template #prefix>
+          <a-icon name="aperture" />
+        </template>
+      </a-statistic>
+        
     </a-grid-item>
     <a-grid-item :span="12">
-      <a-statistic :precision="2" title="Account Weekly Sales (CNY)" :value="112893" />
+      <a-statistic title="Account Weekly Sales (CNY)" :value="112893.99" 
+        :precision="5"
+       />
     </a-grid-item>
   </a-gr>
 </template>
@@ -106,7 +120,8 @@
         <template #content>
           <a-statistic
             title="Animation Decline Rate"
-            :value="53.333"
+            value="53.333"
+            :precision="0"
             suffix="%"
             class="demo-class"
             :content-style="{ color: '#cf1322' }"
@@ -150,6 +165,7 @@ export default {
       <a-statistic
         title="Active User Number"
         :value="1128"
+        :showGroupSeparator="true"
         style="margin-right: 50px"
       >
         <template #suffix>
@@ -158,7 +174,7 @@ export default {
       </a-statistic>
     </a-grid-item>
     <a-grid-item :span="12">
-      <a-statistic title="Scale" :value="93">
+      <a-statistic title="Scale" value="93">
         <template #suffix>
           <span>/ 100</span>
         </template>
@@ -172,20 +188,22 @@ export default {
 
 ### A-statistic
 
-| 参数               | 类型               | 默认  | 说明             |
-| ------------------ | ------------------ | ----- | ---------------- |
-| title              | `string`           | -     | 数值的标题       |
-| value              | `number \| string` | -     | 数值内容         |
-| group-separator    | `string`           | ,     | 设置千分位标识符 |
-| precision          | `number`           | -     | 设置数值精度     |
-| suffix             | `string \| v-slot` | -     | 设置数值的后缀   |
-| prefix             | `string \| v-slot` | -     | 设置数值的前缀   |
-| title-style        | `style`            | -     | 标题样式         |
-| content-style      | `style`            | -     | 内容样式         |
-| animation-duration | `number`           | 2000  | 动画持续时间     |
-| valueFrom          | `number`           | 0     | 动画初始值       |
-| animation          | `boolean`          | false | 是否开启动画     |
-| start              | `boolean`          | false | 是否开始动画     |
+| 参数               | 类型               | 默认     | 说明             |
+| ------------------ | ------------------ | -------- | ---------------- |
+| title              | `string \| v-slot` | -        | 数值的标题       |
+| extra              | `string \| v-slot` | -        | 额外内容         |
+| value              | `number \| string` | -        | 数值内容         |
+| group-separator    | `string`           | ,        | 设置千分位标识符 |
+| precision          | `number`           | -        | 设置数值精度     |
+| suffix             | `string \| v-slot` | -        | 设置数值的后缀   |
+| prefix             | `string \| v-slot` | -        | 设置数值的前缀   |
+| title-style        | `style`            | -        | 标题样式         |
+| content-style      | `style`            | -        | 内容样式         |
+| animation-duration | `number`           | 2000     | 动画持续时间     |
+| valueFrom          | `number`           | 0        | 动画初始值       |
+| animation          | `boolean`          | false    | 是否开启动画     |
+| easing             | `string`           | quartOut | 数字动画效果     |
+| start              | `boolean`          | false    | 是否开始动画     |
 
 d-statistic 事件
 
