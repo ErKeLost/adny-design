@@ -1,22 +1,11 @@
 import * as easing from "./easing";
+console.log(easing);
+
 export type easingType =
-  | "quartOut"
-  | "quartIn"
-  | "quartInOut"
-  | "cubicInOut"
+  | "easeOutCubic"
   | "linear"
-  | "quadIn"
-  | "quadOut"
-  | "quadInOut"
-  | "cubicIn"
-  | "cubicOut"
-  | "quintIn"
-  | "quintOut"
-  | "quintInOut"
-  | "sineIn"
-  | "sineOut"
-  | "sineInOut"
-  | "bounceOut";
+  | "easeOutExpo"
+  | "easeInOutExpo";
 export interface startFunc {
   (key: number): number;
 }
@@ -62,12 +51,14 @@ export class Tween {
   constructor(options: AnimationOptions) {
     const { from, to, duration, delay, easing, onStart, onUpdate, onFinish } =
       options;
-
+    console.log(from);
     for (const key in from) {
       if (to[key] === undefined) {
         to[key] = from[key];
       }
     }
+    console.log(to);
+
     for (const key in to) {
       if (from[key] === undefined) {
         from[key] = to[key];
@@ -76,8 +67,8 @@ export class Tween {
 
     this.from = from;
     this.to = to;
-    this.duration = duration || 500;
-    this.delay = delay || 0;
+    this.duration = duration;
+    this.delay = delay;
     this.easing = easing || "linear";
     this.onStart = onStart;
     this.onUpdate = onUpdate || function () {};
@@ -106,13 +97,18 @@ export class Tween {
       }
       return;
     }
+    // elapsed 时间 和  duration 时间比较 逝去光阴
     this.elapsed = this.time - this.startTime;
+    // 防止 时间 一直 流逝 ~
     this.elapsed = this.elapsed > this.duration ? this.duration : this.elapsed;
+    // 从0 到 1 elapsed time
     for (const key in this.to) {
       this.keys[key] =
         this.from[key] +
         (this.to[key] - this.from[key]) *
           easing[this.easing](this.elapsed / this.duration);
+      console.log(this.to[key] - this.from[key]);
+      console.log(this.keys.value);
     }
     if (!this.started) {
       this.onStart && this.onStart(this.keys);
@@ -121,6 +117,7 @@ export class Tween {
     this.onUpdate(this.keys);
   }
 
+  // 递归 重绘
   start() {
     this.startTime = Date.now() + this.delay;
     const tick = () => {
@@ -128,6 +125,7 @@ export class Tween {
       this.timer = requestAnimationFrame(tick);
 
       if (this.finished) {
+        // 在判断 update中 结束后 停止 重绘
         cancelAnimationFrame(this.timer);
         this.timer = null;
       }

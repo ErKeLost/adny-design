@@ -67,12 +67,25 @@ const sidebar = {
 };
 const config = {
   title: "Adny Design",
-  description: "Vue Marterial 组件库",
+  description: "Vue3 Marterial Design 组件库",
   themeConfig: {
     sidebar,
-    logo: "../../assets/love.svg",
+    logo: "love.svg",
+    repo: 'https://github.com/ErKeLost/adny-vitepress',
+    repoLabel:'测试',
+    docsDir: 'docs',
+    docsBranch: 'master',
+    editLinks: true,
+    editLinkText: '欢迎帮助我们改善页面!',
+    lastUpdated: '最近更新时间',
+    nav: [
+        { text: '入门', link: '/getting/why.html' },
+        { text: '模板', link: '/template/template-vue3-ts-initial.html' },
+        { text: '相关文档', link: '/documentation/vue.html' },
+        { text: 'github', link: 'https://github.com/ErKeLost/adny-vitepress' },
+    ],
   },
-  head,
+  head: [["link", { rel: "icon", type: "image/svg+xml", href: "love.svg" }]],
   markdown: {
     config: (md) => {
       const { demoBlockPlugin } = demoblock;

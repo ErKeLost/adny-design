@@ -1,16 +1,36 @@
-import AOverlay from "./src/overlay";
-import { App } from "vue";
-AOverlay.install = function (app: App): void {
-  app.component(AOverlay.name, AOverlay);
+import type { App } from "vue";
+import { FixedOverlay } from "./src/fixed-overlay";
+import { FlexibleOverlay } from "./src/flexible-overlay";
+
+FlexibleOverlay.install = function (app: App) {
+  app.component(FlexibleOverlay.name, FlexibleOverlay);
 };
 
-export { AOverlay };
+FixedOverlay.install = function (app: App) {
+  app.component(FixedOverlay.name, FixedOverlay);
+};
+
+export { FlexibleOverlay, FixedOverlay };
 
 export default {
-  title: "Pagination 线性进度条",
-  category: "反馈",
-  status: "30%",
+  title: "Overlay 遮罩层",
+  category: "通用",
+  status: "100%",
   install(app: App): void {
-    app.use(AOverlay as any);
+    app.use(FixedOverlay as any);
+    app.use(FlexibleOverlay as any);
+
+    if (
+      typeof window !== "undefined" &&
+      !document.getElementById("d-overlay-anchor")
+    ) {
+      const overlayAnchor = document.createElement("div");
+      overlayAnchor.setAttribute("id", "d-overlay-anchor");
+      overlayAnchor.style.position = "fixed";
+      overlayAnchor.style.left = "0";
+      overlayAnchor.style.top = "0";
+      overlayAnchor.style.zIndex = "1000";
+      document.body.appendChild(overlayAnchor);
+    }
   },
 };

@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "lerna exec --scope adny-design yarn docs:dev",
     "build": "lerna exec --scope adny-design yarn build",
+    "docs:build": "lerna exec --scope adny-design yarn docs:build",
     "build:lib": "lerna exec --scope adny-design yarn build:lib",
     "build:docs": "lerna exec --scope adny-design yarn docs:build"
   },

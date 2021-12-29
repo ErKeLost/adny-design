@@ -18,7 +18,7 @@
         :content-style="{color: '#fba'}"
         animation
         extra="我是erkelost"
-        start
+        :delay="2000"
         :precision="5"
         suffix="%"
         groupSeparator=","
@@ -201,6 +201,7 @@ export default {
 | title-style        | `style`            | -        | 标题样式         |
 | content-style      | `style`            | -        | 内容样式         |
 | animation-duration | `number`           | 2000     | 动画持续时间     |
+| delay              | `number`           | 0        | 延迟进行动画时间 |
 | valueFrom          | `number`           | 0        | 动画初始值       |
 | animation          | `boolean`          | false    | 是否开启动画     |
 | easing             | `string`           | quartOut | 数字动画效果     |

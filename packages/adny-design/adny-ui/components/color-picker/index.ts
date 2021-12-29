@@ -1,15 +1,17 @@
-import { App } from "vue";
+import type { App } from 'vue'
+import ColorPicker from './src/color-picker'
 
-import AColorPicker from "./src/color-picker.vue";
+ColorPicker.install = function (app: App): void {
+  app.component(ColorPicker.name, ColorPicker)
+}
 
-export { AColorPicker };
-
-AColorPicker.install = function (app: App) {
-  app.component(AColorPicker.name, AColorPicker);
-};
+export { ColorPicker }
 
 export default {
-  install(app: App) {
-    app.use(AColorPicker as any);
-  },
-};
+  title: 'ColorPicker 颜色选择器',
+  category: '数据录入',
+  status: '80%', // TODO: 组件若开发完成则填入"100%"，并删除该注释
+  install(app: App): void {
+    app.use(ColorPicker as any)
+  }
+}

@@ -26,6 +26,7 @@ export default defineComponent({
           to: {
             value: to,
           },
+          delay: props.delay,
           duration: props.animationDuration,
           easing: props.easing,
           onUpdate: (keys: any) => {

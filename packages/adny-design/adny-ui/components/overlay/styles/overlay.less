@@ -22,10 +22,8 @@
 }
 
 .devui-overlay-fade {
-  @mixin d-overlay-fade-animation {
-    animation-name: d-overlay-fade;
-    animation-duration: 0.3s;
-  }
+  animation-name: d-overlay-fade;
+  animation-duration: 0.3s;
   @keyframes d-overlay-fade {
     0% {
       opacity: 0;
@@ -41,7 +39,8 @@
   }
 
   &-enter-active {
-    @include d-overlay-fade-animation;
+    animation-name: d-overlay-fade;
+    animation-duration: 0.3s;
   }
 
   &-leave {
@@ -49,8 +48,8 @@
   }
 
   &-leave-active {
-    @include d-overlay-fade-animation;
-
+    animation-name: d-overlay-fade;
+    animation-duration: 0.3s;
     animation-direction: reverse;
   }
 }

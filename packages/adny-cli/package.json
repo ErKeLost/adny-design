@@ -29,5 +29,8 @@
   "bugs": {},
   "devDependencies": {
     "vitepress-theme-demoblock": "^1.4.1"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
   }
 }

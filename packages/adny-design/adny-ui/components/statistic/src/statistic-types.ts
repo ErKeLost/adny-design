@@ -52,7 +52,11 @@ export const statisticProps = {
   },
   easing: {
     type: String as PropType<easingType>,
-    default: "quartOut",
+    default: "easeOutCubic",
+  },
+  delay: {
+    type: Number,
+    default: 0,
   },
 } as const;
 

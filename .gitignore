@@ -4,3 +4,4 @@ dist
 dist-ssr
 build
 *.local
+lerna-debug.log

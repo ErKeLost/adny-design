@@ -43,7 +43,7 @@ import SelectInstall, { ASelect } from "./select";
 import SliderInstall, { ASlider } from "./slider";
 import RadioInstall, { ARadio } from "./radio";
 import TriggerInstall, { ATrigger } from "./trigger";
-import ColorPickerInstall, { AColorPicker } from "./color-picker";
+import ColorPickerInstall, { ColorPicker } from "./color-picker";
 import InputNumberInstall, { AInputNumber } from "./input-number";
 import ASkeletonInstall, { ASkeleton } from "./skeleton";
 import APaginationInstall, { APagination } from "./pagination";
@@ -54,9 +54,9 @@ import ACheckboxGroupInstall, { ACheckboxGroup } from "./checkbox-group";
 import ALoadingInstall, { ALoading } from "./loading";
 import ADatePickerInstall, { ADatePicker } from "./date-picker";
 import AStepsGuideInstall, { AStepsGuide } from "./steps-guide";
-import AOverlayInstall, { AOverlay } from "./overlay";
+import OverlayInstall, { FlexibleOverlay, FixedOverlay } from "./overlay";
 const installed = [
-  AOverlayInstall,
+  OverlayInstall,
   AStepsGuideInstall,
   ADatePickerInstall,
   ALoadingInstall,
@@ -108,7 +108,8 @@ const installed = [
 ];
 export {
   AStepsGuide,
-  AOverlay,
+  FlexibleOverlay,
+  FixedOverlay,
   ADatePicker,
   ALoading,
   ACheckbox,
@@ -118,7 +119,7 @@ export {
   APagination,
   ASpace,
   AInputNumber,
-  AColorPicker,
+  ColorPicker,
   ATrigger,
   ATooltip,
   ASelect,
