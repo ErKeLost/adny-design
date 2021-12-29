@@ -9,7 +9,7 @@ import {
   provideColorOptions,
   ColorPickerColor,
 } from "../../utils/color-utils-types";
-// import { debounce } from "lodash-es";
+import { debounce } from "lodash-es";
 
 const STORAGE_KEY = "STORAGE_COLOR_PICKER_HISTORY_KEY";
 const MAX_HISOTRY_COUNT = 8;
@@ -60,19 +60,19 @@ export default defineComponent({
 
     // 更新历史值函数
     // 进行缓冲处理
-    // const updateHistory = debounce((value: ColorPickerColor) => {
-    //   const index = history.value.findIndex(
-    //     (x) => x === value.hexa || (x.endsWith("00") && value.alpha === 0)
-    //   );
-    //   if (index >= 0) {
-    //     history.value.splice(index, 1);
-    //   }
+    const updateHistory = debounce((value: ColorPickerColor) => {
+      const index = history.value.findIndex(
+        (x) => x === value.hexa || (x.endsWith("00") && value.alpha === 0)
+      );
+      if (index >= 0) {
+        history.value.splice(index, 1);
+      }
 
-    //   history.value = [
-    //     alphaInject.showAlpha ? value.hexa : value.hex,
-    //     ...history.value,
-    //   ].slice(0, MAX_HISOTRY_COUNT);
-    // }, 100);
+      history.value = [
+        alphaInject.showAlpha ? value.hexa : value.hex,
+        ...history.value,
+      ].slice(0, MAX_HISOTRY_COUNT);
+    }, 100);
 
     // 更新历史值
     watch(props.color, (value) => {

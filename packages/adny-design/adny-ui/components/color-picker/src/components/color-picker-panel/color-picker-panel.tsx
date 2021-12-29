@@ -73,9 +73,9 @@ export default defineComponent({
           ></colorEdit>
           <color-basic color={paletteColorMap}></color-basic>
 
-          {/* {injectData.showHistory ? (
-            // <colorHistory color={paletteColorMap}></colorHistory>
-          ) : null} */}
+          {injectData.showHistory ? (
+            <colorHistory color={paletteColorMap}></colorHistory>
+          ) : null}
         </div>
       );
     };
